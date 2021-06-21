@@ -7,16 +7,16 @@
 	<onunload>ClearProperty(Extra.Info,movieinformation)</onunload>
 	<controls>
 		<control type="group">
-					<animation effect="slide" start="0,0" end="0,-10" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,-10" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 			<animation effect="slide" start="-729,0" end="0,0" time="500" tween="quadratic">WindowOpen</animation>
 			<animation effect="slide" end="-729,0" time="500" tween="quadratic">WindowClose</animation>
 			<animation effect="slide" start="-729,0" end="0,0" time="500" tween="quadratic" condition="![Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)]">Conditional</animation>
 			<animation effect="slide" end="-729,0" time="500" tween="quadratic" condition="Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">Conditional</animation>
 			<control type="image">
 				<top>140</top>
-				<width>553</width>
+				<width>533</width>
 				<height>800</height>
-				<animation effect="zoom" end="0,140,566,820" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
+				<animation effect="zoom" end="0,140,547,820" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<aspectratio aligny="top">scale</aspectratio>
 				<texture background="true" fallback="black.png">$VAR[PosterVar]</texture>
 			</control>
@@ -27,37 +27,38 @@
 			<animation effect="slide" end="VideoInfoSlidePos" time="500" tween="quadratic">WindowClose</animation>
 			<animation effect="slide" start="VideoInfoSlidePos" end="0,0" time="500" tween="quadratic" condition="![Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)]">Conditional</animation>
 			<animation effect="slide" end="VideoInfoSlidePos" time="500" tween="quadratic" condition="Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">Conditional</animation>
-			<left>553</left>
+			<left>533</left>
 			<control type="image">
-				<animation effect="slide" start="0" end="20" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
-				<animation effect="zoom" start="100" end="102.5" center="auto" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="14,0" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
+				<animation effect="zoom" end="0,140,1387,820" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<top>140</top>
-				<width>1367</width>
+				<width>1387</width>
 				<height>800</height>
 				<texture>black.png</texture>
 				<visible>String.IsEmpty(ListItem.Art(fanart))</visible>
 			</control>
 			<control type="image">
-				<animation effect="slide" start="0" end="20" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
-				<animation effect="zoom" start="100" end="102.5" center="auto" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="14,0" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
+				<animation effect="zoom" end="0,140,1387,820" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<top>140</top>
-				<width>1367</width>
+				<width>1387</width>
 				<height>800</height>
 				<aspectratio align="center">scale</aspectratio>
 				<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
 			</control>
 			<control type="image">
-				<animation effect="slide" start="0" end="20" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
-				<animation effect="zoom" start="100" end="102.5" center="auto" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="14,0" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
+				<animation effect="zoom" end="0,140,1387,820" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<top>140</top>
-				<width>1367</width>
+				<width>1387</width>
 				<height>800</height>
 				<texture border="4">dialogs/info/info_rightpaneltop.png</texture>
 			</control>
 			<control type="group">
+				<animation effect="slide" start="0,0" end="14,0" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<left>40</left>
 				<top>150</top>
-				<width>1218</width>
+				<width>1347</width>
 				<height>854</height>
 				<control type="grouplist">
 					<top>-20</top>
@@ -75,7 +76,7 @@
 						<label>$INFO[ListItem.Title]</label>
 					</control>
 					<control type="label">
-						<width>1367</width>
+						<width>1347</width>
 						<height>30</height>
 						<aligny>center</aligny>
 						<align>left</align>
@@ -86,7 +87,7 @@
 						<visible>!String.IsEmpty(ListItem.Tagline)</visible>
 					</control>
 					<control type="label">
-						<width>1367</width>
+						<width>1347</width>
 						<height>30</height>
 						<aligny>center</aligny>
 						<align>left</align>
@@ -120,7 +121,7 @@
 					</control>
 				</control>
 				<control type="image">
-					<left>-37</left>
+					<left>-20</left>
 					<top>32</top>
 					<right>0</right>
 					<height>60</height>
@@ -198,9 +199,9 @@
 						<width>160</width>
 						<visible>![String.IsEqual(ListItem.DBType,tvshow) + Skin.HasSetting(Disable.NextAired)]</visible>
 						<control type="label">
-							<left>40</left>
+							<left>0</left>
 							<top>-5</top>
-							<width>60</width>
+							<width>160</width>
 							<height>60</height>
 							<align>center</align>
 							<label>$VAR[DurationVar]</label>
@@ -212,7 +213,7 @@
 							<width>160</width>
 							<height>30</height>
 							<align>center</align>
-							<label>[LOWERCASE]$LOCALIZE[12391][/LOWERCASE]</label>
+							<label>[LOWERCASE]$LOCALIZE[2050][/LOWERCASE]</label>
 							<font>font12</font>
 							<textcolor>grey</textcolor>
 						</control>
@@ -310,7 +311,7 @@
 					</control>
 				</control>
 				<control type="image">
-					<left>-37</left>
+					<left>-20</left>
 					<top>106</top>
 					<right>0</right>
 					<height>60</height>
@@ -368,18 +369,19 @@
 					</control>
 				</control>
 				<control type="group">
-					<left>-37</left>
+					<left>-20</left>
 					<top>710</top>
 					<control type="image">
+						<animation effect="slide" start="0,0" end="0,10" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 						<top>-60</top>
 						<width>1380</width>
 						<height>60</height>
 						<texture border="1">separator2.png</texture>
 					</control>
 					<control type="grouplist">
+						<animation effect="slide" start="0,0" end="0,10" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 						<left>0</left>
 						<top>0</top>
-						<animation effect="slide" start="0,0" end="0,10" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 						<width>1188</width>
 						<height>75</height>
 						<align>left</align>
@@ -514,7 +516,7 @@
 							<width>70</width>
 							<colordiffuse>grey</colordiffuse>
 							<include>MediaFlagVars</include>
-							<texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+							<texture>flags/aspectratio/$VAR[AspectRatio].png</texture>
 						</control>
 						<control type="image">
 							<width>2</width>
@@ -701,6 +703,7 @@
 				</control>
 			</control>
 			<control type="group">
+				<animation effect="slide" start="0,0" end="14,0" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<left>3</left>
 				<top>0</top>
 				<control type="image">
