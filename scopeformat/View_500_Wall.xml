@@ -3,10 +3,10 @@
 	<include name="WallBackPanel">
 		<control type="image">
 			<description>background image</description>
-			<left>320</left>
-			<top>240</top>
-			<width>1277</width>
-			<height>600</height>
+			<left>50</left>
+			<top>190</top>
+			<width>1800</width>
+			<height>650</height>
 			<texture border="40">listpanel_back.png</texture>
 		</control>
 	</include>
@@ -53,9 +53,9 @@
 			<include>ViewAnimation</include>
 			<include>WallBackPanel</include>
 			<control type="panel" id="500">
-				<left>355</left>
-				<top>272</top>
-				<width>1275</width>
+				<left>150</left>
+				<top>260</top>
+				<width>1700</width>
 				<height>520</height>
 				<onleft>SetProperty(MediaMenu,True,home)</onleft>
 				<onleft>SetFocus(9050)</onleft>
@@ -416,10 +416,10 @@
 			<include>ViewAnimation</include>
 			<include>WallBackPanel</include>
 			<control type="panel" id="500">
-				<left>ViewIconsLeft</left>
-				<top>179</top>
-				<width>ViewIconsWidth</width>
-				<height>720</height>
+				<left>150</left>
+				<top>260</top>
+				<width>1600</width>
+				<height>520</height>
 				<onleft>SetProperty(MediaMenu,True,home)</onleft>
 				<onleft>SetFocus(9050)</onleft>
 				<onright>60</onright>
@@ -427,7 +427,7 @@
 				<ondown>500</ondown>
 				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<itemlayout height="204" width="173" condition="!Container.Content(genres)">
+				<itemlayout height="240" width="240" condition="!Container.Content(genres)">
 					<control type="image">
 						<width>240</width>
 						<height>240</height>
@@ -447,7 +447,7 @@
 					</control>
 					<include>WallSquareOverlay</include>
 				</itemlayout>
-				<focusedlayout height="204" width="173" condition="!Container.Content(genres)">
+				<focusedlayout height="240" width="240" condition="!Container.Content(genres)">
 					<control type="image">
 						<width>240</width>
 						<height>240</height>
@@ -470,8 +470,8 @@
 				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="60">
-				<left>ScrollbarIconsLeft</left>
-				<top>179</top>
+				<left>1600</left>
+				<top>260</top>
 				<width>8</width>
 				<height>720</height>
 				<onleft>50</onleft>
