@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.scope.nox.leia" version="1.25" name="Scope Nox - Leia" provider-name="Funkd" aeonnox-version="6.0.1">
+<addon id="skin.scope.nox" version="1.26.1 name="Scope Nox" provider-name="Funkd" aeonnox-version="6.0.1">
 	<requires>
-		<import addon="xbmc.gui" version="5.14.0"/>
+		<import addon="xbmc.gui" version="5.15.0"/>
 		<import addon="script.grab.fanart" version="0.12.8"/>
 		<import addon="script.skinshortcuts" version="0.4.5"/>
 		<import addon="service.library.data.provider" version="0.0.7"/>
