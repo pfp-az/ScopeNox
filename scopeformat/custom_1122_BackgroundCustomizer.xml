@@ -98,6 +98,12 @@
 					<onclick>Dialog.Close(1122)</onclick>
 				</item>
 				<item>
+					<label>$LOCALIZE[31974]</label>
+					<onclick>Skin.SetString(ItemToEdit.BGType,1)</onclick>
+					<onclick>Skin.SetFile(ItemToEdit.MultiFanart,.png|.jpg|.bmp,special://skin/backgrounds/)</onclick>
+					<onclick>Dialog.Close(1122)</onclick>
+				</item>
+				<item>
 					<label>$LOCALIZE[31023]</label>
 					<onclick>Skin.SetString(ItemToEdit.BGType,1)</onclick>
 					<onclick>Skin.SetImage(ItemToEdit.MultiFanart)</onclick>
