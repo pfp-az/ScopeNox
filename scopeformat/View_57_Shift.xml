@@ -190,7 +190,7 @@
 					<left>500</left>
 					<colordiffuse>grey2</colordiffuse>
 					<include>MediaFlagVars</include>
-					<texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+					<texture>flags/aspectratio/$VAR[AspectRatio].png</texture>
 					<include>VisibleFadeAnimation</include>
 				</control>
 			</control>

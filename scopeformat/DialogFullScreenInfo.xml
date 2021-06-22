@@ -89,7 +89,7 @@
 					<width>320</width>
 					<colordiffuse>grey2</colordiffuse>
 					<include>MediaFlagVars</include>
-					<texture>$INFO[VideoPlayer.VideoAspect,flags/aspectratio/,.png]</texture>
+					<texture>flags/aspectratio/$VAR[VideoPlayerAspectRatio].png</texture>
 				</control>
 			</control>
 		</control>
@@ -296,7 +296,7 @@
 					<width>260</width>
 					<colordiffuse>grey2</colordiffuse>
 					<include>MediaFlagVars</include>
-					<texture>$INFO[VideoPlayer.VideoAspect,flags/aspectratio/,.png]</texture>
+					<texture>flags/aspectratio/$VAR[VideoPlayerAspectRatio].png</texture>
 				</control>
 			</control>
 		<control type="textbox" id="170">
