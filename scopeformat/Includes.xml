@@ -679,7 +679,7 @@
 		<definition>
 			<control type="panel" id="$PARAM[controlId]">
 				<right>0</right>
-				<height>348</height>
+				<height>350</height>
 				<preloaditems>2</preloaditems>
 				<orientation>horizontal</orientation>
 				<visible>$PARAM[listVisible]</visible>
@@ -687,7 +687,7 @@
 				<itemlayout height="280" width="$PARAM[width]">
 					<control type="image">
 						<width>$PARAM[width]</width>
-						<height>348</height>
+						<height>350</height>
 						<aspectratio aligny="top">scale</aspectratio>
 						<texture background="true" fallback="$PARAM[fallbackIcon]">$INFO[ListItem.Icon]</texture>
 						<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
@@ -713,7 +713,7 @@
 					</control>
 					<control type="image">
 						<width>$PARAM[width]</width>
-						<height>348</height>
+						<height>350</height>
 						<aspectratio>scale</aspectratio>
 						<texture border="1" colordiffuse="44FFFFFF">black.png</texture>
 						<bordersize>2</bordersize>
@@ -764,7 +764,7 @@
 				<focusedlayout height="280" width="$PARAM[width]">
 					<control type="image">
 						<width>$PARAM[width]</width>
-						<height>348</height>
+						<height>350</height>
 						<aspectratio aligny="top">scale</aspectratio>
 						<texture background="true" fallback="$PARAM[fallbackIcon]">$INFO[ListItem.Icon]</texture>
 						<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
@@ -790,7 +790,7 @@
 					</control>
 					<control type="image">
 						<width>$PARAM[width]</width>
-						<height>348</height>
+						<height>350</height>
 						<aspectratio>scale</aspectratio>
 						<texture border="1" colordiffuse="44FFFFFF">black.png</texture>
 						<bordersize>2</bordersize>
@@ -844,7 +844,7 @@
 					</control>
 					<control type="image">
 						<width>$PARAM[width]</width>
-						<height>348</height>
+						<height>350</height>
 						<texture border="10">thumbs/thumbnail_focused.png</texture>
 						<include>FocusFadeInAnimation</include>
 					</control>
