@@ -538,8 +538,8 @@
 							<width>70</width>
 							<colordiffuse>grey</colordiffuse>
 							<include>MediaFlagVars</include>
-							<texture>$INFO[ListItem.AudioChannels,flags/channels/,.png]</texture>
-							<visible>!String.IsEmpty(ListItem.AudioChannels)</visible>
+							<texture>flags/channels/$VAR[AudioChannelCustom].png</texture>
+							<visible>!IsEmpty(Control.GetLabel(9902))</visible>
 						</control>
 						<control type="group">
 							<visible>String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
