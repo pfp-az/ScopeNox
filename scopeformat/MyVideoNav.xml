@@ -180,14 +180,14 @@
 				<animation effect="slide" tween="cubic" time="720" start="0,806" end="0,0">VisibleChange</animation>
 				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(files) | Container.Content(musicvideos)]</visible>
 				<control type="group">
-					<left>90</left>
+					<left>0</left>
 					<top>885</top>
 					<visible>![Control.IsVisible(56) | Control.IsVisible(55)]</visible>
 					<include>VisibleFadeAnimation</include>
 					<control type="label">
 						<left>0</left>
 						<top>5</top>
-						<width>1150</width>
+						<width>1250</width>
 						<height>42</height>
 						<aligny>top</aligny>
 						<align>left</align>
@@ -199,7 +199,7 @@
 					<control type="label">
 						<left>0</left>
 						<top>50</top>
-						<width>1100</width>
+						<width>1250</width>
 						<height>30</height>
 						<align>left</align>
 						<font>font13_title</font>
@@ -273,30 +273,46 @@
 					</control>
 				</control>
 				<control type="group">
-					<right>30</right>
+					<left>1250</left>
 					<top>880</top>
 					<width>563</width>
 					<height>90</height>
 					<include>VisibleFadeAnimation</include>
 					<visible>![Container.Content(tvshows) | Container.Content(seasons)]</visible>
 					<control type="image">
-						<left>13</left>
+						<left>0</left>
 						<include>MediaFlagVars</include>
 						<texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
 						<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="image">
-						<left>176</left>
+						<left>125</left>
 						<include>MediaFlagVars</include>
 						<texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
 						<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="image">
-						<left>339</left>
+						<left>250</left>
+						<include>MediaFlagVars</include>
+						<texture>$INFO[ListItem.AudioChannels,flags/channels/,.png]</texture>
+						<visible>!String.IsEmpty(ListItem.AudioChannels)</visible>
+						<include>VisibleFadeAnimation</include>
+					</control>
+					<control type="image">
+						<left>375</left>
 						<include>MediaFlagVars</include>
 						<texture>$VAR[SourceFlagVar,flags/video/,.png]</texture>
 						<visible>!String.IsEmpty(ListItem.VideoCodec)</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
+					<control type="image">
+						<left>500</left>
+						<include>MediaFlagVars</include>
+						<texture>flags/aspectratio/$VAR[AspectRatio].png</texture>
+						<include>VisibleFadeAnimation</include>
+					</control>  
 				</control>
 			</control>
 			<control type="image">
