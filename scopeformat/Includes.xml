@@ -703,7 +703,7 @@
 						<visible>$PARAM[textOverlay]</visible>
 					</control>
 					<control type="image">
-						<left>180</left>
+						<right>0</right>
 						<width>100</width>
 						<height>100</height>
 						<texture>overlays/addons/enabled.png</texture>
@@ -780,7 +780,7 @@
 						<visible>$PARAM[textOverlay]</visible>
 					</control>
 					<control type="image">
-						<left>180</left>
+						<right>0</right>
 						<width>100</width>
 						<height>100</height>
 						<texture>overlays/addons/enabled.png</texture>
