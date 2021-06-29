@@ -527,6 +527,16 @@
 						<selected>Skin.HasSetting(showZoomButtons)</selected>
 						<texturenofocus border="1">separator5.png</texturenofocus>
 					</control>
+					<control type="radiobutton" id="111">
+						<width>1316</width>
+						<height>60</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31975</label>
+						<onclick>Skin.ToggleSetting(osd169)</onclick>
+						<selected>Skin.HasSetting(osd169)</selected>
+						<texturenofocus border="1">separator5.png</texturenofocus>
+					</control>
 				</control>
 				
 			</control>

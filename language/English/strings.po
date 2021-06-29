@@ -1158,4 +1158,14 @@ msgstr ""
 
 msgctxt "#31974"
 msgid "Single image from skin folder"
-msgstr ""
+msgstr"" 
+
+msgctxt "#31975"
+msgid "Enable 16:9 on screen display"
+msgstr"" 
+
+msgctxt "#31976"
+msgid "A description goes here but I'm not sure what the heck this does so here is a placeholder till I come up with something better."
+msgstr"" 
+
+
