@@ -6,7 +6,7 @@
 	<onload>SetFocus(8)</onload>
 	<onunload>ClearProperty(Extra.Info,movieinformation)</onunload>
 	<controls>
-		<control type="group">
+		<control type="group"> <description>left side - poster</description>
 			<animation effect="slide" start="0,0" end="0,-10" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 			<animation effect="slide" start="-729,0" end="0,0" time="500" tween="quadratic">WindowOpen</animation>
 			<animation effect="slide" end="-729,0" time="500" tween="quadratic">WindowClose</animation>
@@ -21,14 +21,14 @@
 				<texture background="true" fallback="black.png">$VAR[PosterVar]</texture>
 			</control>
 		</control>
-		<control type="group">
+		<control type="group"> <description>right side - info</description>
 			<animation effect="slide" start="0,0" end="0,-10" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>	
 			<animation effect="slide" start="VideoInfoSlidePos" end="0,0" time="500" tween="quadratic">WindowOpen</animation>
 			<animation effect="slide" end="VideoInfoSlidePos" time="500" tween="quadratic">WindowClose</animation>
 			<animation effect="slide" start="VideoInfoSlidePos" end="0,0" time="500" tween="quadratic" condition="![Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)]">Conditional</animation>
 			<animation effect="slide" end="VideoInfoSlidePos" time="500" tween="quadratic" condition="Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">Conditional</animation>
 			<left>533</left>
-			<control type="image">
+			<control type="image"> <description>black background if no fanart</description>
 				<animation effect="slide" start="0,0" end="14,0" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<animation effect="zoom" end="0,140,1387,820" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<top>140</top>
@@ -37,7 +37,7 @@
 				<texture>black.png</texture>
 				<visible>String.IsEmpty(ListItem.Art(fanart))</visible>
 			</control>
-			<control type="image">
+			<control type="image"> <description>fanart</description>
 				<animation effect="slide" start="0,0" end="14,0" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<animation effect="zoom" end="0,140,1387,820" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<top>140</top>
@@ -46,7 +46,7 @@
 				<aspectratio align="center">scale</aspectratio>
 				<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
 			</control>
-			<control type="image">
+			<control type="image"> <description>darkening overlay over fanart</description>
 				<animation effect="slide" start="0,0" end="14,0" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<animation effect="zoom" end="0,140,1387,820" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<top>140</top>
@@ -54,13 +54,13 @@
 				<height>800</height>
 				<texture border="4">dialogs/info/info_rightpaneltop.png</texture>
 			</control>
-			<control type="group">
+			<control type="group"> <description>info</description>
 				<animation effect="slide" start="0,0" end="14,0" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<left>40</left>
 				<top>150</top>
 				<width>1347</width>
 				<height>854</height>
-				<control type="grouplist">
+				<control type="grouplist"> <description>title, tagline</description>
 					<top>-20</top>
 					<width>1300</width>
 					<height>110</height>
@@ -120,14 +120,14 @@
 						<visible>String.IsEqual(ListItem.DBType,musicvideo) + !String.IsEmpty(ListItem.Artist)</visible>
 					</control>
 				</control>
-				<control type="image">
+				<control type="image"> <description>separater</description>
 					<left>-20</left>
 					<top>32</top>
 					<right>0</right>
 					<height>60</height>
 					<texture border="1">separator2.png</texture>
 				</control>
-				<control type="grouplist">
+				<control type="grouplist"> <description>year, studio, certification, runtime, rating</description>
 					<left>0</left>
 					<top>90</top>
 					<width>1364</width>
@@ -310,14 +310,14 @@
 						<visible>!String.IsEmpty(ListItem.Top250)</visible>
 					</control>
 				</control>
-				<control type="image">
+				<control type="image"> <description>separater</description>
 					<left>-20</left>
 					<top>106</top>
 					<right>0</right>
 					<height>60</height>
 					<texture border="1">separator2.png</texture>
 				</control>
-				<control type="group">
+				<control type="group"> <description>date added, last played, play count</description>
 					<left>1025</left>
 					<top>164</top>
 					<height>120</height>
@@ -382,7 +382,7 @@
 						</content>
 					</control>
 				</control>
-				<control type="grouplist" id="300">
+				<control type="grouplist" id="300"> <description>genre, director, writer, cast lists</description>
 					<left>-36</left>
 					<top>164</top>
 					<right>0</right>
@@ -436,7 +436,7 @@
 						<onclick>SetFocus(50)</onclick>
 					</control>
 				</control>
-				<control type="group">
+				<control type="group"> <description>media info icons</description>
 					<left>0</left>
 					<top>725</top>
 					<control type="image">
@@ -607,7 +607,7 @@
 						<texture border="1">separator2.png</texture>
 					</control>
 				</control>
-				<control type="grouplist" id="9001">
+				<control type="grouplist" id="9001"> <description>plot, cast and extendedinfo script</description>
 					<left>-36</left>
 					<top>370</top>
 					<right>0</right>
@@ -733,10 +733,10 @@
 						<param name="content" value="plugin://script.extendedinfo?info=onairtvshows" />
 					</include>
 				</control>
-				<control type="scrollbar" id="70">
+				<control type="scrollbar" id="70"> <description>unknown</description>
 					<include>HiddenObject</include>
 				</control>
-				<control type="group" id="71">
+				<control type="group" id="71"> <description>unknown</description>
 					<top>975</top>
 					<visible>ControlGroup(9001).HasFocus</visible>
 					<include>SettingsFadeAnimation</include>
@@ -771,7 +771,7 @@
 					</control>
 				</control>
 			</control>
-			<control type="group">
+			<control type="group"> <description>play, my rating, choose art, trailer, etc</description>
 				<animation effect="slide" start="0,0" end="14,0" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<left>3</left>
 				<top>0</top>
@@ -901,7 +901,7 @@
 				</control>
 			</control>
 		</control>
-		<control type="group">
+		<control type="group"> <description>media info popup</description>
 			<width>1122</width>
 			<height>720</height>
 			<centerleft>50%</centerleft>
