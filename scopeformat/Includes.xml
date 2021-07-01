@@ -684,8 +684,8 @@
 				<orientation>horizontal</orientation>
 				<visible>$PARAM[listVisible]</visible>
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
-				<itemlayout height="280" width="$PARAM[width]">
-					<control type="image">
+				<itemlayout height="$PARAM[height]" width="$PARAM[width]">
+					<control type="image"> <description>primary image and placeholder if none found</description>
 						<width>$PARAM[width]</width>
 						<height>$PARAM[height]</height>
 						<aspectratio aligny="top">scale</aspectratio>
@@ -693,16 +693,16 @@
 						<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
 						<bordersize>2</bordersize>
 					</control>
-					<control type="image"> <description>black overlay for text</description>
-						<top>270</top>
+					<control type="image"> <description>black overlay for text over the image</description>
+						<top>80r</top>
 						<width>$PARAM[width]</width>
-						<height>98</height>
+						<height>80</height>
 						<texture>black.png</texture>
 						<colordiffuse>88ffffff</colordiffuse>
 						<bordersize>2</bordersize>
 						<visible>$PARAM[textOverlay]</visible>
 					</control>
-					<control type="image">
+					<control type="image"> <description>unknown</description>
 						<left>180</left>
 						<width>100</width>
 						<height>100</height>
@@ -711,15 +711,15 @@
 						<visible>$PARAM[overlayVisibility]</visible>
 						<visible>!String.IsEmpty(ListItem.DBID) | !String.IsEmpty(ListItem.Property(DBID))</visible>
 					</control>
-					<control type="image">
+					<control type="image"> <description>unknown</description>
 						<width>$PARAM[width]</width>
 						<height>$PARAM[height]</height>
 						<aspectratio>scale</aspectratio>
 						<texture border="1" colordiffuse="44FFFFFF">black.png</texture>
 						<bordersize>2</bordersize>
 					</control>
-					<control type="label">
-						<top>300</top>
+					<control type="label"> <description>primary data</description>
+						<top>53r</top>
 						<width>$PARAM[width]</width>
 						<height>43</height>
 						<align>center</align>
@@ -732,8 +732,8 @@
 						<visible>$PARAM[textOverlay]</visible>
 						<animation effect="fade" start="100" end="70" time="0" condition="true">Conditional</animation>
 					</control>
-					<control type="label">
-						<top>270</top>
+					<control type="label"> <description>label for primary data</description>
+						<top>83r</top>
 						<width>$PARAM[width]</width>
 						<height>43</height>
 						<align>center</align>
@@ -746,7 +746,7 @@
 						<visible>$PARAM[textOverlay]</visible>
 						<animation effect="fade" start="100" end="70" time="0" condition="true">Conditional</animation>
 					</control>
-					<control type="textbox">
+					<control type="textbox"> <description>unknown</description>
 						<left>10</left>
 						<top>325</top>
 						<width>574</width>
@@ -761,8 +761,8 @@
 						<animation effect="fade" start="100" end="70" time="0" condition="true">Conditional</animation>
 					</control>
 				</itemlayout>
-				<focusedlayout height="280" width="$PARAM[width]">
-					<control type="image">
+				<focusedlayout height="$PARAM[height]" width="$PARAM[width]">
+					<control type="image"> <description>primary image and placeholder if none found</description>
 						<width>$PARAM[width]</width>
 						<height>$PARAM[height]</height>
 						<aspectratio aligny="top">scale</aspectratio>
@@ -770,16 +770,16 @@
 						<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
 						<bordersize>2</bordersize>
 					</control>
-					<control type="image">
-						<top>270</top>
+					<control type="image"><description>black overlay for text over the image</description>
+						<top>80r</top>
 						<width>$PARAM[width]</width>
-						<height>98</height>
+						<height>80</height>
 						<texture>black.png</texture>
 						<colordiffuse>88ffffff</colordiffuse>
 						<bordersize>2</bordersize>
 						<visible>$PARAM[textOverlay]</visible>
 					</control>
-					<control type="image">
+					<control type="image"> <description>unknown</description>
 						<left>180</left>
 						<width>100</width>
 						<height>100</height>
@@ -788,7 +788,7 @@
 						<visible>$PARAM[overlayVisibility]</visible>
 						<visible>!String.IsEmpty(ListItem.DBID) | !String.IsEmpty(ListItem.Property(DBID))</visible>
 					</control>
-					<control type="image">
+					<control type="image"> <description>unknown</description>
 						<width>$PARAM[width]</width>
 						<height>$PARAM[height]</height>
 						<aspectratio>scale</aspectratio>
@@ -796,8 +796,8 @@
 						<bordersize>2</bordersize>
 						<include>FocusFadeOutAnimation</include>
 					</control>
-					<control type="label">
-						<top>300</top>
+					<control type="label"> <description>primary data</description>
+						<top>53r</top>
 						<width>$PARAM[width]</width>
 						<height>43</height>
 						<align>center</align>
@@ -811,8 +811,8 @@
 						<animation effect="fade" end="100" start="70" time="200" tween="sine" easing="inout">Focus</animation>
 						<animation effect="fade" start="100" end="70" time="200" tween="sine" easing="inout">UnFocus</animation>
 					</control>
-					<control type="label">
-						<top>270</top>
+					<control type="label"> <description>label for primary data</description>
+						<top>83r</top>
 						<width>$PARAM[width]</width>
 						<height>43</height>
 						<align>center</align>
@@ -826,7 +826,7 @@
 						<animation effect="fade" end="100" start="70" time="200" tween="sine" easing="inout">Focus</animation>
 						<animation effect="fade" start="100" end="70" time="200" tween="sine" easing="inout">UnFocus</animation>
 					</control>
-					<control type="textbox">
+					<control type="textbox"> <description>unknown</description>
 						<left>10</left>
 						<top>325</top>
 						<width>574</width>
@@ -842,7 +842,7 @@
 						<animation effect="fade" end="100" start="70" time="200" tween="sine" easing="inout">Focus</animation>
 						<animation effect="fade" start="100" end="70" time="200" tween="sine" easing="inout">UnFocus</animation>
 					</control>
-					<control type="image">
+					<control type="image"> <description>Focused border</description>
 						<width>$PARAM[width]</width>
 						<height>$PARAM[height]</height>
 						<texture border="10">thumbs/thumbnail_focused.png</texture>
@@ -862,7 +862,7 @@
 			<content target="$PARAM[target]">$PARAM[content]</content>
 		</definition>
 	</include>
-	<include name="VariableHeightPlot">
+	<include name="VariableHeightPlot"> <description>plot / extendedinfo area on movie details view.  Allows height to change depending on scope aspect ratio</description>
 		<control type="grouplist" id="9001"> <description>plot, cast and extendedinfo script</description>
 			<left>-36</left>
 			<top>370</top>
@@ -1002,7 +1002,7 @@
 			</include>
 		</control>
 	</include>
-
-
-
+	<include name="ConditionalHeight">  <description>Testing something</description>
+		<height>$PARAM[height]</height>
+	</include>
 </includes>
