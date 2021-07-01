@@ -803,7 +803,7 @@
 		<value condition="String.Contains(Player.Filenameandpath,1.78) | String.Contains(Player.Filenameandpath,16-9)">1.78</value>
 		<value condition="String.Contains(Player.Filenameandpath,1.85) | String.Contains(Player.Filenameandpath,16-9)">1.85</value>
 		<value condition="String.Contains(Player.Filenameandpath,2.20) | String.Contains(Player.Filenameandpath,22-10)">2.20</value>
-		<value condition="String.Contains(Player.Filenameandpath,2.35) | String.Contains(Player.Filenameandpath,21-9">2.35</value>
+		<value condition="String.Contains(Player.Filenameandpath,2.35) | String.Contains(Player.Filenameandpath,21-9)">2.35</value>
 		<value condition="String.Contains(Player.Filenameandpath,2.40) | String.Contains(Player.Filenameandpath,21-9)">2.40</value>
 		<value condition="String.Contains(Player.Filenameandpath,2.55) | String.Contains(Player.Filenameandpath,23-9)">2.55</value>
 		<value condition="String.Contains(Player.Filenameandpath,2.76) | String.Contains(Player.Filenameandpath,11-4)">2.76</value>
