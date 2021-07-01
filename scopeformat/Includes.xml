@@ -679,7 +679,7 @@
 		<definition>
 			<control type="panel" id="$PARAM[controlId]">
 				<right>0</right>
-				<height>353</height>
+				<height>$PARAM[height]</height>
 				<preloaditems>2</preloaditems>
 				<orientation>horizontal</orientation>
 				<visible>$PARAM[listVisible]</visible>
@@ -687,13 +687,13 @@
 				<itemlayout height="280" width="$PARAM[width]">
 					<control type="image">
 						<width>$PARAM[width]</width>
-						<height>353</height>
+						<height>$PARAM[height]</height>
 						<aspectratio aligny="top">scale</aspectratio>
 						<texture background="true" fallback="$PARAM[fallbackIcon]">$INFO[ListItem.Icon]</texture>
 						<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
 						<bordersize>2</bordersize>
 					</control>
-					<control type="image">
+					<control type="image"> <description>black overlay for text</description>
 						<top>270</top>
 						<width>$PARAM[width]</width>
 						<height>98</height>
@@ -713,7 +713,7 @@
 					</control>
 					<control type="image">
 						<width>$PARAM[width]</width>
-						<height>353</height>
+						<height>$PARAM[height]</height>
 						<aspectratio>scale</aspectratio>
 						<texture border="1" colordiffuse="44FFFFFF">black.png</texture>
 						<bordersize>2</bordersize>
@@ -764,7 +764,7 @@
 				<focusedlayout height="280" width="$PARAM[width]">
 					<control type="image">
 						<width>$PARAM[width]</width>
-						<height>353</height>
+						<height>$PARAM[height]</height>
 						<aspectratio aligny="top">scale</aspectratio>
 						<texture background="true" fallback="$PARAM[fallbackIcon]">$INFO[ListItem.Icon]</texture>
 						<bordertexture border="2">thumbs/panel_border3.png</bordertexture>
@@ -790,7 +790,7 @@
 					</control>
 					<control type="image">
 						<width>$PARAM[width]</width>
-						<height>353</height>
+						<height>$PARAM[height]</height>
 						<aspectratio>scale</aspectratio>
 						<texture border="1" colordiffuse="44FFFFFF">black.png</texture>
 						<bordersize>2</bordersize>
@@ -844,7 +844,7 @@
 					</control>
 					<control type="image">
 						<width>$PARAM[width]</width>
-						<height>353</height>
+						<height>$PARAM[height]</height>
 						<texture border="10">thumbs/thumbnail_focused.png</texture>
 						<include>FocusFadeInAnimation</include>
 					</control>
@@ -862,4 +862,147 @@
 			<content target="$PARAM[target]">$PARAM[content]</content>
 		</definition>
 	</include>
+	<include name="VariableHeightPlot">
+		<control type="grouplist" id="9001"> <description>plot, cast and extendedinfo script</description>
+			<left>-36</left>
+			<top>370</top>
+			<right>0</right>
+			<height>$PARAM[height]</height>
+			<onup>9000</onup>
+			<ondown>noop</ondown>
+			<pagecontrol>70</pagecontrol>
+			<scrolltime tween="quadratic" easing="out">300</scrolltime>
+			<control type="group" id="90017">
+				<right>0</right>
+				<height>$PARAM[height]</height>
+				<control type="button" id="900171">
+					<description>FS Plot</description>
+					<texturenofocus />
+					<right>0</right>
+					<height>$PARAM[height]</height>
+					<width />
+					<label />
+					<onup>9000</onup>
+					<ondown>50</ondown>
+					<onclick>SetProperty(TextViewerHeader,$INFO[ListItem.Label,[B],[/B]],Home)</onclick>
+					<onclick>SetProperty(TextViewerContent,$ESCINFO[ListItem.Tagline,[I],[/I][CR]]$ESCINFO[ListItem.Plot]$ESCINFO[ListItem.PlotOutline,[CR]---[CR]],Home)</onclick>
+					<onclick>ActivateWindow(1132)</onclick>
+				</control>
+				<control type="textbox" id="4">
+					<description>Plot</description>
+					<left>36</left>
+					<right>36</right>
+					<top>10</top>
+					<height>400</height>
+					<font>font14_textbox_plot</font>
+					<label>$INFO[ListItem.Plot]</label>
+					<textcolor>white</textcolor>
+					<pagecontrol />
+					<animation effect="fade" start="0" end="100" time="500" tween="sine" easing="inout">VisibleChange</animation>
+					<animation effect="fade" start="100" end="78" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(900171)">Conditional</animation>
+				</control>
+			</control>
+			<include content="ExtendedInfoListLayout">
+				<description>Cast</description>
+				<param name="controlId" value="50" />
+				<param name="label2" value="$INFO[ListItem.Label2]" />
+				<param name="overlayVisibility" value="false" />
+				<param name="includeContent" value="false" />
+				<param name="height" value="$PARAM[height]" />
+			</include>
+			<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,movie)">
+				<description>Similar movies</description>
+				<param name="controlId" value="90011" />
+				<param name="label2" value="$INFO[ListItem.Year]" />
+				<param name="listVisible" value="!String.IsEqual(Window(Home).Property(SimilarMovies.Count),0)" />
+				<param name="content" value="plugin://script.extendedinfo?info=similarmovies&amp;&amp;imdb_id=$INFO[ListItem.IMDBNumber]&amp;&amp;dbid=$INFO[ListItem.DBID]" />
+				<param name="height" value="$PARAM[height]" />
+			</include>
+			<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,movie)">
+				<description>Movies from director</description>
+				<param name="controlId" value="90012" />
+				<param name="label2" value="$INFO[ListItem.Year]" />
+				<param name="listVisible" value="!String.IsEqual(Window(Home).Property(DirectorMovies.Count),0)" />
+				<param name="content" value="plugin://script.extendedinfo?info=personmovies&amp;&amp;person=$INFO[ListItem.Director]" />
+				<param name="height" value="$PARAM[height]" />
+			</include>
+			<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,movie)">
+				<description>Movies from writers</description>
+				<param name="controlId" value="90013" />
+				<param name="label2" value="$INFO[ListItem.Year]" />
+				<param name="listVisible" value="!String.IsEqual(Window(Home).Property(WriterMovies.Count),0)" />
+				<param name="content" value="plugin://script.extendedinfo?info=personmovies&amp;&amp;person=$INFO[ListItem.Writer]" />
+				<param name="height" value="$PARAM[height]" />
+			</include>
+			<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,movie)">
+				<description>Movies from studio</description>
+				<param name="controlId" value="90014" />
+				<param name="label2" value="$INFO[ListItem.Year]" />
+				<param name="listVisible" value="!String.IsEqual(Window(Home).Property(StudioInfo.Count),0)" />
+				<param name="content" value="plugin://script.extendedinfo?info=studio&amp;&amp;studio=$INFO[ListItem.Studio]" />
+				<param name="height" value="$PARAM[height]" />
+			</include>
+			<include content="ExtendedInfoListLayout" condition="String.IsEqual(ListItem.DBType,movie)">
+				<description>Movies from Set</description>
+				<param name="controlId" value="90018" />
+				<param name="label2" value="$INFO[ListItem.Year]" />
+				<param name="overlayVisibility" value="false" />
+				<param name="listVisible" value="!String.IsEmpty(ListItem.SetID)" />
+				<param name="content" value="videodb://movies/sets/$INFO[ListItem.SetID]" />
+				<param name="height" value="$PARAM[height]" />
+			</include>
+			<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">
+				<description>Seasons</description>
+				<param name="controlId" value="90016" />
+				<param name="label2" value="$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20453]]" />
+				<param name="overlayVisibility" value="false" />
+				<param name="listVisible" value="Integer.IsGreater(ListItem.Property(TotalSeasons),0) + String.IsEqual(ListItem.DBType,tvshow)" />
+				<param name="content" value="videodb://tvshows/titles/$INFO[ListItem.DBID]/" />
+				<param name="height" value="$PARAM[height]" />
+			</include>
+			<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">
+				<description>Similar TV Shows</description>
+				<param name="controlId" value="90015" />
+				<param name="label2" value="$INFO[ListItem.Year]" />
+				<param name="listVisible" value="Integer.IsGreater(Container(90015).NumItems,0) | Container(90015).IsUpdating" />
+				<param name="content" value="plugin://script.extendedinfo?info=similartvshows&amp;&amp;$VAR[SimilarShowsIDVar]" />
+				<param name="height" value="$PARAM[height]" />
+			</include>
+			<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">
+				<description>Popluar TV Shows</description>
+				<param name="controlId" value="90019" />
+				<param name="label2" value="$INFO[ListItem.Year]" />
+				<param name="listVisible" value="!String.IsEqual(Window(Home).Property(PopularTVShows.Count),0)" />
+				<param name="content" value="plugin://script.extendedinfo?info=populartvshows" />
+				<param name="height" value="$PARAM[height]" />
+			</include>
+			<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">
+				<description>Top Rated TV Shows</description>
+				<param name="controlId" value="90020" />
+				<param name="label2" value="$INFO[ListItem.Year]" />
+				<param name="listVisible" value="!String.IsEqual(Window(Home).Property(TopRatedTVShows.Count),0)" />
+				<param name="content" value="plugin://script.extendedinfo?info=topratedtvshows" />
+				<param name="height" value="$PARAM[height]" />
+			</include>
+			<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">
+				<description>TV shows airing today</description>
+				<param name="controlId" value="90021" />
+				<param name="label2" value="$INFO[ListItem.Year]" />
+				<param name="listVisible" value="!String.IsEqual(Window(Home).Property(AiringTodayTVShows.Count),0)" />
+				<param name="content" value="plugin://script.extendedinfo?info=airingtodaytvshows" />
+				<param name="height" value="$PARAM[height]" />
+			</include>
+			<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">
+				<description>On-the-air TV shows</description>
+				<param name="controlId" value="90022" />
+				<param name="label2" value="$INFO[ListItem.Year]" />
+				<param name="listVisible" value="!String.IsEqual(Window(Home).Property(OnAirTVShows.Count),0)" />
+				<param name="content" value="plugin://script.extendedinfo?info=onairtvshows" />
+				<param name="height" value="$PARAM[height]" />
+			</include>
+		</control>
+	</include>
+
+
+
 </includes>
