@@ -777,9 +777,9 @@
 	</variable>
 	
 	<variable name="AudioCodecCustom">
-		<value condition="String.Contains(ListItem.FileNameAndPath,Atmos) | String.Contains(ListItem.AudioCodec,atmos)">datmos</value>
-		<value condition="String.Contains(ListItem.FileNameAndPath,DTSX)>dtsx | String.Contains(ListItem.AudioCodec,dtsx)">dtsx</value>
-		<value condition="String.Contains(ListItem.FileNameAndPath,DTS-X)>dtsx | String.Contains(ListItem.AudioCodec,DTS-X)">dtsx</value>
+		<value condition="String.Contains(ListItem.FileNameAndPath,Atmos) | String.Contains(ListItem.AudioCodec,atmos)">dtsx</value>
+		<value condition="String.Contains(ListItem.FileNameAndPath,DTSX) | String.Contains(ListItem.AudioCodec,dtsx)">dtsx</value>
+		<value condition="String.Contains(ListItem.FileNameAndPath,DTS-X) | String.Contains(ListItem.AudioCodec,DTS-X)">dtsx</value>
 		<value condition="String.Contains(ListItem.AudioCodec,X)">dtsx</value>
 		<value>$INFO[ListItem.AudioCodec]</value>
 	</variable>
