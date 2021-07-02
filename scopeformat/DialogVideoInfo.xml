@@ -584,16 +584,16 @@
 						<animation effect="slide" start="0,0" end="0,20" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 						<left>0</left>
 						<top>0</top>
-						<width>1300</width>
+						<width>1320</width>
 						<height>60</height>
 						<align>left</align>
 						<aligny>center</aligny>
-						<itemgap>0</itemgap>
+						<itemgap>10</itemgap>
 						<orientation>horizontal</orientation>
 <!-- 						<visible>!ControlGroup(9001).HasFocus</visible> -->
 						<include>SettingsFadeAnimation</include>
 						<control type="image">
-							<width>150</width>
+							<width>100</width>
 							<colordiffuse>grey</colordiffuse>
 							<include>MediaFlagVars</include>
 							<texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
@@ -629,7 +629,7 @@
 							<texture border="1">separator3.png</texture>
 						</control>
 						<control type="image">
-							<width>150</width>
+							<width>100</width>
 							<colordiffuse>grey</colordiffuse>
 							<include>MediaFlagVars</include>
 							<texture>flags/audio/$VAR[AudioCodecCustom].png</texture>
@@ -669,7 +669,7 @@
 							<texture border="1">separator3.png</texture>
 						</control>
 						<control type="image">
-							<width>150</width>
+							<width>100</width>
 							<colordiffuse>grey</colordiffuse>
 							<include>MediaFlagVars</include>
 							<texture>flags/channels/$VAR[AudioChannelCustom].png</texture>
@@ -704,7 +704,7 @@
 							<texture border="1">separator3.png</texture>
 						</control>
 						<control type="image">
-							<width>150</width>
+							<width>100</width>
 							<colordiffuse>grey</colordiffuse>
 							<include>MediaFlagVars</include>
 							<texture>$VAR[SourceFlagVar,flags/video/,.png]</texture>
@@ -715,7 +715,7 @@
 							<texture border="1">separator3.png</texture>
 						</control>
 						<control type="image">
-							<width>150</width>
+							<width>100</width>
 							<colordiffuse>grey</colordiffuse>
 							<include>MediaFlagVars</include>
 							<texture>flags/aspectratio/$VAR[AspectRatio].png</texture>
@@ -727,10 +727,21 @@
 						</control>
 						<control type="image">
 							<include>MediaFlagVars</include>
-							<width>150</width>
+							<width>100</width>
 							<colordiffuse>grey</colordiffuse>
 							<texture>flags/cc.png</texture>
 							<visible>!String.IsEmpty(ListItem.SubtitleLanguage)</visible>
+						</control>
+						<control type="image">
+							<width>2</width>
+							<height>60</height>
+							<texture border="1">separator3.png</texture>
+						</control>
+						<control type="textbox">
+							<height>60</height>
+							<width>550</width>
+							<aligny>center</aligny>
+							<label>$VAR[VideoInfoDetailsLabelVar]</label>
 						</control>
 					</control>
 					<control type="image">
