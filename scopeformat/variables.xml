@@ -685,6 +685,17 @@
 		<value condition="ControlGroup(9001).HasFocus(90016)">$LOCALIZE[33054]$INFO[Container(90016).NumItems, [COLOR grey3](,)[/COLOR]]</value>
 		<value condition="ControlGroup(9001).HasFocus(90018)">$INFO[ListItem.Set]$INFO[Container(90018).NumItems, [COLOR grey3](,)[/COLOR]]</value>
 	</variable>
+	<variable name="VideoInfoButtonLabelVar">
+		<value condition="Control.HasFocus(8)">$LOCALIZE[208]</value>
+		<value condition="Control.HasFocus(910)">$LOCALIZE[206]</value>
+		<value condition="Control.HasFocus(7)">$LOCALIZE[31147]</value>
+		<value condition="Control.HasFocus(10)">$LOCALIZE[13511]</value>
+		<value condition="Control.HasFocus(11)">$LOCALIZE[20410]</value>
+		<value condition="Control.HasFocus(203)">$LOCALIZE[20410]</value>
+		<value condition="Control.HasFocus(209)">$LOCALIZE[31018]</value>
+		<value condition="Control.HasFocus(6)">$LOCALIZE[184]</value>
+		<value condition="Control.HasFocus(207)">$LOCALIZE[31014]</value>
+	</variable>
 	<variable name="EpisodeCountVar">
 		<value condition="!Integer.IsGreater(ListItem.Season,9) + !Integer.IsGreater(ListItem.Episode,9)">$INFO[ListItem.Season,S0]$INFO[ListItem.Episode,E0]</value>
 		<value condition="!Integer.IsGreater(ListItem.Season,9)">$INFO[ListItem.Season,S0]$INFO[ListItem.Episode,E]</value>

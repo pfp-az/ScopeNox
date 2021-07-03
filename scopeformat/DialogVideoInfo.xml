@@ -6,7 +6,8 @@
 	<onload>SetFocus(8)</onload>
 	<onunload>ClearProperty(Extra.Info,movieinformation)</onunload>
 	<controls>
-		<control type="group"> <description>left side - poster</description>
+		<!-- Left Side - Poster -->
+		<control type="group">
 			<animation effect="slide" start="0,0" end="0,-10" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 			<animation effect="slide" start="-729,0" end="0,0" time="500" tween="quadratic">WindowOpen</animation>
 			<animation effect="slide" end="-729,0" time="500" tween="quadratic">WindowClose</animation>
@@ -21,14 +22,16 @@
 				<texture background="true" fallback="black.png">$VAR[PosterVar]</texture>
 			</control>
 		</control>
-		<control type="group"> <description>right side - info</description>
+		<!-- Right Side -->
+		<control type="group">
 			<animation effect="slide" start="0,0" end="0,-10" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>	
 			<animation effect="slide" start="VideoInfoSlidePos" end="0,0" time="500" tween="quadratic">WindowOpen</animation>
 			<animation effect="slide" end="VideoInfoSlidePos" time="500" tween="quadratic">WindowClose</animation>
 			<animation effect="slide" start="VideoInfoSlidePos" end="0,0" time="500" tween="quadratic" condition="![Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)]">Conditional</animation>
 			<animation effect="slide" end="VideoInfoSlidePos" time="500" tween="quadratic" condition="Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">Conditional</animation>
 			<left>533</left>
-			<control type="image"> <description>black background if no fanart</description>
+			<!-- Background if no fanart -->
+			<control type="image">
 				<animation effect="slide" start="0,0" end="14,0" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<animation effect="zoom" end="0,140,1387,820" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<top>140</top>
@@ -37,7 +40,8 @@
 				<texture>black.png</texture>
 				<visible>String.IsEmpty(ListItem.Art(fanart))</visible>
 			</control>
-			<control type="image"> <description>fanart</description>
+			<!-- Fanart -->
+			<control type="image">
 				<animation effect="slide" start="0,0" end="14,0" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<animation effect="zoom" end="0,140,1387,820" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<top>140</top>
@@ -46,7 +50,8 @@
 				<aspectratio align="center">scale</aspectratio>
 				<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
 			</control>
-			<control type="image"> <description>darkening overlay over fanart</description>
+			<!-- Overlay over fanart -->
+			<control type="image">
 				<animation effect="slide" start="0,0" end="14,0" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<animation effect="zoom" end="0,140,1387,820" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<top>140</top>
@@ -54,13 +59,15 @@
 				<height>800</height>
 				<texture border="4">dialogs/info/info_rightpaneltop.png</texture>
 			</control>
-			<control type="group"> <description>info</description>
+			<!-- Info -->
+			<control type="group">
 				<animation effect="slide" start="0,0" end="14,0" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 				<left>40</left>
 				<top>150</top>
 				<width>1347</width>
 				<height>854</height>
-				<control type="grouplist"> <description>title, tagline</description>
+				<!-- Title / Tagline -->
+				<control type="grouplist">
 					<top>-20</top>
 					<width>1300</width>
 					<height>110</height>
@@ -81,8 +88,7 @@
 						<aligny>center</aligny>
 						<align>left</align>
 						<font>font14</font>
-						<textcolor>labelheader</textcolor>
-						<scroll>true</scroll>
+						<scroll>true</scroll>
 						<label>$INFO[ListItem.Tagline]</label>
 						<visible>!String.IsEmpty(ListItem.Tagline)</visible>
 					</control>
@@ -120,14 +126,16 @@
 						<visible>String.IsEqual(ListItem.DBType,musicvideo) + !String.IsEmpty(ListItem.Artist)</visible>
 					</control>
 				</control>
-				<control type="image"> <description>separater</description>
+				<!-- Seperator -->
+				<control type="image">
 					<left>-20</left>
 					<top>32</top>
 					<right>0</right>
 					<height>60</height>
 					<texture border="1">separator2.png</texture>
 				</control>
-				<control type="grouplist"> <description>year, studio, certification, runtime, rating</description>
+				<!-- Top Bar - Yesr, Studio, Cert, Rating, Runtime -->
+				<control type="grouplist"> 
 					<left>0</left>
 					<top>90</top>
 					<width>1364</width>
@@ -310,14 +318,16 @@
 						<visible>!String.IsEmpty(ListItem.Top250)</visible>
 					</control>
 				</control>
-				<control type="image"> <description>separater</description>
+				<!-- Seperator -->
+				<control type="image">
 					<left>-20</left>
 					<top>106</top>
 					<right>0</right>
 					<height>60</height>
 					<texture border="1">separator2.png</texture>
 				</control>
-				<control type="group"> <description>date added, last played, play count</description>
+				<!-- Date Added, Last Plaed, Play Count -->
+				<control type="group">
 					<left>1025</left>
 					<top>164</top>
 					<height>120</height>
@@ -382,7 +392,8 @@
 						</content>
 					</control>
 				</control>
-				<control type="grouplist" id="300"> <description>genre, director, writer, cast lists</description>
+				<!-- Genre, Director, Writer, Cast -->
+				<control type="grouplist" id="300">
 					<left>-36</left>
 					<top>164</top>
 					<right>0</right>
@@ -436,9 +447,11 @@
 						<onclick>SetFocus(50)</onclick>
 					</control>
 				</control>
-				<control type="group"> <description>play, my rating, choose art, trailer, etc</description>
-					<left>-37</left>
+				<!-- Main buttons bar -->
+				<control type="group">
+					<left>-36</left>
 					<top>0</top>
+					<!-- Separator where? -->
 					<control type="image">
 						<top>301</top>
 						<width>1367</width>
@@ -446,6 +459,7 @@
 						<texture border="1">separator2.png</texture>
 						<visible>!Integer.IsGreater(Container(300).NumItems,2)</visible>
 					</control>
+					<!-- Separator where? -->
 					<control type="image">
 						<left>0</left>
 						<top>255</top>
@@ -454,6 +468,33 @@
 						<texture border="1">separator2.png</texture>
 						<visible>!Integer.IsGreater(Container(300).NumItems,5)</visible>
 					</control>
+					<!-- Buttons label -->
+					<control type="group">
+						<left>36</left>
+						<top>326</top>
+						<height>45</height>
+						<control type="button">
+							<width>825</width>
+							<align>left</align>
+							<font>font14</font>
+							<disabledcolor>grey</disabledcolor>
+							<include>ButtonInfoDialogsCommonValues</include>
+							<label>$VAR[VideoInfoButtonLabelVar]</label>
+							<enable>no</enable>
+							<visible>!ControlGroup(9001).HasFocus | ControlGroup(9001).HasFocus(90017)</visible>
+						</control>
+						<control type="button">
+							<width>750</width>
+							<align>left</align>
+							<font>font14</font>
+							<disabledcolor>grey</disabledcolor>
+							<include>ButtonInfoDialogsCommonValues</include>
+							<label>$VAR[VideoInfoDetailsLabelVar]</label>
+							<enable>no</enable>
+							<visible>ControlGroup(9001).HasFocus + !Control(90017).HasFocus</visible>
+						</control>
+					</control>
+					<!-- Buttons -->
 					<control type="grouplist" id="9000">
 						<left>1</left>
 						<top>326</top>
@@ -463,95 +504,129 @@
 						<onright>9000</onright>
 						<onup>300</onup>
 						<ondown>9001</ondown>
+						<align>right</align>
 						<orientation>horizontal</orientation>
-						<control type="togglebutton" id="8">
-							<description>Play/browse to Show</description>
-							<include>ButtonInfoDialogsCommonValues</include>
-							<label>208</label>
-							<altlabel>1024</altlabel>
-							<usealttexture>String.IsEqual(ListItem.DBType,tvshow)</usealttexture>
-						</control>
-						<control type="image" id="200">
+						<!-- Separator -->
+						<control type="image" id="31100">
 							<width>2</width>
-							<height>58</height>
+							<height>45</height>
 							<texture border="1">separator3.png</texture>
 						</control>
-						<control type="togglebutton" id="7">
-							<description>Set rating</description>
+						<!-- Play -->
+						<control type="button" id="8">
+							<font>IconMediumMD</font>
+							<width>65</width>
 							<include>ButtonInfoDialogsCommonValues</include>
-							<label>38023</label>
-							<altlabel>$LOCALIZE[31147]</altlabel>
-							<usealttexture>!String.IsEmpty(ListItem.UserRating)</usealttexture>
+							<label></label>
 						</control>
-						<control type="image" id="201">
+						<!-- Separator -->
+						<control type="image" id="31101">
 							<width>2</width>
-							<height>58</height>
+							<height>45</height>
 							<texture border="1">separator3.png</texture>
 						</control>
+						<!-- Cast -->
+						<control type="button" id="910">
+							<font>IconMediumMD</font>
+							<width>65</width>
+							<include>ButtonInfoDialogsCommonValues</include>
+							<label></label>
+							<onclick>SetFocus(50)</onclick>
+							<visible>!String.IsEmpty(ListItem.Cast)</visible>
+						</control>
+						<!-- Separator -->
+						<control type="image" id="31102">
+							<width>2</width>
+							<height>45</height>
+							<texture border="1">separator3.png</texture>
+						</control>
+						<!-- Set rating -->
+						<control type="button" id="7">
+							<font>IconMediumMD</font>
+							<width>65</width>
+							<include>ButtonInfoDialogsCommonValues</include>
+							<label></label>
+						</control>
+						<!-- Separator -->
+						<control type="image" id="31103">
+							<width>2</width>
+							<height>45</height>
+							<texture border="1">separator3.png</texture>
+						</control>
+						<!-- Choose art -->
 						<control type="button" id="10">
-							<description>Get Thumb</description>
+							<font>IconMediumMD</font>
+							<width>65</width>
 							<include>ButtonInfoDialogsCommonValues</include>
-							<label>13511</label>
+							<label></label>
 							<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
 						</control>
-						<control type="image" id="202">
+						<!-- Separator -->
+						<control type="image" id="31104">
 							<width>2</width>
-							<height>58</height>
+							<height>45</height>
 							<texture border="1">separator3.png</texture>
 						</control>
+						<!-- Play trailer 1 -->
 						<control type="button" id="11">
-							<description>Play Trailer</description>
+							<font>IconMediumMD</font>
+							<width>65</width>
 							<include>ButtonInfoDialogsCommonValues</include>
-							<label>20410</label>
+							<label></label>
 							<enable>!String.IsEmpty(ListItem.Trailer)</enable>
 							<visible>String.IsEqual(ListItem.DBType,movie)</visible>
 						</control>
+						<!-- Play trailer 2 -->
 						<control type="button" id="203">
-							<description>Play Trailer</description>
+							<font>IconMediumMD</font>
+							<width>65</width>
 							<include>ButtonInfoDialogsCommonValues</include>
-							<label />
+							<label></label>
 							<onclick>noop</onclick>
 							<enable>no</enable>
 							<visible>!String.IsEqual(ListItem.DBType,movie)</visible>
 						</control>
-						<control type="image" id="208">
+						<!-- Separator -->
+						<control type="image" id="31105">
 							<width>2</width>
-							<height>58</height>
+							<height>45</height>
 							<texture border="1">separator3.png</texture>
 						</control>
+						<!-- Info -->
 						<control type="button" id="209">
-							<description>Info</description>
-							<font>IconMedium</font>
-							<width>80</width>
+							<font>IconMediumMD</font>
+							<width>65</width>
 							<include>ButtonInfoDialogsCommonValues</include>
-							<label>&#62229;</label>
+							<label></label>
 							<onclick>SetProperty(Extra.Info,True,movieinformation)</onclick>
 							<onclick>SetFocus(9002)</onclick>
 						</control>
-						<control type="image" id="205">
+						<!-- Separator -->
+						<control type="image" id="31106">
 							<width>2</width>
-							<height>58</height>
+							<height>45</height>
 							<texture border="1">separator3.png</texture>
 						</control>
+						<!-- Refresh -->
 						<control type="button" id="6">
-							<description>Refresh</description>
-							<font>IconMedium</font>
-							<width>80</width>
+							<font>IconMediumMD</font>
+							<width>65</width>
 							<include>ButtonInfoDialogsCommonValues</include>
-							<label></label>
+							<label></label>
 							<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
 						</control>
-						<control type="image" id="206">
+						<!-- Separator -->
+						<control type="image" id="31107">
 							<width>2</width>
-							<height>58</height>
+							<height>45</height>
 							<texture border="1">separator3.png</texture>
 						</control>
+						<!-- Extras -->
 						<control type="button" id="207">
-							<description>Extras</description>
-							<font>IconMedium</font>
-							<width>80</width>
+							<font>IconMediumMD</font>
+							<width>65</width>
 							<include>ButtonInfoDialogsCommonValues</include>
-							<label>+</label>
+							<label></label>
 							<onclick>SetProperty(Info.DBID,$INFO[ListItem.DBID],movieinformation)</onclick>
 							<onclick>SetProperty(Info.FileNameAndPath,$INFO[ListItem.FileNameAndPath],movieinformation)</onclick>
 							<onclick>SetProperty(Info.Path,$INFO[ListItem.Path],movieinformation)</onclick>
@@ -564,13 +639,16 @@
 						</control>
 					</control>
 				</control>
+				<!-- Plot area for 2.40 setting-->
 				<include content="VariableHeightPlot" condition="!Skin.HasSetting(scopeFormat235)">
 					<param name="height" value="353" />
 				</include>
+				<!-- Plot area for 2.35 setting-->
 				<include content="VariableHeightPlot" condition="Skin.HasSetting(scopeFormat235)">
 					<param name="height" value="373" />>
 				</include>
-				<control type="group"> <description>media info icons</description>
+				<!-- Bottom bar - media info icons -->
+				<control type="group">
 					<left>0</left>
 					<top>725</top>
 					<control type="image">
@@ -732,17 +810,6 @@
 							<texture>flags/cc.png</texture>
 							<visible>!String.IsEmpty(ListItem.SubtitleLanguage)</visible>
 						</control>
-						<control type="image">
-							<width>2</width>
-							<height>60</height>
-							<texture border="1">separator3.png</texture>
-						</control>
-						<control type="textbox">
-							<height>60</height>
-							<width>550</width>
-							<aligny>center</aligny>
-							<label>$VAR[VideoInfoDetailsLabelVar]</label>
-						</control>
 					</control>
 					<control type="image">
 						<animation effect="slide" start="0,0" end="0,20" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
@@ -752,10 +819,12 @@
 						<texture border="1">separator2.png</texture>
 					</control>
 				</control>
-				<control type="scrollbar" id="70"> <description>unknown</description>
+				<!-- Unknown -->
+				<control type="scrollbar" id="70">
 					<include>HiddenObject</include>
 				</control>
-				<control type="group" id="71"> <description>unknown</description>
+				<!-- Unknown -->
+				<control type="group" id="71">
 					<top>975</top>
 					<visible>ControlGroup(9001).HasFocus</visible>
 					<include>SettingsFadeAnimation</include>
@@ -791,7 +860,8 @@
 				</control>
 			</control>
 		</control>
-		<control type="group"> <description>media info popup</description>
+		<!-- Infopanel popup -->
+		<control type="group">
 			<width>1122</width>
 			<height>720</height>
 			<centerleft>50%</centerleft>
