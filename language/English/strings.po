@@ -1159,3 +1159,11 @@ msgstr ""
 msgctxt "#31974"
 msgid "Single image from skin folder"
 msgstr ""
+
+msgctxt "#31975"
+msgid "Disable Classic Separators"
+msgstr ""
+
+msgctxt "#31976"
+msgid "This will disable the classic Aeon Nox field separators on the movie deails page and replace them a with new style inspired by Aeon Nox Silvo.  The classic style may be removed at a later date."
+msgstr ""

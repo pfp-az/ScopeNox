@@ -223,6 +223,7 @@
 						<texturenofocus border="1">separator5.png</texturenofocus>
 					</control>
 				</control>
+				<!-- General -->
 				<control type="grouplist" id="9002">
 					<description>control area</description>
 					<left>522</left>
@@ -306,6 +307,16 @@
 						<label>31125</label>
 						<onclick>Skin.ToggleSetting(Disable.ShowBackgroundVis)</onclick>
 						<selected>!Skin.HasSetting(Disable.ShowBackgroundVis)</selected>
+						<texturenofocus border="1">separator5.png</texturenofocus>
+					</control>
+					<control type="radiobutton" id="205">
+						<width>1316</width>
+						<height>60</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>Disable Classic Separators</label>
+						<onclick>Skin.ToggleSetting(DisableClassicSeparators)</onclick>
+						<selected>Skin.HasSetting(DisableClassicSeparators)</selected>
 						<texturenofocus border="1">separator5.png</texturenofocus>
 					</control>
 				</control>
