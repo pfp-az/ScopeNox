@@ -73,28 +73,40 @@
 						<animation effect="fade" start="100" end="70" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(9000)">Conditional</animation>
 					</control>
 				</focusedlayout>
+				<!-- Groups -->
 				<content>
+					<!-- Home Window -->
 					<item id="1">
 						<label>513</label>
 						<onclick>noop</onclick>
 						<icon />
 					</item>
+					<!-- Genral -->
 					<item id="2">
 						<label>16000</label>
 						<onclick>noop</onclick>
 						<icon />
 					</item>
+					<!-- Extras -->
 					<item id="3">
 						<label>31014</label>
 						<onclick>noop</onclick>
 						<icon />
 					</item>
+					<!-- Advanced -->
 					<item id="4">
 						<label>10038</label>
 						<onclick>noop</onclick>
 						<icon />
 					</item>
+					<!-- Media Info -->
 					<item id="5">
+						<label>Media Info</label>
+						<onclick>noop</onclick>
+						<icon />
+					</item>
+					<!-- Scope Settings -->
+					<item id="6">
 						<label>Scope Settings</label>
 						<onclick>noop</onclick>
 						<icon />
@@ -136,6 +148,7 @@
 			<control type="group" id="9010">
 				<visible>!Window.IsActive(1121)</visible>
 				<include>SettingsFadeAnimation</include>
+				<!-- Home Window -->
 				<control type="grouplist" id="9001">
 					<description>control area</description>
 					<left>522</left>
@@ -257,7 +270,7 @@
 						<selected>!Skin.HasSetting(Disable.Netflix.Pause)</selected>
 						<texturenofocus border="1">separator5.png</texturenofocus>
 					</control>
-					<control type="button" id="110">
+					<control type="button" id="206">
 						<width>1316</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
@@ -320,6 +333,7 @@
 						<texturenofocus border="1">separator5.png</texturenofocus>
 					</control>
 				</control>
+				<!-- Extras -->
 				<control type="grouplist" id="9003">
 					<description>control area</description>
 					<left>522</left>
@@ -419,6 +433,7 @@
 						<visible>!String.IsEmpty(Skin.String(MusicGenreFanartPath))</visible>
 					</control>
 				</control>
+				<!-- Advanced -->
 				<control type="grouplist" id="9004">
 					<description>control area</description>
 					<left>522</left>
@@ -492,8 +507,7 @@
 						<texturenofocus border="1">separator5.png</texturenofocus>
 					</control>
 				</control>
-				
-				
+				<!-- Media Info -->
 				<control type="grouplist" id="9005">
 					<description>control area</description>
 					<left>522</left>
@@ -504,10 +518,55 @@
 					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
 					<onright>60</onright>
-					<onup>9002</onup>
-					<ondown>9002</ondown>
+					<onup>9005</onup>
+					<ondown>9005</ondown>
 					<visible>Container(9000).HasFocus(5)</visible>
-					<control type="button" id="107">
+					<control type="radiobutton" id="501">
+						<width>1316</width>
+						<height>60</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31977</label>
+						<onclick>Skin.ToggleSetting(Disable.AspectRatioFromFileNameandPath)</onclick>
+						<selected>Skin.HasSetting(Disable.AspectRatioFromFileNameandPath)</selected>
+						<texturenofocus border="1">separator5.png</texturenofocus>
+					</control>
+					<control type="radiobutton" id="502">
+						<width>1316</width>
+						<height>60</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31979</label>
+						<onclick>Skin.ToggleSetting(Disable.AudioCodecFromFileNameandPath)</onclick>
+						<selected>Skin.HasSetting(Disable.AudioCodecFromFileNameandPath)</selected>
+						<texturenofocus border="1">separator5.png</texturenofocus>
+					</control>
+					<control type="radiobutton" id="503">
+						<width>1316</width>
+						<height>60</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>31981</label>
+						<onclick>Skin.ToggleSetting(Disable.AudioChannelsFromFileNameandPath)</onclick>
+						<selected>Skin.HasSetting(Disable.AudioChannelsFromFileNameandPath)</selected>
+						<texturenofocus border="1">separator5.png</texturenofocus>
+					</control>
+				</control>
+				<!-- Scope Settings -->
+				<control type="grouplist" id="9006">
+					<description>control area</description>
+					<left>522</left>
+					<top>80</top>
+					<width>1316</width>
+					<height>590</height>
+					<itemgap>0</itemgap>
+					<pagecontrol>60</pagecontrol>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>9006</onup>
+					<ondown>9006</ondown>
+					<visible>Container(9000).HasFocus(6)</visible>
+					<control type="button" id="601">
 						<width>1316</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
@@ -517,7 +576,7 @@
 						<onclick>Skin.ToggleSetting(scopeFormat235)</onclick>
 						<texturenofocus border="1">separator5.png</texturenofocus>
 					</control>
-					<control type="button" id="108">
+					<control type="button" id="602">
 						<width>1316</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
@@ -527,7 +586,7 @@
 						<onclick>Skin.ToggleSetting(rememberScopeMaskSetting)</onclick>
 						<texturenofocus border="1">separator5.png</texturenofocus>
 					</control>
-					<control type="radiobutton" id="109">
+					<control type="radiobutton" id="603">
 						<width>1316</width>
 						<height>60</height>
 						<textoffsetx>30</textoffsetx>
@@ -539,7 +598,6 @@
 						<texturenofocus border="1">separator5.png</texturenofocus>
 					</control>
 				</control>
-				
 			</control>
 		</control>
 	</controls>

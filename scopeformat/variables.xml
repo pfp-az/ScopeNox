@@ -397,10 +397,10 @@
 		<value condition="Control.HasFocus(104)">$LOCALIZE[31929]</value>
 		<value condition="Control.HasFocus(105)">$LOCALIZE[31160]</value>
 		<value condition="Control.HasFocus(106)">$LOCALIZE[31937]</value>
-		<value condition="Control.HasFocus(107)">$LOCALIZE[31967]</value>
-		<value condition="Control.HasFocus(108)">$LOCALIZE[31971]</value>
+		<value condition="Control.HasFocus(601)">$LOCALIZE[31967]</value>
+		<value condition="Control.HasFocus(602)">$LOCALIZE[31971]</value>
 		<value condition="Control.HasFocus(109)">$LOCALIZE[31968]</value>
-		<value condition="Control.HasFocus(110)">$LOCALIZE[31973]</value>
+		<value condition="Control.HasFocus(206)">$LOCALIZE[31973]</value>
 		<value condition="Control.HasFocus(200)">$LOCALIZE[31917]</value>
 		<value condition="Control.HasFocus(201)">$LOCALIZE[31918]</value>
 		<value condition="Control.HasFocus(202)">$LOCALIZE[31919]</value>
@@ -418,6 +418,9 @@
 		<value condition="Control.HasFocus(404)">$LOCALIZE[31944]</value>
 		<value condition="Control.HasFocus(405)">$LOCALIZE[31945]</value>
 		<value condition="Control.HasFocus(406)">$LOCALIZE[31962]</value>
+		<value condition="Control.HasFocus(501)">$LOCALIZE[31978]</value>
+		<value condition="Control.HasFocus(502)">$LOCALIZE[31980]</value>
+		<value condition="Control.HasFocus(503)">$LOCALIZE[31982]</value>
 		<value condition="Control.HasFocus(90000) + String.IsEmpty(Container(90000).ListItem.Property(Path))">$LOCALIZE[31923]</value>
 		<value condition="Control.HasFocus(90012)">$LOCALIZE[31925]</value>
 		<value condition="Control.HasFocus(90013) | Control.HasFocus(90021)">$LOCALIZE[31926]</value>
@@ -775,50 +778,50 @@
 	</variable>	
 	
 	<variable name="AspectRatio">
-        <value condition="String.Contains(ListItem.FileNameAndPath,1.33) | String.Contains(ListItem.FileNameAndPath,4-3)">1.33</value>
-		<value condition="String.Contains(ListItem.FileNameAndPath,1.37) | String.Contains(ListItem.FileNameAndPath,4-3)">1.37</value>
-		<value condition="String.Contains(ListItem.FileNameAndPath,1.66) | String.Contains(ListItem.FileNameAndPath,15-9)">1.66</value>
-		<value condition="String.Contains(ListItem.FileNameAndPath,1.78) | String.Contains(ListItem.FileNameAndPath,16-9)">1.78</value>
-		<value condition="String.Contains(ListItem.FileNameAndPath,1.85) | String.Contains(ListItem.FileNameAndPath,16-9)">1.85</value>
-		<value condition="String.Contains(ListItem.FileNameAndPath,2.20) | String.Contains(ListItem.FileNameAndPath,22-10)">2.20</value>
-		<value condition="String.Contains(ListItem.FileNameAndPath,2.35) | String.Contains(ListItem.FileNameAndPath,21-9)">2.35</value>
-		<value condition="String.Contains(ListItem.FileNameAndPath,2.40) | String.Contains(ListItem.FileNameAndPath,21-9)">2.40</value>
-		<value condition="String.Contains(ListItem.FileNameAndPath,2.55) | String.Contains(ListItem.FileNameAndPath,23-9)">2.55</value>
-		<value condition="String.Contains(ListItem.FileNameAndPath,2.76) | String.Contains(ListItem.FileNameAndPath,11-4)">2.76</value>
+        <value condition="!Skin.HasSetting(Disable.AspectRatioFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,1.33) | String.Contains(ListItem.FileNameAndPath,4-3)">1.33</value>
+		<value condition="!Skin.HasSetting(Disable.AspectRatioFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,1.37) | String.Contains(ListItem.FileNameAndPath,4-3)">1.37</value>
+		<value condition="!Skin.HasSetting(Disable.AspectRatioFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,1.66) | String.Contains(ListItem.FileNameAndPath,15-9)">1.66</value>
+		<value condition="!Skin.HasSetting(Disable.AspectRatioFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,1.78) | String.Contains(ListItem.FileNameAndPath,16-9)">1.78</value>
+		<value condition="!Skin.HasSetting(Disable.AspectRatioFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,1.85) | String.Contains(ListItem.FileNameAndPath,16-9)">1.85</value>
+		<value condition="!Skin.HasSetting(Disable.AspectRatioFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,2.20) | String.Contains(ListItem.FileNameAndPath,22-10)">2.20</value>
+		<value condition="!Skin.HasSetting(Disable.AspectRatioFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,2.35) | String.Contains(ListItem.FileNameAndPath,21-9)">2.35</value>
+		<value condition="!Skin.HasSetting(Disable.AspectRatioFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,2.40) | String.Contains(ListItem.FileNameAndPath,21-9)">2.40</value>
+		<value condition="!Skin.HasSetting(Disable.AspectRatioFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,2.55) | String.Contains(ListItem.FileNameAndPath,23-9)">2.55</value>
+		<value condition="!Skin.HasSetting(Disable.AspectRatioFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,2.76) | String.Contains(ListItem.FileNameAndPath,11-4)">2.76</value>
 		<value>$INFO[ListItem.VideoAspect]</value>
 	</variable>
 	
 	<variable name="AudioCodecCustom">
-		<value condition="String.Contains(ListItem.FileNameAndPath,Atmos) | String.Contains(ListItem.AudioCodec,atmos)">datmos</value>
-		<value condition="String.Contains(ListItem.FileNameAndPath,DTSX) | String.Contains(ListItem.AudioCodec,dtsx)">dtsx</value>
-		<value condition="String.Contains(ListItem.FileNameAndPath,DTS-X) | String.Contains(ListItem.AudioCodec,DTS-X)">dtsx</value>
+		<value condition="!Skin.HasSetting(Disable.AudioCodecFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,Atmos) | String.Contains(ListItem.AudioCodec,atmos)">datmos</value>
+		<value condition="!Skin.HasSetting(Disable.AudioCodecFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,DTSX) | String.Contains(ListItem.AudioCodec,dtsx)">dtsx</value>
+		<value condition="!Skin.HasSetting(Disable.AudioCodecFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,DTS-X) | String.Contains(ListItem.AudioCodec,DTS-X)">dtsx</value>
 		<value condition="String.Contains(ListItem.AudioCodec,X)">dtsx</value>
 		<value>$INFO[ListItem.AudioCodec]</value>
 	</variable>
 	
 	<variable name="AudioChannelCustom">
-        <value condition="String.Contains(ListItem.FileNameAndPath,1.0)">1</value>
-		<value condition="String.Contains(ListItem.FileNameAndPath,2.0)">2</value>
-		<value condition="String.Contains(ListItem.FileNameAndPath,2.1)">3</value>
-		<value condition="String.Contains(ListItem.FileNameAndPath,4.0)">4</value>
-		<value condition="String.Contains(ListItem.FileNameAndPath,4.1)">5</value>
-		<value condition="String.Contains(ListItem.FileNameAndPath,5.1)">6</value>
-		<value condition="String.Contains(ListItem.FileNameAndPath,6.1)">7</value>
-		<value condition="String.Contains(ListItem.FileNameAndPath,7.1)">8</value>
+        <value condition="!Skin.HasSetting(Disable.AudioChannelsFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,1.0)">1</value>
+		<value condition="!Skin.HasSetting(Disable.AudioChannelsFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,2.0)">2</value>
+		<value condition="!Skin.HasSetting(Disable.AudioChannelsFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,2.1)">3</value>
+		<value condition="!Skin.HasSetting(Disable.AudioChannelsFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,4.0)">4</value>
+		<value condition="!Skin.HasSetting(Disable.AudioChannelsFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,4.1)">5</value>
+		<value condition="!Skin.HasSetting(Disable.AudioChannelsFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,5.1)">6</value>
+		<value condition="!Skin.HasSetting(Disable.AudioChannelsFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,6.1)">7</value>
+		<value condition="!Skin.HasSetting(Disable.AudioChannelsFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,7.1)">8</value>
 		<value>$INFO[ListItem.AudioChannels]</value>
 	</variable>
 	
 	<variable name="VideoPlayerAspectRatio">
-        <value condition="String.Contains(Player.Filenameandpath,1.33) | String.Contains(Player.Filenameandpath,4-3)">1.33</value>
-		<value condition="String.Contains(Player.Filenameandpath,1.37) | String.Contains(Player.Filenameandpath,4-3)">1.37</value>
-		<value condition="String.Contains(Player.Filenameandpath,1.66) | String.Contains(Player.Filenameandpath,15-9)">1.66</value>
-		<value condition="String.Contains(Player.Filenameandpath,1.78) | String.Contains(Player.Filenameandpath,16-9)">1.78</value>
-		<value condition="String.Contains(Player.Filenameandpath,1.85) | String.Contains(Player.Filenameandpath,16-9)">1.85</value>
-		<value condition="String.Contains(Player.Filenameandpath,2.20) | String.Contains(Player.Filenameandpath,22-10)">2.20</value>
-		<value condition="String.Contains(Player.Filenameandpath,2.35) | String.Contains(Player.Filenameandpath,21-9)">2.35</value>
-		<value condition="String.Contains(Player.Filenameandpath,2.40) | String.Contains(Player.Filenameandpath,21-9)">2.40</value>
-		<value condition="String.Contains(Player.Filenameandpath,2.55) | String.Contains(Player.Filenameandpath,23-9)">2.55</value>
-		<value condition="String.Contains(Player.Filenameandpath,2.76) | String.Contains(Player.Filenameandpath,11-4)">2.76</value>
+        <value condition="!Skin.HasSetting(Disable.AspectRatioFromFileNameandPath) + String.Contains(Player.Filenameandpath,1.33) | String.Contains(Player.Filenameandpath,4-3)">1.33</value>
+		<value condition="!Skin.HasSetting(Disable.AspectRatioFromFileNameandPath) + String.Contains(Player.Filenameandpath,1.37) | String.Contains(Player.Filenameandpath,4-3)">1.37</value>
+		<value condition="!Skin.HasSetting(Disable.AspectRatioFromFileNameandPath) + String.Contains(Player.Filenameandpath,1.66) | String.Contains(Player.Filenameandpath,15-9)">1.66</value>
+		<value condition="!Skin.HasSetting(Disable.AspectRatioFromFileNameandPath) + String.Contains(Player.Filenameandpath,1.78) | String.Contains(Player.Filenameandpath,16-9)">1.78</value>
+		<value condition="!Skin.HasSetting(Disable.AspectRatioFromFileNameandPath) + String.Contains(Player.Filenameandpath,1.85) | String.Contains(Player.Filenameandpath,16-9)">1.85</value>
+		<value condition="!Skin.HasSetting(Disable.AspectRatioFromFileNameandPath) + String.Contains(Player.Filenameandpath,2.20) | String.Contains(Player.Filenameandpath,22-10)">2.20</value>
+		<value condition="!Skin.HasSetting(Disable.AspectRatioFromFileNameandPath) + String.Contains(Player.Filenameandpath,2.35) | String.Contains(Player.Filenameandpath,21-9)">2.35</value>
+		<value condition="!Skin.HasSetting(Disable.AspectRatioFromFileNameandPath) + String.Contains(Player.Filenameandpath,2.40) | String.Contains(Player.Filenameandpath,21-9)">2.40</value>
+		<value condition="!Skin.HasSetting(Disable.AspectRatioFromFileNameandPath) + String.Contains(Player.Filenameandpath,2.55) | String.Contains(Player.Filenameandpath,23-9)">2.55</value>
+		<value condition="!Skin.HasSetting(Disable.AspectRatioFromFileNameandPath) + String.Contains(Player.Filenameandpath,2.76) | String.Contains(Player.Filenameandpath,11-4)">2.76</value>
 		<value>$INFO[VideoPlayer.VideoAspect]</value>
 	</variable>
 </includes>
