@@ -1170,7 +1170,7 @@
 						<left>402</left>
 						<colordiffuse>grey2</colordiffuse>
 						<include>MediaFlagVars</include>
-						<texture>flags/video/$VAR[MediaFlagsPath]/$VAR[SourceFlagVar].png</texture
+						<texture>flags/video/$VAR[MediaFlagsPath]/$VAR[SourceFlagVar].png</texture>
 						<visible>!String.IsEmpty(ListItem.VideoCodec)</visible>
 					</control>
 				</control>
