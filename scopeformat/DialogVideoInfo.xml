@@ -776,7 +776,7 @@
 							<width>100</width>
 							<colordiffuse>grey</colordiffuse>
 							<include>MediaFlagVars</include>
-							<texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+							<texture>flags/resolution/$VAR[MediaFlagsPath]/$INFO[ListItem.VideoResolution].png</texture>
 						</control>
 						<!-- Separator - Classic -->
 						<control type="image">
@@ -824,7 +824,7 @@
 							<width>100</width>
 							<colordiffuse>grey</colordiffuse>
 							<include>MediaFlagVars</include>
-							<texture>flags/audio/$VAR[AudioCodecCustom].png</texture>
+							<texture>flags/audio/$VAR[MediaFlagsPath]/$VAR[AudioCodecCustom].png</texture>
 						</control>
 						<!-- Separator - Classic -->
 						<control type="image">
@@ -872,7 +872,7 @@
 							<width>100</width>
 							<colordiffuse>grey</colordiffuse>
 							<include>MediaFlagVars</include>
-							<texture>flags/channels/$VAR[AudioChannelCustom].png</texture>
+							<texture>flags/channels/$VAR[MediaFlagsPath]/$VAR[AudioChannelCustom].png</texture>
 						</control>
 						<!-- Separator - Classic -->
 						<control type="image">
@@ -918,7 +918,7 @@
 							<width>100</width>
 							<colordiffuse>grey</colordiffuse>
 							<include>MediaFlagVars</include>
-							<texture>$VAR[SourceFlagVar,flags/video/,.png]</texture>
+							<texture>flags/video/$VAR[MediaFlagsPath]/$VAR[SourceFlagVar].png</texture>
 						</control>
 						<!-- Separator - Classic -->
 						<control type="image">
@@ -932,7 +932,7 @@
 							<width>100</width>
 							<colordiffuse>grey</colordiffuse>
 							<include>MediaFlagVars</include>
-							<texture>flags/aspectratio/$VAR[AspectRatio].png</texture>
+							<texture>flags/aspectratio/$VAR[MediaFlagsPath]/$VAR[AspectRatio].png</texture>
 						</control>
 						<!-- Separator - Classic -->
 						<control type="image">

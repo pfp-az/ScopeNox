@@ -199,35 +199,35 @@
 						<width>90</width>
 						<colordiffuse>grey</colordiffuse>
 						<include>MediaFlagVars</include>
-						<texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+						<texture>flags/resolution/$VAR[MediaFlagsPath]/$INFO[ListItem.VideoResolution].png</texture>
 						<visible>!IsEmpty(ListItem.VideoResolution)</visible>
 					</control>
 					<control type="image">
 						<width>90</width>
 						<colordiffuse>grey</colordiffuse>
 						<include>MediaFlagVars</include>
-						<texture>flags/audio/$VAR[AudioCodecCustom].png</texture>
+						<texture>flags/audio/$VAR[MediaFlagsPath]/$VAR[AudioCodecCustom].png</texture>
 						<visible>!IsEmpty(Control.GetLabel(9904))</visible>
 					</control>
 					<control type="image">
 						<width>90</width>
 						<colordiffuse>grey</colordiffuse>
 						<include>MediaFlagVars</include>
-						<texture>flags/channels/$VAR[AudioChannelCustom].png</texture>
+						<texture>flags/channels/$VAR[MediaFlagsPath]/$VAR[AudioChannelCustom].png</texture>
 						<visible>!IsEmpty(Control.GetLabel(9902))</visible>
 					</control>
 					<control type="image">
 						<width>90</width>
 						<colordiffuse>grey</colordiffuse>
 						<include>MediaFlagVars</include>
-						<texture>$VAR[SourceFlagVar,flags/video/,.png]</texture>
+						<texture>flags/video/$VAR[MediaFlagsPath]/$VAR[SourceFlagVar].png</texture>
 						<visible>!IsEmpty(Control.GetLabel(9903))</visible>
 					</control>
 					<control type="image">
 						<width>90</width>
 						<colordiffuse>grey</colordiffuse>
 						<include>MediaFlagVars</include>
-						<texture>flags/aspectratio/$VAR[AspectRatio].png</texture>
+						<texture>flags/aspectratio/$VAR[MediaFlagsPath]/$VAR[AspectRatio].png</texture>
 						<visible>!IsEmpty(Control.GetLabel(9901))</visible>
 					</control>
 					<control type="image">

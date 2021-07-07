@@ -64,32 +64,32 @@
 					<width>320</width>
 					<colordiffuse>grey2</colordiffuse>
 					<include>MediaFlagVars</include>
-					<texture>$INFO[VideoPlayer.VideoResolution,flags/resolution/,.png]</texture>
+					<texture>flags/resolution/$VAR[MediaFlagsPath]/$INFO[ListItem.VideoResolution].png</texture>
 				</control>
 				<control type="image">
 					<width>320</width>
 					<colordiffuse>grey2</colordiffuse>
 					<include>MediaFlagVars</include>
-					<texture>$INFO[VideoPlayer.AudioCodec,flags/audio/,.png]</texture>
+					<texture>flags/audio/$VAR[MediaFlagsPath]/$VAR[AudioCodecCustom].png</texture>
 				</control>
 				<control type="image">
 					<width>320</width>
 					<colordiffuse>grey2</colordiffuse>
 					<include>MediaFlagVars</include>
-					<texture>$INFO[VideoPlayer.AudioChannels,flags/channels/,.png]</texture>
+					<texture>flags/channels/$VAR[MediaFlagsPath]/$VAR[AudioChannelCustom].png</texture>
 					<visible>VideoPlayer.Content(livetv)</visible>
 				</control>
 				<control type="image">
 					<width>320</width>
 					<colordiffuse>grey2</colordiffuse>
 					<include>MediaFlagVars</include>
-					<texture>$VAR[VideoSourceFlagVar,flags/video/,.png]</texture>
+					<texture>flags/video/$VAR[MediaFlagsPath]/$VAR[SourceFlagVar].png</texture>
 				</control>
 				<control type="image">
 					<width>320</width>
 					<colordiffuse>grey2</colordiffuse>
 					<include>MediaFlagVars</include>
-					<texture>flags/aspectratio/$VAR[VideoPlayerAspectRatio].png</texture>
+					<texture>flags/aspectratio/$VAR[MediaFlagsPath]/$VAR[AspectRatio].png</texture>
 				</control>
 			</control>
 		</control>
@@ -278,25 +278,25 @@
 					<width>260</width>
 					<colordiffuse>grey2</colordiffuse>
 					<include>MediaFlagVars</include>
-					<texture>$INFO[VideoPlayer.VideoResolution,flags/resolution/,.png]</texture>
+					<texture>flags/resolution/$VAR[MediaFlagsPath]/$INFO[ListItem.VideoResolution].png</texture>
 				</control>
 				<control type="image">
 					<width>260</width>
 					<colordiffuse>grey2</colordiffuse>
 					<include>MediaFlagVars</include>
-					<texture>$INFO[VideoPlayer.AudioCodec,flags/audio/,.png]</texture>
+					<texture>flags/audio/$VAR[MediaFlagsPath]/$VAR[AudioCodecCustom].png</texture>
 				</control>
 				<control type="image">
 					<width>260</width>
 					<colordiffuse>grey2</colordiffuse>
 					<include>MediaFlagVars</include>
-					<texture>$VAR[VideoSourceFlagVar,flags/video/,.png]</texture>
+					<texture>flags/video/$VAR[MediaFlagsPath]/$VAR[SourceFlagVar].png</texture>
 				</control>
 				<control type="image">
 					<width>260</width>
 					<colordiffuse>grey2</colordiffuse>
 					<include>MediaFlagVars</include>
-					<texture>flags/aspectratio/$VAR[VideoPlayerAspectRatio].png</texture>
+					<texture>flags/aspectratio/$VAR[MediaFlagsPath]/$VAR[AspectRatio].png</texture>
 				</control>
 			</control>
 		<control type="textbox" id="170">
