@@ -167,7 +167,7 @@
 	</variable>
 	<variable name="DurationVar">
 		<value condition="Container.Content(tvshows) + !String.IsEmpty(Window(Home).Property(NextAired.Runtime))">$INFO[Window(Home).Property(NextAired.Runtime)]</value>
-		<value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration]</value>
+		<value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(h)]h $INFO[ListItem.Duration(mm)]m</value>
 		<value>?</value>
 	</variable>
 	<variable name="OneOrMoreSeasonsVar">
@@ -618,7 +618,7 @@
 		<value condition="Container.Content(tvshows) + Skin.HasSetting(Disable.NextAired)">$INFO[ListItem.Studio]</value>
 		<value condition="Container.Content(tvshows) + !String.IsEmpty(Window(Home).Property(NextAired.NextDate))">[COLOR labelheader]$LOCALIZE[31010]: [/COLOR]$INFO[Window(Home).Property(NextAired.NextDate)]</value>
 		<value condition="Container.Content(tvshows) + !String.IsEmpty(Window(Home).Property(NextAired.LatestDate))">$INFO[Window(Home).Property(NextAired.Status),[COLOR labelheader],[/COLOR]]</value>
-		<value>$INFO[ListItem.RatingAndVotes,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31162]]</value>
+		<value>$INFO[ListItem.RatingAndVotes] • $VAR[DurationVar]</value>
 	</variable>
 	<variable name="WidgetListTargetVar">
 		<value condition="String.IsEqual(Container(9000).ListItem.Property(WidgetType),1)">videos</value>
