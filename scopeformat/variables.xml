@@ -797,7 +797,7 @@
 	</variable>
 	
 	<variable name="AudioCodecCustom">
-		<value condition="!Skin.HasSetting(Disable.AudioCodecFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,Atmos) | String.Contains(ListItem.AudioCodec,atmos)">datmos</value>
+		<value condition="!Skin.HasSetting(Disable.AudioCodecFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,Atmos) | String.Contains(ListItem.AudioCodec,atmos)">atmos</value>
 		<value condition="!Skin.HasSetting(Disable.AudioCodecFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,DTSX) | String.Contains(ListItem.AudioCodec,dtsx)">dtsx</value>
 		<value condition="!Skin.HasSetting(Disable.AudioCodecFromFileNameandPath) + String.Contains(ListItem.FileNameAndPath,DTS-X) | String.Contains(ListItem.AudioCodec,DTS-X)">dtsx</value>
 		<value condition="String.Contains(ListItem.AudioCodec,X)">dtsx</value>
