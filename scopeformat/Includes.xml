@@ -669,7 +669,13 @@
 		</control>
 	</include>
 
+	<!-- The layout of the posters -->
 	<include name="ExtendedInfoPostersLayout">
+		<param name="height" />
+		<param name="width" />
+		<param name="label" />
+		<param name="label2" />
+		<param name="focused" />
 		<definition>
 			<!-- Image and placeholder for non movies (cast) -->
 			<control type="image"> 
@@ -760,16 +766,30 @@
 		</definition>
 	</include>
 
+	<!-- The content for the posters -->
 	<include name="ExtendedInfoListContent">
+		<param name="sortby" />
+		<param name="sortorder" />
+		<param name="content" />
 		<param name="target">videos</param>
 		<definition>
-			<content target="$PARAM[target]">$PARAM[content]</content>
+			<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[target]">$PARAM[content]</content>
 		</definition>
 	</include>
 
+	<!-- The list of different types of posters -->
 	<include name="ExtendedInfoListLayout">
+		<param name="controlId" />
 		<param name="label">$INFO[ListItem.Label]</param>
+		<param name="label2" />
+		<param name="listVisible" />
 		<param name="includeContent">false</param>
+		<param name="content" />
+		<param name="sortby" />
+		<param name="sortorder" />
+		<param name="totalheight" />
+		<param name="posterheight" />
+		<param name="posterwidth" />
 		<definition>
 			<control type="panel" id="$PARAM[controlId]">
 				<visible>$PARAM[listVisible]</visible>
@@ -815,7 +835,8 @@
 				</focusedlayout>
 				<!-- Content -->
 				<include content="ExtendedInfoListContent" condition="$PARAM[includeContent]">
-					<param name="target">$PARAM[target]</param>
+					<param name="sortby">$PARAM[sortby]</param>
+					<param name="sortorder">$PARAM[sortorder]</param>
 					<param name="content">$PARAM[content]</param>
 				</include>
 			</control>
@@ -824,6 +845,10 @@
 
 	<!-- Plot / ExtendedInfo area for video.  As an include the height can change depending on scope aspect ratio -->	
 	<include name="VariableHeightPlot"> 
+		<param name="totalheight" />
+		<param name="plotheight" />
+		<param name="posterheight" />
+		<param name="posterwidth" />
 		<definition>
 			<!-- Setup area -->	
 			<control type="grouplist" id="9001"> 
@@ -1009,6 +1034,8 @@
 					<param name="listVisible" value="!String.IsEmpty(ListItem.SetID)" />
 					<param name="includeContent" value="true" />
 					<param name="content" value="videodb://movies/sets/$INFO[ListItem.SetID]" />
+					<param name="sortby">year</param>
+					<param name="sortorder">ascending</param>
 					<param name="totalheight" value="$PARAM[totalheight]" />
 					<param name="posterheight" value="$PARAM[posterheight]" />
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
@@ -1097,20 +1124,36 @@
 			</control>
 		</definition>
 	</include>
+
 	<!-- Height based on condition -->
 	<include name="ConditionalHeight">
-		<height>$PARAM[height]</height>
+		<param name="height" />
+		<definition>
+			<height>$PARAM[height]</height>
+		</definition>
 	</include>
+
 	<!-- Width based on condition -->
 	<include name="ConditionalWidth">
-		<width>$PARAM[width]</width>
+		<param name="width" />
+		<definition>
+			<width>$PARAM[width]</width>
+		</definition>
 	</include>
+
 	<!-- TextureNoFocus based on condition -->
 	<include name="ConditionalTextureNoFocus">
-		<texturenofocus>$PARAM[texturenofocus]</texturenofocus>
+		<param name="texturenofocus" />
+		<definition>
+			<texturenofocus>$PARAM[texturenofocus]</texturenofocus>
+		</definition>
 	</include>
+
 	<!-- Texture based on condition -->
 	<include name="ConditionalTextureBackground">
-		<texture background="true">$PARAM[texture]</texture>
+		<param name="texture" />
+		<definition>
+			<texture background="true">$PARAM[texture]</texture>
+		</definition>
 	</include>
 </includes>
