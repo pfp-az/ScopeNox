@@ -360,6 +360,7 @@
 				<control type="grouplist" id="300">
 					<top>166</top>
 					<left>-36</left>
+					<font>font_28</font>
 					<onup>4002</onup>
 					<ondown>9000</ondown>
 					<orientation>vertical</orientation>
@@ -436,11 +437,22 @@
 						<label>$INFO[Container(50).ListItemAbsolute(0).Label,[COLOR labelheader]$LOCALIZE[206]:   [/COLOR]]$INFO[Container(50).ListItemAbsolute(1).Label,$COMMA ]$INFO[Container(50).ListItemAbsolute(2).Label,$COMMA ]$INFO[Container(50).ListItemAbsolute(3).Label,$COMMA ]$INFO[Container(50).ListItemAbsolute(4).Label,$COMMA ]$INFO[Container(50).ListItemAbsolute(5).Label,$COMMA ]</label>
 						<onclick>SetFocus(50)</onclick>
 					</control>
+					<!-- ??????? -->
+					<control type="button" id="30009">
+						<visible>!String.IsEmpty(ListItem.Genre)</visible>
+						<width>1060</width>
+						<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
+							<param name="texturenofocus" value="" />
+						</include>
+						<include>ButtonInfo</include>
+						<label>$INFO[ListItem.Studio,[COLOR labelheader]$LOCALIZE[572]:   [/COLOR]]</label>
+					</control>
 				</control>
 				<!-- Top Info - Date Added, Last Plaed, Play Count -->
 				<control type="list">
 					<top>166</top>
 					<left>1025</left>
+					<font>font_28</font>
 					<!-- With Focus -->
 					<focusedlayout height="40" width="400">
 						<control type="image">
@@ -455,7 +467,7 @@
 							<label>[COLOR labelheader]$INFO[ListItem.Label2][/COLOR]</label>
 						</control>
 						<control type="label">
-							<left>150</left>
+							<left>160</left>
 							<font>font12</font>
 							<textcolor>grey</textcolor>
 							<label>$INFO[ListItem.Label]</label>
@@ -480,7 +492,7 @@
 							<label>[COLOR labelheader]$INFO[ListItem.Label2][/COLOR]</label>
 						</control>
 						<control type="label">
-							<left>150</left>
+							<left>160</left>
 							<font>font12</font>
 							<textcolor>grey</textcolor>
 							<label>$INFO[ListItem.Label]</label>
@@ -510,25 +522,25 @@
 				<!-- Separator - new -->
 				<control type="image">
 					<visible>Skin.HasSetting(DisableClassicSeparators)</visible>
-					<top>326</top>
+					<top>367</top>
 					<left>-36</left>
 					<height>1</height>
 					<texture colordiffuse="labelheader">separator_horizontal.png</texture>
 				</control>
 				<!-- Main buttons bar -->
 				<control type="group">
-					<top>326</top>
+					<top>368</top>
 					<left>-36</left>
 					<!-- Buttons label -->
 					<control type="group">
 						<left>36</left>
+						<font>font14</font>
 						<enable>no</enable>
 						<!-- Focus is on butons area -->
 						<control type="button">
 							<visible>!ControlGroup(9001).HasFocus | ControlGroup(9001).HasFocus(90017)</visible>
 							<width>810</width>
 							<align>left</align>
-							<font>font14</font>
 							<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
 								<param name="texturenofocus" value="" />
 							</include>
@@ -540,7 +552,6 @@
 							<visible>ControlGroup(9001).HasFocus + !Control(90017).HasFocus</visible>
 							<width>810</width>
 							<align>left</align>
-							<font>font14</font>
 							<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
 								<param name="texturenofocus" value="" />
 							</include>
@@ -550,6 +561,7 @@
 					</control>
 					<!-- Buttons -->
 					<control type="grouplist" id="9000">
+					<animation effect="slide" start="0,0" end="-14,0" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
 						<align>right</align>
 						<orientation>horizontal</orientation>
 						<onleft>9000</onleft>
@@ -727,20 +739,24 @@
 				<!-- Separator - new -->
 				<control type="image">
 					<visible>Skin.HasSetting(DisableClassicSeparators)</visible>
-					<top>371</top>
+					<top>413</top>
 					<left>-36</left>
 					<height>1</height>
 					<texture colordiffuse="labelheader">separator_horizontal.png</texture>
 				</control>
 				<!-- Plot area for 2.40 setting  -->
 				<include content="VariableHeightPlot" condition="!Skin.HasSetting(scopeFormat235)">
-					<param name="height" value="353" />
-					<param name="plotheight" value="263" />
+					<param name="totalheight" value="386" />
+					<param name="plotheight" value="296" />
+					<param name="posterheight" value="306" />
+					<param name="posterwidth" value="204" />
 				</include>
 				<!-- Plot area for 2.35 setting  -->
 				<include content="VariableHeightPlot" condition="Skin.HasSetting(scopeFormat235)">
-					<param name="height" value="373" />>
-					<param name="plotheight" value="283" />>
+					<param name="totalheight" value="406" />
+					<param name="plotheight" value="316" />
+					<param name="posterheight" value="326" />
+					<param name="posterwidth" value="217" />
 				</include>
 				<!-- No clue what purpose this serves -->
 				<control type="scrollbar" id="70">
@@ -897,7 +913,7 @@
 					<item>
 						<label>$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
 						<label2>$LOCALIZE[2050]:</label2>
-						<onclick>SetProperty(TextViewerHeader,$LOCALIZE[515],Home)</onclick>
+						<onclick>SetProperty(TextViewerHeader,$LOCALIZE[2050],Home)</onclick>
 						<onclick>SetProperty(TextViewerContent,$ESCINFO[ListItem.Duration],Home)</onclick>
 						<onclick>ActivateWindow(1132)</onclick>
 						<visible>!String.IsEmpty(ListItem.Duration)</visible>
@@ -905,15 +921,15 @@
 					<item>
 						<label>$INFO[ListItem.Year]</label>
 						<label2>$LOCALIZE[345]:</label2>
-						<onclick>SetProperty(TextViewerHeader,$LOCALIZE[20416],Home)</onclick>
+						<onclick>SetProperty(TextViewerHeader,$LOCALIZE[345],Home)</onclick>
 						<onclick>SetProperty(TextViewerContent,$ESCINFO[ListItem.Year],Home)</onclick>
 						<onclick>ActivateWindow(1132)</onclick>
 						<visible>!String.IsEmpty(ListItem.Year) + !String.IsEqual(ListItem.DBType,tvshow)</visible>
 					</item>
 					<item>
 						<label>$INFO[ListItem.Premiered]</label>
-						<label2>$LOCALIZE[20416]:</label2>
-						<onclick>SetProperty(TextViewerHeader,$LOCALIZE[20416],Home)</onclick>
+						<label2>$LOCALIZE[31985]:</label2>
+						<onclick>SetProperty(TextViewerHeader,$LOCALIZE[31985],Home)</onclick>
 						<onclick>SetProperty(TextViewerContent,$ESCINFO[ListItem.Premiered],Home)</onclick>
 						<onclick>ActivateWindow(1132)</onclick>
 						<visible>!String.IsEmpty(ListItem.Premiered)</visible>
@@ -921,7 +937,7 @@
 					<item>
 						<label>$INFO[ListItem.Studio]</label>
 						<label2>$LOCALIZE[572]:</label2>
-						<onclick>SetProperty(TextViewerHeader,$LOCALIZE[20416],Home)</onclick>
+						<onclick>SetProperty(TextViewerHeader,$LOCALIZE[572],Home)</onclick>
 						<onclick>SetProperty(TextViewerContent,$ESCINFO[ListItem.Studio],Home)</onclick>
 						<onclick>ActivateWindow(1132)</onclick>
 						<visible>!String.IsEmpty(ListItem.Studio)</visible>
@@ -929,7 +945,7 @@
 					<item>
 						<label>$INFO[ListItem.MPAA]</label>
 						<label2>$LOCALIZE[20074]:</label2>
-						<onclick>SetProperty(TextViewerHeader,$LOCALIZE[20416],Home)</onclick>
+						<onclick>SetProperty(TextViewerHeader,$LOCALIZE[20074],Home)</onclick>
 						<onclick>SetProperty(TextViewerContent,$ESCINFO[ListItem.MPAA],Home)</onclick>
 						<onclick>ActivateWindow(1132)</onclick>
 						<visible>!String.IsEmpty(ListItem.MPAA)</visible>

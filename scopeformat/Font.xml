@@ -211,6 +211,17 @@
 		</font>
 		<!-- Normal Fonts -->
 		<font>
+			<name>font_28_ls_12</name>
+			<filename>RobotoCondensed-Regular.ttf</filename>
+			<size>28</size>
+			<linespacing>1.2</linespacing>
+		</font>
+		<font>
+			<name>font_28</name>
+			<filename>RobotoCondensed-Regular.ttf</filename>
+			<size>28</size>
+		</font>
+		<font>
 			<name>font14_textbox_plot</name>
 			<filename>RobotoCondensed-Regular.ttf</filename>
 			<size>25</size>

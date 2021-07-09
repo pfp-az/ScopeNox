@@ -1200,3 +1200,7 @@ msgctxt "#31984"
 msgid "This will use color versions of the mediainfo flags and icons"
 msgstr ""
 
+msgctxt "#31985"
+msgid "Release date"
+msgstr ""
+
