@@ -676,12 +676,17 @@
 		<value condition="Container.Content(movies) + String.IsEmpty(ListItem.PlotOutline)">$INFO[ListItem.Tagline,[COLOR labelheader],[/COLOR] - ]$INFO[ListItem.Plot]</value>
 		<value>$INFO[ListItem.Plot]</value>
 	</variable>
-	<!--
-	     DialogVideoInfo
-	 -->
+
+	<!-- Label text for the plot / posters on the movie details screen -->
 	<variable name="VideoInfoDetailsLabelVar">
 		<value condition="Control.HasFocus(900171)">$LOCALIZE[207] - $LOCALIZE[31175]</value>
 		<value condition="ControlGroup(9001).HasFocus(50)">$LOCALIZE[206]$INFO[Container(50).NumItems, [COLOR grey3](,)[/COLOR]]</value>
+		<value condition="ControlGroup(9001).HasFocus(90080)">Movies in set$INFO[Container(90080).NumItems, [COLOR grey3](,)[/COLOR]]</value>
+		<value condition="ControlGroup(9001).HasFocus(90081)">Other movies by director(s)$INFO[Container(90081).NumItems, [COLOR grey3](,)[/COLOR]]</value>
+		<value condition="ControlGroup(9001).HasFocus(90082)">Other movies by writer(s)$INFO[Container(90082).NumItems, [COLOR grey3](,)[/COLOR]]</value>
+		<value condition="ControlGroup(9001).HasFocus(90083)">Similar movies$INFO[Container(90083).NumItems, [COLOR grey3](,)[/COLOR]]</value>
+		<value condition="ControlGroup(9001).HasFocus(90084)">Recommended movies$INFO[Container(90084).NumItems, [COLOR grey3](,)[/COLOR]]</value>
+		<!--
 		<value condition="ControlGroup(9001).HasFocus(90019)">$ADDON[script.extendedinfo 32041]$INFO[Container(90019).NumItems, [COLOR grey3](,)[/COLOR]]</value>
 		<value condition="ControlGroup(9001).HasFocus(90020)">$ADDON[script.extendedinfo 32040]$INFO[Container(90020).NumItems, [COLOR grey3](,)[/COLOR]]</value>
 		<value condition="ControlGroup(9001).HasFocus(90021)">$ADDON[script.extendedinfo 32038]$INFO[Container(90021).NumItems, [COLOR grey3](,)[/COLOR]]</value>
@@ -693,7 +698,10 @@
 		<value condition="ControlGroup(9001).HasFocus(90015)">$LOCALIZE[31115]$INFO[Container(90015).NumItems, [COLOR grey3](,)[/COLOR]]</value>
 		<value condition="ControlGroup(9001).HasFocus(90016)">$LOCALIZE[33054]$INFO[Container(90016).NumItems, [COLOR grey3](,)[/COLOR]]</value>
 		<value condition="ControlGroup(9001).HasFocus(90018)">$INFO[ListItem.Set]$INFO[Container(90018).NumItems, [COLOR grey3](,)[/COLOR]]</value>
+		-->
 	</variable>
+
+	<!-- Label text for buttons on the movie details screen -->
 	<variable name="VideoInfoButtonLabelVar">
 		<value condition="Control.HasFocus(8)">$LOCALIZE[208]</value>
 		<value condition="Control.HasFocus(910)">$LOCALIZE[206]</value>
@@ -705,6 +713,7 @@
 		<value condition="Control.HasFocus(6)">$LOCALIZE[184]</value>
 		<value condition="Control.HasFocus(207)">$LOCALIZE[31014]</value>
 	</variable>
+
 	<variable name="EpisodeCountVar">
 		<value condition="!Integer.IsGreater(ListItem.Season,9) + !Integer.IsGreater(ListItem.Episode,9)">$INFO[ListItem.Season,S0]$INFO[ListItem.Episode,E0]</value>
 		<value condition="!Integer.IsGreater(ListItem.Season,9)">$INFO[ListItem.Season,S0]$INFO[ListItem.Episode,E]</value>

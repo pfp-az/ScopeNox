@@ -752,6 +752,9 @@
 				<textoffsetx>10</textoffsetx>
 				<shadowcolor>shadow</shadowcolor>
 				<selectedcolor>selected</selectedcolor>
+				<include content="ConditionalTextColor" condition="$PARAM[focused]">
+					<param name="textcolor" value="labelheader" />
+				</include>
 				<label>$PARAM[label]</label>
 				<animation effect="fade" start="100" end="70" time="0" condition="!focused">Conditional</animation>
 				<animation effect="fade" end="100" start="70" time="200" tween="sine" easing="inout" condition="focused">Focus</animation>
@@ -1027,51 +1030,75 @@
 					<param name="posterheight" value="$PARAM[posterheight]" />
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>
-				<!-- Movies from set -->	
-				<include content="ExtendedInfoListLayout" condition="String.IsEqual(ListItem.DBType,movie)">
-					<param name="controlId" value="90018" />
+				<!-- Movies from Set -->	
+				<include content="ExtendedInfoListLayout" condition="System.HasAddon(plugin.video.themoviedb.helper) + String.IsEqual(ListItem.DBType,movie)">
+					<param name="controlId" value="90080" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
-					<param name="listVisible" value="!String.IsEmpty(ListItem.SetID)" />
+					<param name="listVisible" value="true" />
 					<param name="includeContent" value="true" />
-					<param name="content" value="videodb://movies/sets/$INFO[ListItem.SetID]" />
-					<param name="sortby">year</param>
-					<param name="sortorder">ascending</param>
+					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=collection&amp;type=movie&amp;query=$INFO[ListItem.Set]" />
+					<param name="sortby" value="year" />
+					<param name="sortorder" value="ascending" />
 					<param name="totalheight" value="$PARAM[totalheight]" />
 					<param name="posterheight" value="$PARAM[posterheight]" />
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>
-				<!-- Similar Movies -->	
-				<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,movie)">
-					<param name="controlId" value="90011" />
-					<param name="label2" value="$INFO[ListItem.Year]" />
-					<param name="listVisible" value="!String.IsEqual(Window(Home).Property(SimilarMovies.Count),0)" />
-					<param name="content" value="plugin://script.extendedinfo?info=similarmovies&amp;&amp;imdb_id=$INFO[ListItem.IMDBNumber]&amp;&amp;dbid=$INFO[ListItem.DBID]" />
-					<param name="height" value="$PARAM[height]" />
-				</include>
-				<!-- Movies from director -->	
-				<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,movie)">
-					<param name="controlId" value="90012" />
+				<!-- Movies from the same Director(s) -->
+				<include content="ExtendedInfoListLayout" condition="System.HasAddon(plugin.video.themoviedb.helper) + String.IsEqual(ListItem.DBType,movie)">
+					<param name="controlId" value="90081" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="listVisible" value="!String.IsEqual(Window(Home).Property(DirectorMovies.Count),0)" />
-					<param name="content" value="plugin://script.extendedinfo?info=personmovies&amp;&amp;person=$INFO[ListItem.Director]" />
-					<param name="height" value="$PARAM[height]" />
+					<param name="includeContent" value="true" />
+					<!-- <param name="content" value="plugin://plugin.video.themoviedb.helper?info=crew_in_movies&amp;type=person&amp;filter_key=job&amp;filter_value=Director&amp;query=$INFO[Listitem.Director]&amp;with_separator=OR&amp;exclude_value=$INFO[ListItem.Title]&amp;nextpage=false" /> -->
+					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=discover&amp;type=movie&amp;with_crew=$INFO[ListItem.Director]&amp;with_separator=OR&amp;exclude_key=title&amp;exclude_value=$INFO[ListItem.Title]&amp;nextpage=false" /> 
+					<param name="sortby" value="year" />
+					<param name="sortorder" value="descending" />
+					<param name="totalheight" value="$PARAM[totalheight]" />
+					<param name="posterheight" value="$PARAM[posterheight]" />
+					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>
-				<!-- Movies from writers -->	
-				<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,movie)">
-					<param name="controlId" value="90013" />
+				<!-- Movies from the same Writer(s) -->
+				<include content="ExtendedInfoListLayout" condition="System.HasAddon(plugin.video.themoviedb.helper) + String.IsEqual(ListItem.DBType,movie)">
+					<param name="controlId" value="90082" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
-					<param name="listVisible" value="!String.IsEqual(Window(Home).Property(WriterMovies.Count),0)" />
-					<param name="content" value="plugin://script.extendedinfo?info=personmovies&amp;&amp;person=$INFO[ListItem.Writer]" />
-					<param name="height" value="$PARAM[height]" />
-				</include>
-				<!-- Movies from studio -->	
-				<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,movie)">
-					<param name="controlId" value="90014" />
+					<param name="listVisible" value="true" />
+					<param name="includeContent" value="true" />
+					<!--<param name="content" value="plugin://plugin.video.themoviedb.helper?info=crew_in_movies&amp;type=person&amp;filter_key=job&amp;filter_value=Writer&amp;query=$INFO[Listitem.Writer]&amp;exclude_value=$INFO[ListItem.Title]&amp;nextpage=false" /> -->
+					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=discover&amp;type=movie&amp;with_crew=$INFO[ListItem.Writer]&amp;with_separator=OR&amp;exclude_key=title&amp;exclude_value=$INFO[ListItem.Title]&amp;nextpage=false" />
+					<param name="sortby" value="year" />
+					<param name="sortorder" value="descending" />
+					<param name="totalheight" value="$PARAM[totalheight]" />
+					<param name="posterheight" value="$PARAM[posterheight]" />
+					<param name="posterwidth" value="$PARAM[posterwidth]" />
+				</include>                                  
+				<!-- Similar Movies-->
+				<include content="ExtendedInfoListLayout" condition="System.HasAddon(plugin.video.themoviedb.helper) + String.IsEqual(ListItem.DBType,movie)">
+					<param name="controlId" value="90083" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
-					<param name="listVisible" value="!String.IsEqual(Window(Home).Property(StudioInfo.Count),0)" />
-					<param name="content" value="plugin://script.extendedinfo?info=studio&amp;&amp;studio=$INFO[ListItem.Studio]" />
-					<param name="height" value="$PARAM[height]" />
-				</include>
+					<param name="listVisible" value="true" />
+					<param name="includeContent" value="true" />
+					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=similar&amp;type=movie&amp;imdb_id=$INFO[ListItem.IMDBNumber]&amp;nextpage=false" />
+					<param name="sortby" value="year" />
+					<param name="sortorder" value="descending" />
+					<param name="totalheight" value="$PARAM[totalheight]" />
+					<param name="posterheight" value="$PARAM[posterheight]" />
+					<param name="posterwidth" value="$PARAM[posterwidth]" />
+				</include>                                  
+				<!-- Recommended Movies-->
+				<include content="ExtendedInfoListLayout" condition="System.HasAddon(plugin.video.themoviedb.helper) + String.IsEqual(ListItem.DBType,movie)">
+					<param name="controlId" value="90084" />
+					<param name="label2" value="$INFO[ListItem.Year]" />
+					<param name="listVisible" value="true" />
+					<param name="includeContent" value="true" />
+					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=recommendations&amp;type=movie&amp;imdb_id=$INFO[ListItem.IMDBNumber]&amp;nextpage=false" />
+					<param name="sortby" value="year" />
+					<param name="sortorder" value="descending" />
+					<param name="totalheight" value="$PARAM[totalheight]" />
+					<param name="posterheight" value="$PARAM[posterheight]" />
+					<param name="posterwidth" value="$PARAM[posterwidth]" />
+				</include>                                  
+
+
 				<!-- TV seasons -->	
 				<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.extendedinfo) + String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">
 					<param name="controlId" value="90016" />
@@ -1122,6 +1149,14 @@
 					<param name="height" value="$PARAM[height]" />
 				</include>
 			</control>
+		</definition>
+	</include>
+
+	<!-- Text color based on condition -->
+	<include name="ConditionalTextColor">
+		<param name="textcolor" />
+		<definition>
+			<textcolor>$PARAM[textcolor]</textcolor>
 		</definition>
 	</include>
 

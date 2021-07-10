@@ -387,7 +387,8 @@
 						<onclick condition="System.HasAddon(script.extendedinfo)">SetProperty(DirectorID,True)</onclick>
 						<onclick condition="System.HasAddon(script.extendedinfo)">SetProperty(ActorName,$INFO[ListItem.Director])</onclick>
 						<onclick condition="System.HasAddon(script.extendedinfo)">ActivateWindow(1130)</onclick>
-						<onclick condition="!System.HasAddon(script.extendedinfo)">SendClick(2003,13)</onclick>
+						<onclick condition="System.HasAddon(plugin.video.themoviedb.helper)">RunScript(plugin.video.themoviedb.helper,add_query=$INFO[ListItem.Director],type=person,call_auto=1190)</onclick>
+						<onclick condition="!System.HasAddon(plugin.video.themoviedb.helper)">SendClick(2003,13)</onclick>
 					</control>
 					<!-- Writer -->
 					<control type="button" id="30003">
@@ -399,6 +400,7 @@
 						<include>ButtonInfo</include>
 						<label>$INFO[ListItem.Writer,[COLOR labelheader]$LOCALIZE[20417]:   [/COLOR]]</label>
 						<onclick condition="System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Writer])</onclick>
+						<onclick condition="System.HasAddon(plugin.video.themoviedb.helper)">RunScript(plugin.video.themoviedb.helper,add_query=$INFO[ListItem.Writer],type=person,call_auto=1190)</onclick>
 					</control>
 					<!-- TV, ??? (as-is) -->
 					<control type="button" id="30004">
