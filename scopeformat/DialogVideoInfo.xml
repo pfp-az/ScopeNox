@@ -126,18 +126,8 @@
 						<label>$INFO[ListItem.Artist]</label>
 					</control>
 				</control>
-				<!-- Seperator - Classic -->
+				<!-- Seperator -->
 				<control type="image">
-					<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-					<left>-20</left>
-					<top>32</top>
-					<right>0</right>
-					<height>60</height>
-					<texture border="1">separator2.png</texture>
-				</control>
-				<!-- Seperator - new -->
-				<control type="image">
-					<visible>Skin.HasSetting(DisableClassicSeparators)</visible>
 					<top>90</top>
 					<left>-36</left>
 					<height>1</height>
@@ -159,14 +149,6 @@
 						<font>font15</font>
 						<textcolor>grey</textcolor>
 					</control>
-					<!-- Separator, Classic -->
-					<control type="image">
-						<visible>String.IsEqual(ListItem.DBType,episode)</visible>
-						<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-						<width>2</width>
-						<height>75</height>
-						<texture border="1">separator3.png</texture>
-					</control>
 					<!-- Episode Count (as-is)-->
 					<control type="label">
 						<visible>String.IsEqual(ListItem.DBType,episode)</visible>
@@ -175,13 +157,6 @@
 						<label>$VAR[EpisodeCountVar]</label>
 						<font>font35_title_bold</font>
 						<textcolor>grey</textcolor>
-					</control>
-					<!-- Separator, Classic -->
-					<control type="image">
-						<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-						<width>2</width>
-						<height>75</height>
-						<texture border="1">separator3.png</texture>
 					</control>
 					<!-- Studio -->
 					<control type="group">
@@ -201,27 +176,12 @@
 							<wrapmultiline>true</wrapmultiline>
 						</control>
 					</control>
-					<!-- Separator, Classic -->
-					<control type="image">
-						<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-						<width>2</width>
-						<height>75</height>
-						<texture border="1">separator3.png</texture>
-					</control>
 					<!-- Certification -->
 					<control type="image">
 						<width>80</width>
 						<colordiffuse>grey</colordiffuse>
 						<include>MediaFlagVars</include>
 						<texture fallback="flags/mpaa/NR.png">$VAR[RatingFlagVar]</texture>
-					</control>
-					<!-- Separator, Classic -->
-					<control type="image">
-						<visible>![String.IsEqual(ListItem.DBType,tvshow) + Skin.HasSetting(Disable.NextAired)]</visible>
-						<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-						<width>2</width>
-						<height>75</height>
-						<texture border="1">separator3.png</texture>
 					</control>
 					<!-- Runtime -->
 					<control type="grouplist">
@@ -244,13 +204,6 @@
 							<textcolor>grey</textcolor>
 						</control>
 					</control>
-					<!-- Separator, Classic -->
-					<control type="image">
-						<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-						<width>2</width>
-						<height>75</height>
-						<texture border="1">separator3.png</texture>
-					</control>
 					<!-- Rating -->
 					<control type="grouplist">
 						<visible>!String.IsEmpty(ListItem.Rating)</visible>
@@ -271,14 +224,6 @@
 							<font>font12</font>
 							<textcolor>grey</textcolor>
 						</control>
-					</control>
-					<!-- Separator, Classic -->
-					<control type="image">
-						<visible>!String.IsEmpty(ListItem.UserRating)</visible>
-						<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-						<width>2</width>
-						<height>90</height>
-						<texture border="1">separator3.png</texture>
 					</control>
 					<!-- Top 250 -->
 					<control type="grouplist">
@@ -301,14 +246,6 @@
 							<textcolor>grey</textcolor>
 						</control>
 					</control>
-					<!-- Separator, Classic -->
-					<control type="image">
-						<visible>!String.IsEmpty(ListItem.Rating)</visible>
-						<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-						<width>2</width>
-						<height>75</height>
-						<texture border="1">separator3.png</texture>
-					</control>
 					<!-- User Rating -->
 					<control type="grouplist">
 						<visible>!String.IsEmpty(ListItem.UserRating)</visible>
@@ -330,27 +267,9 @@
 							<textcolor>grey</textcolor>
 						</control>
 					</control>
-					<!-- Separator, Classic -->
-					<control type="image">
-						<visible>!String.IsEmpty(ListItem.Top250)</visible>
-						<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-						<width>2</width>
-						<height>90</height>
-						<texture border="1">separator3.png</texture>
-					</control>
 				</control>
-				<!-- Seperator -Classic -->
+				<!-- Seperator -->
 				<control type="image">
-					<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-					<left>-20</left>
-					<top>106</top>
-					<right>0</right>
-					<height>60</height>
-					<texture border="1">separator2.png</texture>
-				</control>
-				<!-- Seperator - new -->
-				<control type="image">
-					<visible>Skin.HasSetting(DisableClassicSeparators)</visible>
 					<top>165</top>
 					<left>-36</left>
 					<height>1</height>
@@ -369,9 +288,7 @@
 					<control type="button" id="30001">
 						<visible>!String.IsEmpty(ListItem.Genre)</visible>
 						<width>1060</width>
-						<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
-							<param name="texturenofocus" value="" />
-						</include>
+						<texturenofocus></texturenofocus>
 						<include>ButtonInfo</include>
 						<label>$INFO[ListItem.Genre,[COLOR labelheader]$LOCALIZE[515]:   [/COLOR]]</label>
 					</control>
@@ -379,9 +296,7 @@
 					<control type="button" id="30002">
 						<visible>!String.IsEmpty(ListItem.Director)</visible>
 						<width>1060</width>
-						<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
-							<param name="texturenofocus" value="" />
-						</include>
+						<texturenofocus></texturenofocus>
 						<include>ButtonInfo</include>
 						<label>$INFO[ListItem.Director,[COLOR labelheader]$LOCALIZE[20339]:   [/COLOR]]</label>
 						<onclick condition="System.HasAddon(script.extendedinfo)">SetProperty(DirectorID,True)</onclick>
@@ -394,9 +309,7 @@
 					<control type="button" id="30003">
 						<visible>!String.IsEmpty(ListItem.Writer)</visible>
 						<width>1060</width>
-						<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
-							<param name="texturenofocus" value="" />
-						</include>
+						<texturenofocus></texturenofocus>
 						<include>ButtonInfo</include>
 						<label>$INFO[ListItem.Writer,[COLOR labelheader]$LOCALIZE[20417]:   [/COLOR]]</label>
 						<onclick condition="System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Writer])</onclick>
@@ -405,36 +318,28 @@
 					<!-- TV, ??? (as-is) -->
 					<control type="button" id="30004">
 						<visible>String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(Window(Home).Property(NextAired.NextDate))</visible>
-						<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
-							<param name="texturenofocus" value="" />
-						</include>
+						<texturenofocus></texturenofocus>
 						<include>ButtonInfo</include>
 						<label>$INFO[Window(Home).Property(NextAired.NextDate),[COLOR labelheader]$LOCALIZE[31010]:   [/COLOR], - ]$INFO[Window(Home).Property(NextAired.NextNumber),, - ]$INFO[Window(Home).Property(NextAired.NextTitle)]</label>
 					</control>
 					<!-- TV, ??? (as-is) -->
 					<control type="button" id="30005">
 						<visible>String.IsEqual(ListItem.DBType,tvshow) + !String.IsEmpty(Window(Home).Property(NextAired.LatestDate)) + String.IsEmpty(Window(Home).Property(NextAired.NextDate))</visible>
-						<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
-							<param name="texturenofocus" value="" />
-						</include>
+						<texturenofocus></texturenofocus>
 						<include>ButtonInfo</include>
 						<label>$INFO[Window(Home).Property(NextAired.LatestDate),[COLOR labelheader]$LOCALIZE[31011]:   [/COLOR], - ]$INFO[Window(Home).Property(NextAired.LatestNumber),, - ]$INFO[Window(Home).Property(NextAired.LatestTitle)]</label>
 					</control>
 					<!-- TV, ??? (as-is) -->
 					<control type="button" id="30007">
 						<visible>String.IsEqual(ListItem.DBType,tvshow)</visible>
-						<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
-							<param name="texturenofocus" value="" />
-						</include>
+						<texturenofocus></texturenofocus>
 						<include>ButtonInfo</include>
 						<label>$INFO[ListItem.Premiered,[COLOR labelheader]$LOCALIZE[20416]:   [/COLOR]]</label>
 					</control>
 					<!-- Cast -->
 					<control type="button" id="30008">
 						<visible>!String.IsEmpty(ListItem.Cast)</visible>
-						<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
-							<param name="texturenofocus" value="" />
-						</include>
+						<texturenofocus></texturenofocus>
 						<include>ButtonInfo</include>
 						<label>$INFO[Container(50).ListItemAbsolute(0).Label,[COLOR labelheader]$LOCALIZE[206]:   [/COLOR]]$INFO[Container(50).ListItemAbsolute(1).Label,$COMMA ]$INFO[Container(50).ListItemAbsolute(2).Label,$COMMA ]$INFO[Container(50).ListItemAbsolute(3).Label,$COMMA ]$INFO[Container(50).ListItemAbsolute(4).Label,$COMMA ]$INFO[Container(50).ListItemAbsolute(5).Label,$COMMA ]</label>
 						<onclick>SetFocus(50)</onclick>
@@ -443,9 +348,7 @@
 					<control type="button" id="30009">
 						<visible>!String.IsEmpty(ListItem.Genre)</visible>
 						<width>1060</width>
-						<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
-							<param name="texturenofocus" value="" />
-						</include>
+						<texturenofocus></texturenofocus>
 						<include>ButtonInfo</include>
 						<label>$INFO[ListItem.Studio,[COLOR labelheader]$LOCALIZE[572]:   [/COLOR]]</label>
 					</control>
@@ -457,11 +360,6 @@
 					<font>font_28</font>
 					<!-- With Focus -->
 					<focusedlayout height="40" width="400">
-						<control type="image">
-							<width>2</width>
-							<texture border="1">separator3.png</texture>
-							<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-						</control>
 						<control type="label">
 							<left>10</left>
 							<font>font12</font>
@@ -473,20 +371,10 @@
 							<font>font12</font>
 							<textcolor>grey</textcolor>
 							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="image">
-							<width>400</width>
-							<texture border="1">separator2.png</texture>
-							<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
 						</control>
 					</focusedlayout>
 					<!-- Without Focus -->
 					<itemlayout height="40" width="400">
-						<control type="image">
-							<width>2</width>
-							<texture border="1">separator3.png</texture>
-							<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-						</control>
 						<control type="label">
 							<left>10</left>
 							<font>font12</font>
@@ -498,11 +386,6 @@
 							<font>font12</font>
 							<textcolor>grey</textcolor>
 							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="image">
-							<width>400</width>
-							<texture border="1">separator2.png</texture>
-							<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
 						</control>
 					</itemlayout>
 					<!-- Content -->
@@ -521,9 +404,8 @@
 						</item>
 					</content>
 				</control>
-				<!-- Separator - new -->
+				<!-- Separator -->
 				<control type="image">
-					<visible>Skin.HasSetting(DisableClassicSeparators)</visible>
 					<top>367</top>
 					<left>-36</left>
 					<height>1</height>
@@ -543,9 +425,7 @@
 							<visible>!ControlGroup(9001).HasFocus | ControlGroup(9001).HasFocus(90017)</visible>
 							<width>810</width>
 							<align>left</align>
-							<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
-								<param name="texturenofocus" value="" />
-							</include>
+							<texturenofocus></texturenofocus>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label>$VAR[VideoInfoButtonLabelVar]</label>
 						</control>
@@ -554,9 +434,7 @@
 							<visible>ControlGroup(9001).HasFocus + !Control(90017).HasFocus</visible>
 							<width>810</width>
 							<align>left</align>
-							<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
-								<param name="texturenofocus" value="" />
-							</include>
+							<texturenofocus></texturenofocus>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label>$VAR[VideoInfoDetailsLabelVar]</label>
 						</control>
@@ -570,91 +448,46 @@
 						<onright>9000</onright>
 						<onup>300</onup>
 						<ondown>9001</ondown>
-						<!-- Separator -->
-						<control type="image" id="31100">
-							<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-							<width>2</width>
-							<height>45</height>
-							<texture border="1">separator3.png</texture>
-						</control>
 						<!-- Play -->
 						<control type="button" id="8">
 							<width>65</width>
-							<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
-								<param name="texturenofocus" value="" />
-							</include>
+							<texturenofocus></texturenofocus>
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
 						</control>
-						<!-- Separator -->
-						<control type="image" id="31101">
-							<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-							<width>2</width>
-							<height>45</height>
-							<texture border="1">separator3.png</texture>
-						</control>
 						<!-- Cast -->
 						<control type="button" id="910">
 							<width>65</width>
-							<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
-								<param name="texturenofocus" value="" />
-							</include>
+							<texturenofocus></texturenofocus>
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
 							<onclick>SetFocus(50)</onclick>
 							<visible>!String.IsEmpty(ListItem.Cast)</visible>
 						</control>
-						<!-- Separator -->
-						<control type="image" id="31102">
-							<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-							<width>2</width>
-							<height>45</height>
-							<texture border="1">separator3.png</texture>
-						</control>
 						<!-- Set rating -->
 						<control type="button" id="7">
 							<width>65</width>
-							<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
-								<param name="texturenofocus" value="" />
-							</include>
+							<texturenofocus></texturenofocus>
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
 						</control>
-						<!-- Separator -->
-						<control type="image" id="31103">
-							<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-							<width>2</width>
-							<height>45</height>
-							<texture border="1">separator3.png</texture>
-						</control>
 						<!-- Choose art -->
 						<control type="button" id="10">
 							<width>65</width>
-							<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
-								<param name="texturenofocus" value="" />
-							</include>
+							<texturenofocus></texturenofocus>
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
 							<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
 						</control>
-						<!-- Separator -->
-						<control type="image" id="31104">
-							<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-							<width>2</width>
-							<height>45</height>
-							<texture border="1">separator3.png</texture>
-						</control>
 						<!-- Trailer, movie -->
 						<control type="button" id="11">
 							<visible>String.IsEqual(ListItem.DBType,movie)</visible>
 							<width>65</width>
-							<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
-								<param name="texturenofocus" value="" />
-							</include>
+							<texturenofocus></texturenofocus>
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
@@ -664,66 +497,37 @@
 						<control type="button" id="203">
 							<visible>!String.IsEqual(ListItem.DBType,movie)</visible>
 							<width>65</width>
-							<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
-								<param name="texturenofocus" value="" />
-							</include>
+							<texturenofocus></texturenofocus>
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
 							<onclick>noop</onclick>
 							<enable>no</enable>
 						</control>
-						<!-- Separator -->
-						<control type="image" id="31105">
-							<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-							<width>2</width>
-							<height>45</height>
-							<texture border="1">separator3.png</texture>
-						</control>
 						<!-- Info -->
 						<control type="button" id="209">
 							<width>65</width>
-							<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
-								<param name="texturenofocus" value="" />
-							</include>
+							<texturenofocus></texturenofocus>
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
 							<onclick>SetProperty(Extra.Info,True,movieinformation)</onclick>
 							<onclick>SetFocus(9002)</onclick>
 						</control>
-						<!-- Separator -->
-						<control type="image" id="31106">
-							<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-							<width>2</width>
-							<height>45</height>
-							<texture border="1">separator3.png</texture>
-						</control>
 						<!-- Refresh -->
 						<control type="button" id="6">
 							<width>65</width>
-							<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
-								<param name="texturenofocus" value="" />
-							</include>
+							<texturenofocus></texturenofocus>
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
 							<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
 						</control>
-						<!-- Separator -->
-						<control type="image" id="31107">
-							<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-							<width>2</width>
-							<height>45</height>
-							<texture border="1">separator3.png</texture>
-						</control>
 						<!-- Extras -->
 						<control type="button" id="207">
 							<enable>!Skin.HasSetting(KioskMode.Enabled)</enable>
 							<width>65</width>
-							<include content="ConditionalTextureNoFocus" condition="Skin.HasSetting(DisableClassicSeparators)">
-								<param name="texturenofocus" value="" />
-							</include>
+							<texturenofocus></texturenofocus>
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
@@ -738,9 +542,8 @@
 						</control>
 					</control>
 				</control>
-				<!-- Separator - new -->
+				<!-- Separator -->
 				<control type="image">
-					<visible>Skin.HasSetting(DisableClassicSeparators)</visible>
 					<top>413</top>
 					<left>-36</left>
 					<height>1</height>
@@ -819,12 +622,6 @@
 				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="quadratic" easing="out">200</scrolltime>
 				<itemlayout height="60" width="1058">
-					<control type="image">
-						<width>1058</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
-						<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-					</control>
 					<control type="label">
 						<width>1058</width>
 						<height>60</height>
@@ -846,12 +643,6 @@
 					</control>
 				</itemlayout>
 				<focusedlayout height="60" width="1058">
-					<control type="image">
-						<width>1058</width>
-						<height>60</height>
-						<texture border="1">separator2.png</texture>
-						<visible>!Skin.HasSetting(DisableClassicSeparators)</visible>
-					</control>
 					<control type="image">
 						<width>1058</width>
 						<height>60</height>

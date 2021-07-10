@@ -316,16 +316,6 @@
 						<selected>!Skin.HasSetting(Disable.ShowBackgroundVis)</selected>
 						<texturenofocus border="1">separator5.png</texturenofocus>
 					</control>
-					<control type="radiobutton" id="205">
-						<width>1316</width>
-						<height>60</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<label>31975</label>
-						<onclick>Skin.ToggleSetting(DisableClassicSeparators)</onclick>
-						<selected>Skin.HasSetting(DisableClassicSeparators)</selected>
-						<texturenofocus border="1">separator5.png</texturenofocus>
-					</control>
 					<control type="radiobutton" id="207">
 						<width>1316</width>
 						<height>60</height>
