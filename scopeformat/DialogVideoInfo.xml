@@ -309,7 +309,6 @@
 						<onclick condition="System.HasAddon(script.embuary.info)">SetProperty(DirectorName,$INFO[ListItem.Director])</onclick>
 						<onclick condition="System.HasAddon(script.embuary.info)">ActivateWindow(1130)</onclick>
 						<onclick condition="!System.HasAddon(script.embuary.info)">SendClick(2003,13)</onclick>  
-						<!-- <onclick condition="System.HasAddon(plugin.video.themoviedb.helper)">RunScript(plugin.video.themoviedb.helper,add_query=$INFO[ListItem.Director],type=person,call_auto=1190)</onclick> -->
 					</control>
 					<!-- Writer -->
 					<control type="button" id="30003">
@@ -320,7 +319,6 @@
 						<label>$INFO[ListItem.Writer,[COLOR labelheader]$LOCALIZE[20417]:   [/COLOR]]</label>
 						<onclick condition="System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Writer])</onclick>
 						<onclick condition="System.HasAddon(script.embuary.info)">RunScript(script.embuary.info,call=person,query='"$INFO[ListItem.Writer]"')</onclick>
-						<!-- <onclick condition="System.HasAddon(plugin.video.themoviedb.helper)">RunScript(plugin.video.themoviedb.helper,add_query=$INFO[ListItem.Writer],type=person,call_auto=1190)</onclick> -->
 					</control>
 					<!-- TV, ??? (as-is) -->
 					<control type="button" id="30004">
@@ -349,7 +347,8 @@
 						<texturenofocus></texturenofocus>
 						<include>ButtonInfo</include>
 						<label>$INFO[Container(50).ListItemAbsolute(0).Label,[COLOR labelheader]$LOCALIZE[206]:   [/COLOR]]$INFO[Container(50).ListItemAbsolute(1).Label,$COMMA ]$INFO[Container(50).ListItemAbsolute(2).Label,$COMMA ]$INFO[Container(50).ListItemAbsolute(3).Label,$COMMA ]$INFO[Container(50).ListItemAbsolute(4).Label,$COMMA ]$INFO[Container(50).ListItemAbsolute(5).Label,$COMMA ]</label>
-						<onclick>SetFocus(50)</onclick>
+						<onclick condition="!System.HasAddon(script.embuary.info)">SetFocus(50)</onclick>
+						<onclick condition="System.HasAddon(script.embuary.info)">SetFocus(90050)</onclick>
 					</control>
 					<!-- ??????? -->
 					<control type="button" id="30009">
@@ -473,10 +472,11 @@
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
-							<onclick>SetFocus(50)</onclick>
+							<onclick condition="!System.HasAddon(script.embuary.info)">SetFocus(50)</onclick>
+							<onclick condition="System.HasAddon(script.embuary.info)">SetFocus(90050)</onclick>
 						</control>
 						<!-- TMDB info -->
-						<control type="button" id="91010">
+						<control type="button" id="208">
 							<visible>String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode)</visible>
 							<visible>System.HasAddon(script.embuary.info)</visible>
 							<width>65</width>

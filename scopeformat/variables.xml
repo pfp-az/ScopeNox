@@ -671,6 +671,7 @@
 	<variable name="VideoInfoButtonLabelVar">
 		<value condition="Control.HasFocus(8)">$LOCALIZE[208]</value>
 		<value condition="Control.HasFocus(910)">$LOCALIZE[206]</value>
+		<value condition="Control.HasFocus(208)">$LOCALIZE[31149]</value>
 		<value condition="Control.HasFocus(7)">$LOCALIZE[31147]</value>
 		<value condition="Control.HasFocus(10)">$LOCALIZE[13511]</value>
 		<value condition="Control.HasFocus(11)">$LOCALIZE[20410]</value>
@@ -683,7 +684,7 @@
 	<!-- Label text for the plot / posters on the movie details screen -->
 	<variable name="VideoInfoDetailsLabelVar">
 		<value condition="Control.HasFocus(900171)">$LOCALIZE[207] - $LOCALIZE[31175]</value>
-		<value condition="ControlGroup(9001).HasFocus(50)">$LOCALIZE[206]$INFO[Container(50).NumItems, [COLOR grey3](,)[/COLOR]]</value>
+		<value condition="ControlGroup(9001).HasFocus(50) | ControlGroup(9001).HasFocus(90050)">$LOCALIZE[206]$INFO[Container(50).NumItems, [COLOR grey3](,)[/COLOR]]</value>
 		<value condition="ControlGroup(9001).HasFocus(90080)">Movies in set$INFO[Container(90080).NumItems, [COLOR grey3](,)[/COLOR]]</value>
 		<value condition="ControlGroup(9001).HasFocus(90081)">Other movies by director(s)$INFO[Container(90081).NumItems, [COLOR grey3](,)[/COLOR]]</value>
 		<value condition="ControlGroup(9001).HasFocus(90082)">Other movies by writer(s)$INFO[Container(90082).NumItems, [COLOR grey3](,)[/COLOR]]</value>
