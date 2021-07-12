@@ -682,317 +682,55 @@
 		<param name="CastListItemID" />
 		<definition>
 			<item>
+				<visible>!String.IsEmpty(Container(50).ListItemAbsolute($PARAM[CastListItemID]).Label)</visible>
 				<label>$INFO[Container(50).ListItemAbsolute($PARAM[CastListItemID]).Label]</label>
 				<label2>$INFO[Container(50).ListItemAbsolute($PARAM[CastListItemID]).Label2]</label2>
 				<icon>$INFO[Container(50).ListItemAbsolute($PARAM[CastListItemID]).Icon]</icon>
 				<onclick>SetProperty(ActorID,$PARAM[CastListItemID])</onclick>
 				<onclick>SetProperty(ActorName,$INFO[Container(50).ListItemAbsolute($PARAM[CastListItemID]).Label])</onclick>
 				<onclick>ActivateWindow(1130)</onclick>
-				<visible>!String.IsEmpty(Container(50).ListItemAbsolute($PARAM[CastListItemID]).Label)</visible>
 			</item>
 		</definition>
 	</include>
+
 	<include name="CastPanelContent">
-		<include content="VideoCastItem">
-			<param name="CastListItemID">0</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">1</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">2</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">3</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">4</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">5</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">6</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">7</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">8</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">9</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">10</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">11</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">12</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">13</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">14</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">15</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">16</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">17</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">18</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">19</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">20</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">21</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">22</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">23</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">24</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">25</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">26</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">27</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">28</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">29</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">30</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">31</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">32</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">33</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">34</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">35</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">36</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">37</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">38</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">39</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">40</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">41</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">42</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">43</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">44</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">45</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">46</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">47</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">48</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">49</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">50</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">51</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">52</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">53</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">54</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">55</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">56</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">57</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">58</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">59</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">60</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">61</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">62</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">63</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">64</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">65</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">66</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">67</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">68</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">69</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">70</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">71</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">72</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">73</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">74</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">75</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">76</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">77</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">78</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">79</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">80</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">81</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">82</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">83</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">84</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">85</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">86</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">87</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">88</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">89</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">90</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">91</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">92</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">93</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">94</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">95</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">96</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">97</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">98</param>
-		</include>
-		<include content="VideoCastItem">
-			<param name="CastListItemID">99</param>
-		</include>
+		<definition>
+			<content>
+			<include content="VideoCastItem">
+				<param name="CastListItemID" value="0" />
+			</include>
+			<include content="VideoCastItem">
+				<param name="CastListItemID" value="1" />
+			</include>
+			<include content="VideoCastItem">
+				<param name="CastListItemID" value="2" />
+			</include>
+			<include content="VideoCastItem">
+				<param name="CastListItemID" value="3" />
+			</include>
+			<include content="VideoCastItem">
+				<param name="CastListItemID" value="4" />
+			</include>
+			<include content="VideoCastItem">
+				<param name="CastListItemID" value="5" />
+			</include>
+			<include content="VideoCastItem">
+				<param name="CastListItemID" value="6" />
+			</include>
+			<include content="VideoCastItem">
+				<param name="CastListItemID" value="7" />
+			</include>
+			<include content="VideoCastItem">
+				<param name="CastListItemID" value="8" />
+			</include>
+			<include content="VideoCastItem">
+				<param name="CastListItemID" value="9" />
+			</include>
+			<include content="VideoCastItem">
+				<param name="CastListItemID" value="10" />
+			</include>
+			</content>
+		</definition>
 	</include>
 
 
@@ -1157,14 +895,19 @@
 		<param name="content" />
 		<param name="target" value="videos" />
 		<definition>
+
 			<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[target]">$PARAM[content]</content>
+
+
+
 		</definition>
 	</include>
 
 	<!-- The list of different types of posters -->
 	<include name="ExtendedInfoListLayout">
+		<param name="test" default="false" />
 		<param name="controlId" />
-		<param name="label" />
+		<param name="label" default="$INFO[ListItem.Label]" />
 		<param name="label2" />
 		<param name="listVisible" />
 		<param name="includeContent" />
@@ -1218,11 +961,15 @@
 					</include>
 				</focusedlayout>
 				<!-- Content -->
-				<include content="ExtendedInfoListContent" condition="$PARAM[includeContent]">
+
+				<include content="ExtendedInfoListContent" condition="$PARAM[includeContent] + !$PARAM[test]">
 					<param name="sortby">$PARAM[sortby]</param>
 					<param name="sortorder">$PARAM[sortorder]</param>
 					<param name="content">$PARAM[content]</param>
 				</include>
+
+				<include condition="$PARAM[test]">CastPanelContent</include>
+
 			</control>
 		</definition>
 	</include>
@@ -1403,10 +1150,9 @@
 						</control>
 					</control>
 				</control>
-				<!-- Cast without Embry.Info script installed-->	
+				<!-- Cast without Embuary.Info script installed-->	
 				<include content="ExtendedInfoListLayout">
 					<param name="controlId" value="50" />
-					<param name="label" value="$INFO[ListItem.Label]" />
 					<param name="label2" value="$INFO[ListItem.Label2]" />
 					<param name="listVisible" value="!System.HasAddon(script.embuary.info)" />
 					<param name="includeContent" value="false" />
@@ -1415,14 +1161,14 @@
 					<param name="posterheight" value="$PARAM[posterheight]" />
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>
-				<!-- Cast with Embry.Info script installed-->	
+				<!-- Cast with Embuary.Info script installed-->	
 				<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.embuary.info)">
+					<param name="test" value="true" />
 					<param name="controlId" value="90050" />
-					<param name="label" value="$INFO[ListItem.Label]" />
 					<param name="label2" value="$INFO[ListItem.Label2]" />
 					<param name="listVisible" value="true" />
 					<param name="includeContent" value="System.HasAddon(script.embuary.info)" />
-					<param name="content" value="CastPanelContent" />
+					<param name="content" value="" />
 					<param name="totalheight" value="$PARAM[totalheight]" />
 					<param name="posterheight" value="$PARAM[posterheight]" />
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
@@ -1430,7 +1176,6 @@
 				<!-- Movies from Set -->	
 				<include content="ExtendedInfoListLayout" condition="System.HasAddon(plugin.video.themoviedb.helper) + String.IsEqual(ListItem.DBType,movie)">
 					<param name="controlId" value="90080" />
-					<param name="label" value="$INFO[ListItem.Label]" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="listVisible" value="true" />
 					<param name="includeContent" value="true" />
@@ -1444,7 +1189,6 @@
 				<!-- Movies from the same Director(s) -->
 				<include content="ExtendedInfoListLayout" condition="System.HasAddon(plugin.video.themoviedb.helper) + String.IsEqual(ListItem.DBType,movie)">
 					<param name="controlId" value="90081" />
-					<param name="label" value="$INFO[ListItem.Label]" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="listVisible" value="!String.IsEqual(Window(Home).Property(DirectorMovies.Count),0)" />
 					<param name="includeContent" value="true" />
@@ -1460,7 +1204,6 @@
 				<!-- Movies from the same Writer(s) -->
 				<include content="ExtendedInfoListLayout" condition="System.HasAddon(plugin.video.themoviedb.helper) + String.IsEqual(ListItem.DBType,movie)">
 					<param name="controlId" value="90082" />
-					<param name="label" value="$INFO[ListItem.Label]" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="listVisible" value="true" />
 					<param name="includeContent" value="true" />
@@ -1475,7 +1218,6 @@
 				<!-- Similar Movies-->
 				<include content="ExtendedInfoListLayout" condition="System.HasAddon(plugin.video.themoviedb.helper) + String.IsEqual(ListItem.DBType,movie)">
 					<param name="controlId" value="90083" />
-					<param name="label" value="$INFO[ListItem.Label]" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="listVisible" value="true" />
 					<param name="includeContent" value="true" />
@@ -1489,7 +1231,6 @@
 				<!-- Recommended Movies-->
 				<include content="ExtendedInfoListLayout" condition="System.HasAddon(plugin.video.themoviedb.helper) + String.IsEqual(ListItem.DBType,movie)">
 					<param name="controlId" value="90084" />
-					<param name="label" value="$INFO[ListItem.Label]" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="listVisible" value="true" />
 					<param name="includeContent" value="true" />
