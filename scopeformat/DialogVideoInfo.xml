@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<!-- This is the file is responsible for displaying the video info details.                                                        -->
+<!-------------------------------------------------------------------------------------------------------------------------------->
 <window>
 	<defaultcontrol always="true">8</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
@@ -302,8 +305,11 @@
 						<onclick condition="System.HasAddon(script.extendedinfo)">SetProperty(DirectorID,True)</onclick>
 						<onclick condition="System.HasAddon(script.extendedinfo)">SetProperty(ActorName,$INFO[ListItem.Director])</onclick>
 						<onclick condition="System.HasAddon(script.extendedinfo)">ActivateWindow(1130)</onclick>
-						<onclick condition="System.HasAddon(plugin.video.themoviedb.helper)">RunScript(plugin.video.themoviedb.helper,add_query=$INFO[ListItem.Director],type=person,call_auto=1190)</onclick>
-						<onclick condition="!System.HasAddon(plugin.video.themoviedb.helper)">SendClick(2003,13)</onclick>
+						<onclick condition="System.HasAddon(script.embuary.info)">SetProperty(DirectorID,True)</onclick>
+						<onclick condition="System.HasAddon(script.embuary.info)">SetProperty(DirectorName,$INFO[ListItem.Director])</onclick>
+						<onclick condition="System.HasAddon(script.embuary.info)">ActivateWindow(1130)</onclick>
+						<onclick condition="!System.HasAddon(script.embuary.info)">SendClick(2003,13)</onclick>  
+						<!-- <onclick condition="System.HasAddon(plugin.video.themoviedb.helper)">RunScript(plugin.video.themoviedb.helper,add_query=$INFO[ListItem.Director],type=person,call_auto=1190)</onclick> -->
 					</control>
 					<!-- Writer -->
 					<control type="button" id="30003">
@@ -313,7 +319,8 @@
 						<include>ButtonInfo</include>
 						<label>$INFO[ListItem.Writer,[COLOR labelheader]$LOCALIZE[20417]:   [/COLOR]]</label>
 						<onclick condition="System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Writer])</onclick>
-						<onclick condition="System.HasAddon(plugin.video.themoviedb.helper)">RunScript(plugin.video.themoviedb.helper,add_query=$INFO[ListItem.Writer],type=person,call_auto=1190)</onclick>
+						<onclick condition="System.HasAddon(script.embuary.info)">RunScript(script.embuary.info,call=person,query='"$INFO[ListItem.Writer]"')</onclick>
+						<!-- <onclick condition="System.HasAddon(plugin.video.themoviedb.helper)">RunScript(plugin.video.themoviedb.helper,add_query=$INFO[ListItem.Writer],type=person,call_auto=1190)</onclick> -->
 					</control>
 					<!-- TV, ??? (as-is) -->
 					<control type="button" id="30004">
@@ -450,6 +457,7 @@
 						<ondown>9001</ondown>
 						<!-- Play -->
 						<control type="button" id="8">
+							<visible>String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode)</visible>
 							<width>65</width>
 							<texturenofocus></texturenofocus>
 							<font>IconMediumMD</font>
@@ -458,16 +466,34 @@
 						</control>
 						<!-- Cast -->
 						<control type="button" id="910">
+							<visible>String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode)</visible>
+							<visible>!String.IsEmpty(ListItem.Cast)</visible>
 							<width>65</width>
 							<texturenofocus></texturenofocus>
 							<font>IconMediumMD</font>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label></label>
 							<onclick>SetFocus(50)</onclick>
-							<visible>!String.IsEmpty(ListItem.Cast)</visible>
+						</control>
+						<!-- TMDB info -->
+						<control type="button" id="91010">
+							<visible>String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode)</visible>
+							<visible>System.HasAddon(script.embuary.info)</visible>
+							<width>65</width>
+							<texturenofocus></texturenofocus>
+							<font>IconMediumMD</font>
+							<include>ButtonInfoDialogsCommonValues</include>
+							<label></label>
+							<onclick condition="!Window.IsActive(Home) + String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.IMDBNumber)">RunScript(script.embuary.info,call=movie,external_id=$INFO[ListItem.IMDBNumber])</onclick>
+							<onclick condition="!Window.IsActive(Home) + String.IsEqual(ListItem.DBTYPE,movie) + String.IsEmpty(ListItem.IMDBNumber)">RunScript(script.embuary.info,call=movie,query='"$INFO[ListItem.Title]"',year=$INFO[ListItem.Year])</onclick>
+							<onclick condition="!Window.IsActive(Home) + String.IsEqual(ListItem.DBTYPE,tvshow)">RunScript(script.embuary.info,call=tv,query='"$INFO[ListItem.Title]"',year=$INFO[ListItem.Year])</onclick>
+							<onclick condition="Window.IsActive(Home) + String.IsEqual(Window(Home).Property(EmbuaryInfoSearchType),movie) + !String.IsEmpty(Window(Home).Property(EmbuaryInfoSearchStringIMDB))">RunScript(script.embuary.info,call=movie,external_id=$INFO[Window(Home).Property(EmbuaryInfoSearchStringIMDB)])</onclick>
+							<onclick condition="Window.IsActive(Home) + String.IsEqual(Window(Home).Property(EmbuaryInfoSearchType),movie) + String.IsEmpty(Window(Home).Property(EmbuaryInfoSearchStringIMDB))">RunScript(script.embuary.info,call=movie,query='"$INFO[Window(Home).Property(EmbuaryInfoSearchStringTitle)]"',year=$INFO[Window(Home).Property(EmbuaryInfoSearchStringYear)])</onclick>
+							<onclick condition="Window.IsActive(Home) + String.IsEqual(Window(Home).Property(EmbuaryInfoSearchType),tvshow)">RunScript(script.embuary.info,call=tv,query='"$INFO[Window(Home).Property(EmbuaryInfoSearchStringTitle)]"',year=$INFO[Window(Home).Property(EmbuaryInfoSearchStringYear)])</onclick>
 						</control>
 						<!-- Set rating -->
 						<control type="button" id="7">
+							<visible>String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode)</visible>
 							<width>65</width>
 							<texturenofocus></texturenofocus>
 							<font>IconMediumMD</font>

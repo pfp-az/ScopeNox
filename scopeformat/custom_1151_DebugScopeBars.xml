@@ -1,9 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<!-- This file used when debuging is on is responsible                                                                          -->
+<!-- It draws lines on the screen representing the edges o the different aspect ratios                                          -->
+<!-------------------------------------------------------------------------------------------------------------------------------->
 <window id="1151" type="dialog">
-<!--     <defaultcontrol always="false">100</defaultcontrol> -->
 	<visible>Skin.HasSetting(DebugInfo)</visible>
     <controls>
-   		<control type="image">
+ 		<control type="image">
+			<!-- 2.40 -->
+			<visible>!Skin.HasSetting(scopeFormat235)</visible>
+			<left>0</left>
+			<top>135</top>
+			<width>1920</width>
+			<height>5</height>
+			<texture background="true">special://skin/extras/red.png</texture>
+		</control>
+		<control type="image" zorder="0">
+			<visible>!Skin.HasSetting(scopeFormat235)</visible>
+			<left>0</left>
+			<top>940</top>
+			<width>1920</width>
+			<height>5</height>
+			<texture background="true">special://skin/extras/red.png</texture>
+		</control>
+		<!-- 2.35 -->
+  		<control type="image">
 			<visible>Skin.HasSetting(scopeFormat235)</visible>
 			<left>0</left>
 			<top>125</top>
@@ -20,21 +41,5 @@
 			<texture background="true">special://skin/extras/orange.png</texture>
 		</control>
 		
-		<control type="image">
-			<visible>!Skin.HasSetting(scopeFormat235)</visible>
-			<left>0</left>
-			<top>135</top>
-			<width>1920</width>
-			<height>5</height>
-			<texture background="true">special://skin/extras/red.png</texture>
-		</control>
-		<control type="image" zorder="0">
-			<visible>!Skin.HasSetting(scopeFormat235)</visible>
-			<left>0</left>
-			<top>940</top>
-			<width>1920</width>
-			<height>5</height>
-			<texture background="true">special://skin/extras/red.png</texture>
-		</control>
     </controls>
 </window>

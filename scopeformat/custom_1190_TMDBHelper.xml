@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<!-- This is the file used by the TMDBHelper plugin.  The content of this file is dictated by the plugin                        -->
+<!-------------------------------------------------------------------------------------------------------------------------------->
 <window type="window" id="1190">
     <defaultcontrol always="true">9999</defaultcontrol>
     <controls>
-        <include>Global_Background</include>
-        <include>Topbar</include>
-        <control type="list" id="9999">
+       <control type="list" id="9999">
             <top>-1000</top>
             <left>-1000</left>
             <width>1</width>
@@ -16,7 +17,7 @@
         <control type="group">
             <visible>Container(9999).IsUpdating</visible>
             <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
-            <include>DialogBusy</include>
+            <include>Busy</include>
         </control>
     </controls>
 </window>
