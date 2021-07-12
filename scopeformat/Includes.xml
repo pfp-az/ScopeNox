@@ -696,39 +696,39 @@
 	<include name="CastPanelContent">
 		<definition>
 			<content>
-			<include content="VideoCastItem">
-				<param name="CastListItemID" value="0" />
-			</include>
-			<include content="VideoCastItem">
-				<param name="CastListItemID" value="1" />
-			</include>
-			<include content="VideoCastItem">
-				<param name="CastListItemID" value="2" />
-			</include>
-			<include content="VideoCastItem">
-				<param name="CastListItemID" value="3" />
-			</include>
-			<include content="VideoCastItem">
-				<param name="CastListItemID" value="4" />
-			</include>
-			<include content="VideoCastItem">
-				<param name="CastListItemID" value="5" />
-			</include>
-			<include content="VideoCastItem">
-				<param name="CastListItemID" value="6" />
-			</include>
-			<include content="VideoCastItem">
-				<param name="CastListItemID" value="7" />
-			</include>
-			<include content="VideoCastItem">
-				<param name="CastListItemID" value="8" />
-			</include>
-			<include content="VideoCastItem">
-				<param name="CastListItemID" value="9" />
-			</include>
-			<include content="VideoCastItem">
-				<param name="CastListItemID" value="10" />
-			</include>
+				<include content="VideoCastItem">
+					<param name="CastListItemID" value="0" />
+				</include>
+				<include content="VideoCastItem">
+					<param name="CastListItemID" value="1" />
+				</include>
+				<include content="VideoCastItem">
+					<param name="CastListItemID" value="2" />
+				</include>
+				<include content="VideoCastItem">
+					<param name="CastListItemID" value="3" />
+				</include>
+				<include content="VideoCastItem">
+					<param name="CastListItemID" value="4" />
+				</include>
+				<include content="VideoCastItem">
+					<param name="CastListItemID" value="5" />
+				</include>
+				<include content="VideoCastItem">
+					<param name="CastListItemID" value="6" />
+				</include>
+				<include content="VideoCastItem">
+					<param name="CastListItemID" value="7" />
+				</include>
+				<include content="VideoCastItem">
+					<param name="CastListItemID" value="8" />
+				</include>
+				<include content="VideoCastItem">
+					<param name="CastListItemID" value="9" />
+				</include>
+				<include content="VideoCastItem">
+					<param name="CastListItemID" value="10" />
+				</include>
 			</content>
 		</definition>
 	</include>
@@ -890,15 +890,14 @@
 
 	<!-- The content for the posters -->
 	<include name="ExtendedInfoListContent">
+		<param name="test" default="false" />
+		<param name="content" />
 		<param name="sortby" />
 		<param name="sortorder" />
-		<param name="content" />
-		<param name="target" value="videos" />
 		<definition>
 
-			<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[target]">$PARAM[content]</content>
-
-
+			<content condition="!$PARAM[test]" sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="videos">$PARAM[content]</content>
+			<include condition="$PARAM[test]">CastPanelContent</include>
 
 		</definition>
 	</include>
@@ -961,15 +960,12 @@
 					</include>
 				</focusedlayout>
 				<!-- Content -->
-
-				<include content="ExtendedInfoListContent" condition="$PARAM[includeContent] + !$PARAM[test]">
+				<include content="ExtendedInfoListContent" condition="$PARAM[includeContent]">
+					<param name="content">$PARAM[content]</param>
 					<param name="sortby">$PARAM[sortby]</param>
 					<param name="sortorder">$PARAM[sortorder]</param>
-					<param name="content">$PARAM[content]</param>
+					<param name="test">$PARAM[test]</param>
 				</include>
-
-				<include condition="$PARAM[test]">CastPanelContent</include>
-
 			</control>
 		</definition>
 	</include>

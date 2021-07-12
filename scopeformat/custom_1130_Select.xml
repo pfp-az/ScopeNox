@@ -108,7 +108,7 @@
 						<visible>!String.IsEmpty(Window(movieinformation).Property(ActorID))</visible>
 						<label>$LOCALIZE[31149]</label>
 						<onclick>Dialog.Close(1130)</onclick>
-						<onclick>ClearProperty(DirectorID,movieinformation)</onclick>
+						<onclick>ClearProperty(ActorID,movieinformation)</onclick>
 						<onclick condition="System.HasAddon(script.embuary.info)">RunScript(script.embuary.info,call=person,query='"$INFO[ListItem.Actor]"')</onclick> 
 					</item>
 					<!-- Unknown -->
