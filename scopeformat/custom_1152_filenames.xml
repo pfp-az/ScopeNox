@@ -159,6 +159,7 @@
 		</control>
 
 		<control type="label" id="20">
+			<top>70</top>
 			<include>DebugInfoIdentifyXML</include>
 			<label>DialogBusy.xml</label>
 			<visible>Window.IsVisible(DialogBusy.xml)</visible>

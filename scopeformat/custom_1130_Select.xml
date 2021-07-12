@@ -92,7 +92,7 @@
 				</focusedlayout>
 				<!-- Content of the list -->
 				<content>
-					<!-- "List local library items" -->
+					<!-- "List local library items" (Director or Actor)-->
 					<item>
 						<visible>!String.IsEmpty(Window(movieinformation).Property(DirectorID)) | !String.IsEmpty(Window(movieinformation).Property(ActorID))</visible>
 						<label>$LOCALIZE[31148]</label>
