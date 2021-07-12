@@ -677,6 +677,11 @@
 <!-- I'm placing all code I've written or fully reviewed/modified below this area.  This is strictly for organization purposes  -->
 <!-------------------------------------------------------------------------------------------------------------------------------->
 
+	<include name="HiddenActorList">
+		<control type="list" id="50">
+			<include>HiddenList</include>
+		</control>
+	</include>
 
 	<include name="VideoCastItem">
 		<param name="CastListItemID" />
@@ -733,9 +738,6 @@
 		</definition>
 	</include>
 
-
-
-
     <!-- Used on a screen that aids in debugging-->
     <include name="DebugInfoIdentifyXML">
 		<definition>
@@ -748,42 +750,6 @@
 			<textcolor>white</textcolor>
  		</definition>
    </include>
-
-    <!-- Busy animation POSSIBLY NOT NEEDED-->
- 	<include name="Busy">
-       <control type="group">
-            <height>800</height>
-            <width>1920</width>
-			<!-- Background image -->
-            <control type="image">
-                <top>400</top>
-				<centerleft>50%</centerleft>
-                <width>200</width>
-                <height>200</height>
-                <texture>loading-back.png</texture>
-                <aspectratio>scale</aspectratio>
-            </control>
-			<!-- Animated image -->
-            <control type="image">
-                <top>400</top>
-                <centerleft>50%</centerleft>
-                <width>200</width>
-                <height>200</height>
-				<texture colordiffuse="labelheader">loading-spinner.png</texture>
-				<aspectratio>scale</aspectratio>
-                <animation effect="rotate" condition="true" start="0" end="360" loop="true" time="1000" center="auto">Conditional</animation>
-            </control>
-			<!-- Label -->
-			<control type="label">
-                <top>600</top>
-				<centerleft>50%</centerleft>
-                <height>60</height>
-                <align>center</align>
-                <textcolor>labelheader</textcolor>
-                <label>Your data is being loaded...</label>
-            </control>
-        </control> 
-	</include>
 
 	<!-- The layout of the posters -->
 	<include name="ExtendedInfoPostersLayout">
@@ -995,7 +961,8 @@
 						<height>$PARAM[totalheight]</height> <!-- Don't understand why necessary in all 3 places -->
 						<texturenofocus></texturenofocus>
 						<onup>9000</onup>
-						<ondown>50</ondown>
+						<ondown condition="!System.HasAddon(script.embuary.info)">SetFocus(50)</ondown>
+						<ondown condition="System.HasAddon(script.embuary.info)">SetFocus(90050)</ondown>
 						<onclick>SetProperty(TextViewerHeader,$INFO[ListItem.Label,[B],[/B]],Home)</onclick>
 						<onclick>SetProperty(TextViewerContent,$ESCINFO[ListItem.Tagline,[I],[/I][CR]]$ESCINFO[ListItem.Plot]$ESCINFO[ListItem.PlotOutline,[CR]---[CR]],Home)</onclick>
 						<onclick>ActivateWindow(1132)</onclick>
@@ -1147,12 +1114,11 @@
 					</control>
 				</control>
 				<!-- Cast without Embuary.Info script installed-->	
-				<include content="ExtendedInfoListLayout">
+				<include content="ExtendedInfoListLayout" condition="!System.HasAddon(script.embuary.info)">
 					<param name="controlId" value="50" />
 					<param name="label2" value="$INFO[ListItem.Label2]" />
 					<param name="listVisible" value="!System.HasAddon(script.embuary.info)" />
 					<param name="includeContent" value="false" />
-					<param name="content" value="Who Cares - Not Included" />
 					<param name="totalheight" value="$PARAM[totalheight]" />
 					<param name="posterheight" value="$PARAM[posterheight]" />
 					<param name="posterwidth" value="$PARAM[posterwidth]" />

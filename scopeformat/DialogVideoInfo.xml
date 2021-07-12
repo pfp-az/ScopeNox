@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-------------------------------------------------------------------------------------------------------------------------------->
-<!-- This is the file is responsible for displaying the video info details.                                                        -->
+<!-- This is the file is responsible for displaying the video info details.                                                     -->
 <!-------------------------------------------------------------------------------------------------------------------------------->
 <window>
 	<defaultcontrol always="true">8</defaultcontrol>
@@ -9,6 +9,8 @@
 	<onload>SetFocus(8)</onload>
 	<onunload>ClearProperty(Extra.Info,movieinformation)</onunload>
 	<controls>
+		<!-- Needed for native cast lookup when Embuary.info scrpt is installed.  Not really sure why -->
+		<include content="HiddenActorList" condition="!String.IsEqual(ListItem.DBTYPE,set) + System.HasAddon(script.embuary.info)" />
 		<!-- Left Side - Poster -->
 		<control type="group">
 			<!-- <top>140</top> Unable to define here due to animation on control in group -->
@@ -302,9 +304,6 @@
 						<texturenofocus></texturenofocus>
 						<include>ButtonInfo</include>
 						<label>$INFO[ListItem.Director,[COLOR labelheader]$LOCALIZE[20339]:   [/COLOR]]</label>
-						<onclick condition="System.HasAddon(script.extendedinfo)">SetProperty(DirectorID,True)</onclick>
-						<onclick condition="System.HasAddon(script.extendedinfo)">SetProperty(ActorName,$INFO[ListItem.Director])</onclick>
-						<onclick condition="System.HasAddon(script.extendedinfo)">ActivateWindow(1130)</onclick>
 						<onclick condition="System.HasAddon(script.embuary.info)">SetProperty(DirectorID,True)</onclick>
 						<onclick condition="System.HasAddon(script.embuary.info)">SetProperty(DirectorName,$INFO[ListItem.Director])</onclick>
 						<onclick condition="System.HasAddon(script.embuary.info)">ActivateWindow(1130)</onclick>
