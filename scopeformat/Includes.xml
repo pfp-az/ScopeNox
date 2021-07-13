@@ -1043,11 +1043,12 @@
 
 	<!-- Part of ExtendedInfo area for video, the layout of the posters -->
 	<include name="ExtendedInfoPostersLayout">
+		<param name="focused" default="false" />
+		<param name="overlay" />
 		<param name="height" />
 		<param name="width" />
 		<param name="label" />
 		<param name="label2" />
-		<param name="focused" />
 		<definition>
 			<control type="group">
 			<animation effect="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" condition="$PARAM[focused]">Focus</animation>
@@ -1089,7 +1090,7 @@
 				</control>
 				<!-- Overlay -->
 				<control type="image"> 
-					<visible>false + !String.IsEmpty(ListItem.DBID) | !String.IsEmpty(ListItem.Property(DBID))</visible>
+					<visible>$PARAM[overlay] + [!String.IsEmpty(ListItem.DBID) | !String.IsEmpty(ListItem.Property(DBID))]</visible>
 					<right>0</right>
 					<width>100</width>
 					<height>100</height>
@@ -1163,6 +1164,7 @@
 		<param name="label2" />
 		<param name="includeContent" />
 		<param name="content" />
+		<param name="overlay" default="false" />
 		<param name="sortby" />
 		<param name="sortorder" />
 		<param name="totalheight" />
@@ -1177,38 +1179,40 @@
 				<scrolltime tween="quadratic" easing="out">300</scrolltime>
 				<itemlayout height="$PARAM[totalheight]" width="$PARAM[posterwidth]" condition="!Skin.HasSetting(scopeFormat235)">
 					<include content="ExtendedInfoPostersLayout">
+						<param name="overlay" value="$PARAM[overlay]" />
 						<param name="height" value="$PARAM[posterheight]" />
 						<param name="width" value="$PARAM[posterwidth]" />
 						<param name="label" value="$INFO[ListItem.Label]" />
 						<param name="label2" value="$PARAM[label2]" />
-						<param name="focused" value="false" />
 					</include>
 				</itemlayout>
 				<itemlayout height="$PARAM[totalheight]" width="$PARAM[posterwidth]" condition="Skin.HasSetting(scopeFormat235)">
 					<include content="ExtendedInfoPostersLayout">
+						<param name="overlay" value="$PARAM[overlay]" />
 						<param name="height" value="$PARAM[posterheight]" />
 						<param name="width" value="$PARAM[posterwidth]" />
 						<param name="label" value="$INFO[ListItem.Label]" />
 						<param name="label2" value="$PARAM[label2]" />
-						<param name="focused" value="false" />
 					</include>
 				</itemlayout>
 				<focusedlayout height="$PARAM[totalheight]" width="$PARAM[posterwidth]" condition="!Skin.HasSetting(scopeFormat235)">
 					<include content="ExtendedInfoPostersLayout">
+						<param name="focused" value="true" />
+						<param name="overlay" value="$PARAM[overlay]" />
 						<param name="height" value="$PARAM[posterheight]" />
 						<param name="width" value="$PARAM[posterwidth]" />
 						<param name="label" value="$INFO[ListItem.Label]" />
 						<param name="label2" value="$PARAM[label2]" />
-						<param name="focused" value="true" />
 					</include>
 				</focusedlayout>
 				<focusedlayout height="$PARAM[totalheight]" width="$PARAM[posterwidth]" condition="Skin.HasSetting(scopeFormat235)">
 					<include content="ExtendedInfoPostersLayout">
+						<param name="focused" value="true" />
+						<param name="overlay" value="$PARAM[overlay]" />
 						<param name="height" value="$PARAM[posterheight]" />
 						<param name="width" value="$PARAM[posterwidth]" />
 						<param name="label" value="$INFO[ListItem.Label]" />
 						<param name="label2" value="$PARAM[label2]" />
-						<param name="focused" value="true" />
 					</include>
 				</focusedlayout>
 				<!-- Content -->
@@ -1434,7 +1438,9 @@
 					<param name="controlId" value="90081" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
 					<param name="includeContent" value="true" />
-					<param name="content" value="plugin://script.embuary.helper/?info=getdirectedby&dbid=$INFO[ListItem.DBID]" />
+					<param name="content" value="plugin://script.embuary.helper/?info=getdirectedby&dbid=$INFO[ListItem.DBID]" /> 
+					<!--<param name="content" value="plugin://plugin.video.themoviedb.helper?info=crew_in_movies&amp;type=person&amp;filter_key=job&amp;filter_value=Director&amp;query=$INFO[Window(home).Property(DirectorList.0)]&amp;exclude_value=$INFO[ListItem.Title]&amp;nextpage=false" /> -->
+					<!--<param name="content" value="plugin://plugin.video.themoviedb.helper?info=discover&amp;type=movie&amp;with_crew=$INFO[ListItem.Director]&amp;with_separator=OR&amp;exclude_key=title&amp;exclude_value=$INFO[ListItem.Title]&amp;nextpage=false" />  -->
 					<param name="sortby" value="year" />
 					<param name="sortorder" value="descending" />
 					<param name="totalheight" value="$PARAM[totalheight]" />
@@ -1460,6 +1466,7 @@
 					<param name="includeContent" value="true" />
 					<!-- <param name="content" value="plugin://script.embuary.helper/?info=getsimilar&dbid=$INFO[ListItem.DBID]&type=movie" /> -->
 					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=similar&amp;type=movie&amp;imdb_id=$INFO[ListItem.IMDBNumber]&amp;nextpage=false" /> 
+					<param name="overlay" value="true" />
 					<param name="sortby" value="year" />
 					<param name="sortorder" value="descending" />
 					<param name="totalheight" value="$PARAM[totalheight]" />
@@ -1473,6 +1480,7 @@
 					<param name="includeContent" value="true" />
 					<!-- <param name="content" value="plugin://script.embuary.helper/?info=getsimilar&type=movie&pos=0" /> -->
 					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=recommendations&amp;type=movie&amp;imdb_id=$INFO[ListItem.IMDBNumber]&amp;nextpage=false" /> 
+					<param name="overlay" value="true" />
 					<param name="sortby" value="year" />
 					<param name="sortorder" value="descending" />
 					<param name="totalheight" value="$PARAM[totalheight]" />

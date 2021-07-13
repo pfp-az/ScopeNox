@@ -427,20 +427,20 @@
 						<font>font14</font>
 						<enable>no</enable>
 						<!-- Focus is on butons area -->
-						<control type="button">
+						<control type="Label">
 							<visible>!ControlGroup(9001).HasFocus | ControlGroup(9001).HasFocus(90017)</visible>
-							<width>810</width>
+							<width>770</width>
 							<align>left</align>
-							<texturenofocus></texturenofocus>
+							<scroll>true</scroll>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label>$VAR[VideoInfoButtonLabelVar]</label>
 						</control>
 						<!-- Focus is on plot area -->
-						<control type="button">
+						<control type="label">
 							<visible>ControlGroup(9001).HasFocus + !Control(90017).HasFocus</visible>
-							<width>810</width>
+							<width>770</width>
 							<align>left</align>
-							<texturenofocus></texturenofocus>
+							<scroll>true</scroll>
 							<include>ButtonInfoDialogsCommonValues</include>
 							<label>$VAR[VideoInfoDetailsLabelVar]</label>
 						</control>
