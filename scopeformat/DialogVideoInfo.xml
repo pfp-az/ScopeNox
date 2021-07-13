@@ -5,6 +5,7 @@
 <window>
 	<defaultcontrol always="true">8</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
+	<include content="ResetExtendedInfoContainers" />
 	<onload>SetFocus(900171)</onload>
 	<onload>SetFocus(8)</onload>
 	<onunload>ClearProperty(Extra.Info,movieinformation)</onunload>

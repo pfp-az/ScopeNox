@@ -677,7 +677,25 @@
 <!-- I'm placing all code I've written or fully reviewed/modified below this area.  This is strictly for organization purposes  -->
 <!-------------------------------------------------------------------------------------------------------------------------------->
 
-
+	<!-- Move the controls position to the first item in the list -->
+	<include name="ResetExtendedInfoContainers">
+		<definition>
+			<onload>Control.Move(50,$INFO[Container(50).CurrentItem,-])</onload>
+			<onload>Control.Move(50,1)</onload>
+			<onload>Control.Move(90050,$INFO[Container(90050).CurrentItem,-])</onload>
+			<onload>Control.Move(90050,1)</onload>
+			<onload>Control.Move(90080,$INFO[Container(90080).CurrentItem,-])</onload>
+			<onload>Control.Move(90080,1)</onload>
+			<onload>Control.Move(90081,$INFO[Container(90081).CurrentItem,-])</onload>
+			<onload>Control.Move(90081,1)</onload>
+ 			<onload>Control.Move(90082,$INFO[Container(90082).CurrentItem,-])</onload>
+			<onload>Control.Move(90082,1)</onload>
+			<onload>Control.Move(90083,$INFO[Container(90083).CurrentItem,-])</onload>
+			<onload>Control.Move(90083,1)</onload>
+			<onload>Control.Move(90084,$INFO[Container(90084).CurrentItem,-])</onload>
+			<onload>Control.Move(90084,1)</onload>
+		</definition>
+   </include>
 
     <!-- Used on a screen that aids in debugging-->
     <include name="DebugInfoIdentifyXML">
