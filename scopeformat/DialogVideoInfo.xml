@@ -285,7 +285,6 @@
 				<control type="grouplist" id="300">
 					<top>166</top>
 					<left>-36</left>
-					<font>font_28</font>
 					<onup>4002</onup>
 					<ondown>9000</ondown>
 					<orientation>vertical</orientation>
@@ -349,32 +348,32 @@
 						<include>ButtonInfo</include>
 						<label>$INFO[ListItem.Premiered,[COLOR labelheader]$LOCALIZE[20416]:   [/COLOR]]</label>
 					</control>
-					<!-- Cast -->
+					<!-- Cast 
 					<control type="button" id="30008">
 						<visible>!String.IsEmpty(ListItem.Cast)</visible>
+						<font>font_28</font>
 						<texturenofocus></texturenofocus>
 						<include>ButtonInfo</include>
 						<label>$INFO[Container(50).ListItemAbsolute(0).Label,[COLOR labelheader]$LOCALIZE[206]:   [/COLOR]]$INFO[Container(50).ListItemAbsolute(1).Label,$COMMA ]$INFO[Container(50).ListItemAbsolute(2).Label,$COMMA ]$INFO[Container(50).ListItemAbsolute(3).Label,$COMMA ]$INFO[Container(50).ListItemAbsolute(4).Label,$COMMA ]$INFO[Container(50).ListItemAbsolute(5).Label,$COMMA ]</label>
 						<onclick condition="!System.HasAddon(script.embuary.info)">SetFocus(50)</onclick>
 						<onclick condition="System.HasAddon(script.embuary.info)">SetFocus(90050)</onclick>
-					</control>
+					</control>-->
 				</control>
 				<!-- Top Info - Date Added, Last Plaed, Play Count -->
 				<control type="list">
 					<top>166</top>
 					<left>1025</left>
-					<font>font_28</font>
 					<!-- With Focus -->
 					<focusedlayout height="40" width="400">
 						<control type="label">
 							<left>10</left>
-							<font>font12</font>
+							<font>font_28</font>
 							<textcolor>grey</textcolor>
 							<label>[COLOR labelheader]$INFO[ListItem.Label2][/COLOR]</label>
 						</control>
 						<control type="label">
 							<left>160</left>
-							<font>font12</font>
+							<font>font_28</font>
 							<textcolor>grey</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
@@ -383,13 +382,13 @@
 					<itemlayout height="40" width="400">
 						<control type="label">
 							<left>10</left>
-							<font>font12</font>
+							<font>font_28</font>
 							<textcolor>grey</textcolor>
 							<label>[COLOR labelheader]$INFO[ListItem.Label2][/COLOR]</label>
 						</control>
 						<control type="label">
 							<left>160</left>
-							<font>font12</font>
+							<font>font_28</font>
 							<textcolor>grey</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>

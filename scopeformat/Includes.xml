@@ -1085,16 +1085,15 @@
 					<top>80r</top>
 					<height>80</height>
 					<texture>black.png</texture>
-					<colordiffuse>88fffff</colordiffuse>
 					<bordersize>2</bordersize>
 				</control>
 				<!-- Overlay -->
 				<control type="image"> 
 					<visible>$PARAM[overlay] + [!String.IsEmpty(ListItem.DBID) | !String.IsEmpty(ListItem.Property(DBID))]</visible>
 					<right>0</right>
-					<width>100</width>
-					<height>100</height>
-					<texture>overlays/addons/enabled.png</texture>
+					<width>50</width>
+					<height>50</height>
+					<texture>enabled.png</texture>
 					<bordersize>2</bordersize>
 				</control>
 				<!-- Slightly dim unfocused images -->
@@ -1109,7 +1108,7 @@
 					<top>83r</top>
 					<height>43</height>
 					<align>center</align>
-					<font>font10</font>
+					<font>font_24</font>
 					<textoffsetx>10</textoffsetx>
 					<shadowcolor>shadow</shadowcolor>
 					<selectedcolor>selected</selectedcolor>
@@ -1123,7 +1122,7 @@
 					<top>53r</top>
 					<height>43</height>
 					<align>center</align>
-					<font>font12</font>
+					<font>font_28</font>
 					<textoffsetx>10</textoffsetx>
 					<shadowcolor>shadow</shadowcolor>
 					<selectedcolor>selected</selectedcolor>
@@ -1262,7 +1261,7 @@
 						<height>$PARAM[plotheight]</height>
 						<left>36</left>
 						<right>36</right>
-						<font>font_28_ls_12</font>
+						<font>font_30_ls_13</font>
 						<label>$INFO[ListItem.Plot]</label>
 						<textcolor>white</textcolor>
 						<pagecontrol />

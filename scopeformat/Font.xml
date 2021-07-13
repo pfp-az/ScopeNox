@@ -217,9 +217,20 @@
 			<linespacing>1.2</linespacing>
 		</font>
 		<font>
+			<name>font_30_ls_13</name>
+			<filename>RobotoCondensed-Regular.ttf</filename>
+			<size>30</size>
+			<linespacing>1.3</linespacing>
+		</font>
+		<font>
 			<name>font_28</name>
 			<filename>RobotoCondensed-Regular.ttf</filename>
 			<size>28</size>
+		</font>
+		<font>
+			<name>font_30</name>
+			<filename>RobotoCondensed-Regular.ttf</filename>
+			<size>30</size>
 		</font>
 		<font>
 			<name>font14_textbox_plot</name>
@@ -239,6 +250,16 @@
 		</font>
 		<font>
 			<name>font12</name>
+			<filename>RobotoCondensed-Regular.ttf</filename>
+			<size>26</size>
+		</font>
+		<font>
+			<name>font_23</name>
+			<filename>RobotoCondensed-Regular.ttf</filename>
+			<size>23</size>
+		</font>
+		<font>
+			<name>font_26</name>
 			<filename>RobotoCondensed-Regular.ttf</filename>
 			<size>26</size>
 		</font>
