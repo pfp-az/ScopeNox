@@ -1089,7 +1089,7 @@
 				</control>
 				<!-- Overlay -->
 				<control type="image"> 
-					<visible>!String.IsEmpty(ListItem.DBID) | !String.IsEmpty(ListItem.Property(DBID))</visible>
+					<visible>false + !String.IsEmpty(ListItem.DBID) | !String.IsEmpty(ListItem.Property(DBID))</visible>
 					<right>0</right>
 					<width>100</width>
 					<height>100</height>
@@ -1161,7 +1161,6 @@
 		<param name="controlId" />
 		<param name="label" default="$INFO[ListItem.Label]" />
 		<param name="label2" />
-		<param name="listVisible" />
 		<param name="includeContent" />
 		<param name="content" />
 		<param name="sortby" />
@@ -1403,7 +1402,6 @@
 				<include content="ExtendedInfoListLayout" condition="!System.HasAddon(script.embuary.info)">
 					<param name="controlId" value="50" />
 					<param name="label2" value="$INFO[ListItem.Label2]" />
-					<param name="listVisible" value="true" />
 					<param name="includeContent" value="false" />
 					<param name="totalheight" value="$PARAM[totalheight]" />
 					<param name="posterheight" value="$PARAM[posterheight]" />
@@ -1413,7 +1411,6 @@
 				<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.embuary.info)">
 					<param name="controlId" value="90050" />
 					<param name="label2" value="$INFO[ListItem.Label2]" />
-					<param name="listVisible" value="true" />
 					<param name="includeContent" value="true" />
 					<param name="content" value="" /> <!-- needs to be null in order to pick up content elsewhere -->
 					<param name="totalheight" value="$PARAM[totalheight]" />
@@ -1421,12 +1418,11 @@
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>
 				<!-- Movies from Set -->	
-				<include content="ExtendedInfoListLayout" condition="System.HasAddon(plugin.video.themoviedb.helper) + String.IsEqual(ListItem.DBType,movie)">
+				<include content="ExtendedInfoListLayout" condition="String.IsEqual(ListItem.DBTYPE,movie) + !String.IsEmpty(ListItem.SetID)" >
 					<param name="controlId" value="90080" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
-					<param name="listVisible" value="true" />
 					<param name="includeContent" value="true" />
-					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=collection&amp;type=movie&amp;query=$INFO[ListItem.Set]" />
+					<param name="content" value="videodb://movies/sets/$INFO[ListItem.SetID]" />
 					<param name="sortby" value="year" />
 					<param name="sortorder" value="ascending" />
 					<param name="totalheight" value="$PARAM[totalheight]" />
@@ -1434,14 +1430,11 @@
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>
 				<!-- Movies from the same Director(s) -->
-				<include content="ExtendedInfoListLayout" condition="System.HasAddon(plugin.video.themoviedb.helper) + String.IsEqual(ListItem.DBType,movie)">
+				<include content="ExtendedInfoListLayout" condition="System.HasAddon(script.embuary.helper) + String.IsEqual(ListItem.DBType,movie)">
 					<param name="controlId" value="90081" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
-					<param name="listVisible" value="!String.IsEqual(Window(Home).Property(DirectorMovies.Count),0)" />
 					<param name="includeContent" value="true" />
-					<!-- <param name="content" value="plugin://plugin.video.themoviedb.helper?info=crew_in_movies&amp;type=person&amp;filter_key=job&amp;filter_value=Director&amp;query=$INFO[Listitem.Director]&amp;with_separator=OR&amp;exclude_value=$INFO[ListItem.Title]&amp;nextpage=false" /> -->
-					<!-- <param name="content">plugin://script.embuary.helper/?info=getdirectedby&amp;dbid=$INFO[ListItem.DBID]</param> -->
-					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=discover&amp;type=movie&amp;with_crew=$INFO[ListItem.Director]&amp;with_separator=OR&amp;exclude_key=title&amp;exclude_value=$INFO[ListItem.Title]&amp;nextpage=false" /> 
+					<param name="content" value="plugin://script.embuary.helper/?info=getdirectedby&dbid=$INFO[ListItem.DBID]" />
 					<param name="sortby" value="year" />
 					<param name="sortorder" value="descending" />
 					<param name="totalheight" value="$PARAM[totalheight]" />
@@ -1449,12 +1442,10 @@
 					<param name="posterwidth" value="$PARAM[posterwidth]" />
 				</include>
 				<!-- Movies from the same Writer(s) -->
-				<include content="ExtendedInfoListLayout" condition="System.HasAddon(plugin.video.themoviedb.helper) + String.IsEqual(ListItem.DBType,movie)">
+				<include content="ExtendedInfoListLayout" condition="false + System.HasAddon(plugin.video.themoviedb.helper) + String.IsEqual(ListItem.DBType,movie)">
 					<param name="controlId" value="90082" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
-					<param name="listVisible" value="true" />
 					<param name="includeContent" value="true" />
-					<!--<param name="content" value="plugin://plugin.video.themoviedb.helper?info=crew_in_movies&amp;type=person&amp;filter_key=job&amp;filter_value=Writer&amp;query=$INFO[Listitem.Writer]&amp;exclude_value=$INFO[ListItem.Title]&amp;nextpage=false" /> -->
 					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=discover&amp;type=movie&amp;with_crew=$INFO[ListItem.Writer]&amp;with_separator=OR&amp;exclude_key=title&amp;exclude_value=$INFO[ListItem.Title]&amp;nextpage=false" />
 					<param name="sortby" value="year" />
 					<param name="sortorder" value="descending" />
@@ -1466,9 +1457,9 @@
 				<include content="ExtendedInfoListLayout" condition="System.HasAddon(plugin.video.themoviedb.helper) + String.IsEqual(ListItem.DBType,movie)">
 					<param name="controlId" value="90083" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
-					<param name="listVisible" value="true" />
 					<param name="includeContent" value="true" />
-					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=similar&amp;type=movie&amp;imdb_id=$INFO[ListItem.IMDBNumber]&amp;nextpage=false" />
+					<!-- <param name="content" value="plugin://script.embuary.helper/?info=getsimilar&dbid=$INFO[ListItem.DBID]&type=movie" /> -->
+					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=similar&amp;type=movie&amp;imdb_id=$INFO[ListItem.IMDBNumber]&amp;nextpage=false" /> 
 					<param name="sortby" value="year" />
 					<param name="sortorder" value="descending" />
 					<param name="totalheight" value="$PARAM[totalheight]" />
@@ -1479,9 +1470,9 @@
 				<include content="ExtendedInfoListLayout" condition="System.HasAddon(plugin.video.themoviedb.helper) + String.IsEqual(ListItem.DBType,movie)">
 					<param name="controlId" value="90084" />
 					<param name="label2" value="$INFO[ListItem.Year]" />
-					<param name="listVisible" value="true" />
 					<param name="includeContent" value="true" />
-					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=recommendations&amp;type=movie&amp;imdb_id=$INFO[ListItem.IMDBNumber]&amp;nextpage=false" />
+					<!-- <param name="content" value="plugin://script.embuary.helper/?info=getsimilar&type=movie&pos=0" /> -->
+					<param name="content" value="plugin://plugin.video.themoviedb.helper?info=recommendations&amp;type=movie&amp;imdb_id=$INFO[ListItem.IMDBNumber]&amp;nextpage=false" /> 
 					<param name="sortby" value="year" />
 					<param name="sortorder" value="descending" />
 					<param name="totalheight" value="$PARAM[totalheight]" />
