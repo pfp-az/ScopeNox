@@ -290,6 +290,14 @@
 					<ondown>9000</ondown>
 					<orientation>vertical</orientation>
 					<scrolltime tween="quadratic" easing="out">200</scrolltime>
+					<!-- Studio -->
+					<control type="button" id="30009">
+						<visible>!String.IsEmpty(ListItem.Studio)</visible>
+						<width>1060</width>
+						<texturenofocus></texturenofocus>
+						<include>ButtonInfo</include>
+						<label>$INFO[ListItem.Studio,[COLOR labelheader]$LOCALIZE[572]:   [/COLOR]]</label>
+					</control>
 					<!-- Genre -->
 					<control type="button" id="30001">
 						<visible>!String.IsEmpty(ListItem.Genre)</visible>
@@ -349,14 +357,6 @@
 						<label>$INFO[Container(50).ListItemAbsolute(0).Label,[COLOR labelheader]$LOCALIZE[206]:   [/COLOR]]$INFO[Container(50).ListItemAbsolute(1).Label,$COMMA ]$INFO[Container(50).ListItemAbsolute(2).Label,$COMMA ]$INFO[Container(50).ListItemAbsolute(3).Label,$COMMA ]$INFO[Container(50).ListItemAbsolute(4).Label,$COMMA ]$INFO[Container(50).ListItemAbsolute(5).Label,$COMMA ]</label>
 						<onclick condition="!System.HasAddon(script.embuary.info)">SetFocus(50)</onclick>
 						<onclick condition="System.HasAddon(script.embuary.info)">SetFocus(90050)</onclick>
-					</control>
-					<!-- ??????? -->
-					<control type="button" id="30009">
-						<visible>!String.IsEmpty(ListItem.Genre)</visible>
-						<width>1060</width>
-						<texturenofocus></texturenofocus>
-						<include>ButtonInfo</include>
-						<label>$INFO[ListItem.Studio,[COLOR labelheader]$LOCALIZE[572]:   [/COLOR]]</label>
 					</control>
 				</control>
 				<!-- Top Info - Date Added, Last Plaed, Play Count -->
