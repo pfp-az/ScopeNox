@@ -10,6 +10,11 @@
 	<onload>SetFocus(8)</onload>
 	<onunload>ClearProperty(Extra.Info,movieinformation)</onunload>
 	<controls>
+
+		<!-- Build a list of icons for studios associated with the video.  The listID can be referenced to display the icons --> 
+		<include content="StudioIconsWhile" condition="!Skin.HasSetting(ColorMediaFlags)" />
+		<include content="StudioIconscoloured" condition="Skin.HasSetting(ColorMediaFlags)" />
+
 		<!-- Needed for native cast lookup when Embuary.info scrpt is installed.  Not really sure why -->
 		<include content="HiddenActorList" condition="!String.IsEqual(ListItem.DBTYPE,set) + System.HasAddon(script.embuary.info)" />
 		<!-- Left Side - Poster -->
@@ -87,7 +92,7 @@
 					<control type="label">
 						<visible>!String.IsEmpty(ListItem.Tagline)</visible>
 						<width>1307</width>
-						<height>20</height>
+						<height>30</height>
 						<align>left</align>
 						<aligny>center</aligny>
 						<font>font14</font>
@@ -134,22 +139,23 @@
 				</control>
 				<!-- Seperator -->
 				<control type="image">
-					<top>90</top>
+					<top>100</top>
 					<left>-36</left>
 					<height>1</height>
 					<texture colordiffuse="labelheader">separator_horizontal.png</texture>
 				</control>
-				<!-- Top Bar - Year, Studio, Cert, Rating, Runtime -->
+				<!-- Top Bar - Year, Cert, Runtime, Ratings -->
 				<control type="grouplist"> 
-					<top>90</top>
+					<top>100</top>
 					<width>1347</width>
 					<height>75</height>
 					<align>left</align>
+					<itemgap>10</itemgap>
 					<orientation>horizontal</orientation>
 					<!-- Year -->
 					<control type="label">
 						<visible>!String.IsEqual(ListItem.DBType,episode)</visible>
-						<width>100</width>
+						<width>70</width>
 						<align>left</align>
 						<label>$INFO[ListItem.Year]</label>
 						<font>font15</font>
@@ -166,12 +172,13 @@
 					</control>
 					<!-- Studio -->
 					<control type="group">
-						<width>300</width>
+						<width>150</width>
 						<control type="image" id="800011">
-							<colordiffuse>$VAR[StudioFlagColorVar]</colordiffuse>
-							<include>MediaFlagVars</include>
-							<bordersize>2</bordersize>
-							<texture>$VAR[StudioFlagPathVar]$INFO[ListItem.Studio,,.png]</texture>
+							<aspectratio align="center">keep</aspectratio>
+							<fadetime>250</fadetime>
+							<colordiffuse>white</colordiffuse>
+							<animation effect="fade" time="200">VisibleChange</animation>
+							<texture>$INFO[Container(6284).ListItem.Icon]</texture>
 						</control>
 						<control type="label">
 							<visible>String.IsEmpty(Control.GetLabel(800011))</visible>
@@ -276,14 +283,14 @@
 				</control>
 				<!-- Seperator -->
 				<control type="image">
-					<top>165</top>
+					<top>175</top>
 					<left>-36</left>
 					<height>1</height>
 					<texture colordiffuse="labelheader">separator_horizontal.png</texture>
 				</control>
-				<!-- Top Buttons - Genre, Director, Writer, Cast -->
+				<!-- Top Buttons - Studio, Genre, Director, Writer -->
 				<control type="grouplist" id="300">
-					<top>166</top>
+					<top>176</top>
 					<left>-36</left>
 					<onup>4002</onup>
 					<ondown>9000</ondown>
@@ -361,10 +368,10 @@
 				</control>
 				<!-- Top Info - Date Added, Last Plaed, Play Count -->
 				<control type="list">
-					<top>166</top>
+					<top>175</top>
 					<left>1025</left>
 					<!-- With Focus -->
-					<focusedlayout height="40" width="400">
+					<focusedlayout height="42" width="400">
 						<control type="label">
 							<left>10</left>
 							<font>font_28</font>
@@ -411,14 +418,14 @@
 				</control>
 				<!-- Separator -->
 				<control type="image">
-					<top>367</top>
+					<top>344</top>
 					<left>-36</left>
 					<height>1</height>
 					<texture colordiffuse="labelheader">separator_horizontal.png</texture>
 				</control>
 				<!-- Main buttons bar -->
 				<control type="group">
-					<top>368</top>
+					<top>345</top>
 					<left>-36</left>
 					<!-- Buttons label -->
 					<control type="group">
@@ -569,24 +576,24 @@
 				</control>
 				<!-- Separator -->
 				<control type="image">
-					<top>413</top>
+					<top>390</top>
 					<left>-36</left>
 					<height>1</height>
 					<texture colordiffuse="labelheader">separator_horizontal.png</texture>
 				</control>
 				<!-- Plot area for 2.40 setting  -->
 				<include content="VariableHeightPlot" condition="!Skin.HasSetting(scopeFormat235)">
-					<param name="totalheight" value="386" />
-					<param name="plotheight" value="296" />
-					<param name="posterheight" value="306" />
-					<param name="posterwidth" value="204" />
+					<param name="totalheight" value="409" />
+					<param name="plotheight" value="309" /> <!-- total height - media icon height - 10 -->
+					<param name="posterheight" value="329" /> <!-- poster height - 80 -->
+					<param name="posterwidth" value="219" />
 				</include>
 				<!-- Plot area for 2.35 setting  -->
 				<include content="VariableHeightPlot" condition="Skin.HasSetting(scopeFormat235)">
-					<param name="totalheight" value="406" />
-					<param name="plotheight" value="316" />
-					<param name="posterheight" value="326" />
-					<param name="posterwidth" value="217" />
+					<param name="totalheight" value="429" />
+					<param name="plotheight" value="329" /> <!-- total height - media icon height - 10 -->
+					<param name="posterheight" value="349" /> <!-- poster height - 80 -->
+					<param name="posterwidth" value="233" />
 				</include>
 				<!-- No clue what purpose this serves -->
 				<control type="scrollbar" id="70">

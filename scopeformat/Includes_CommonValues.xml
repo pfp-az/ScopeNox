@@ -60,7 +60,7 @@
 	</include>
 	<include name="ButtonInfo">
 		<width>100%</width>
-		<height>40</height>
+		<height>42</height>
 		<font>font_28</font>
 		<textcolor>grey</textcolor>
 		<selectedcolor>selected</selectedcolor>

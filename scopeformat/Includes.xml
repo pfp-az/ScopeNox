@@ -677,6 +677,40 @@
 <!-- I'm placing all code I've written or fully reviewed/modified below this area.  This is strictly for organization purposes  -->
 <!-------------------------------------------------------------------------------------------------------------------------------->
 
+
+
+	<!-- Build a list of icons (white) for studios associated with the video.  The listID can be referenced to display the icons --> 
+	<include name="StudioIconsWhile">
+		<definition>
+			<control type="list" id="6284">
+				<visible>!ListItem.IsCollection</visible>
+				<scrolltime>5000</scrolltime>
+				<autoscroll>true</autoscroll>
+				<itemlayout>
+				</itemlayout>
+				<focusedlayout>
+				</focusedlayout>
+				<content>plugin://script.embuary.helper/?info=getresourceimages&addon=resource.images.studios.white&separator='" / "'&string='$ESCINFO[ListItem.Studio]'</content> 
+			</control>
+		</definition>
+	</include>
+
+	<!-- Build a list of icons (coloured) for studios associated with the video.  The listID can be referenced to display the icons --> 
+	<include name="StudioIconscoloured">
+		<definition>
+			<control type="list" id="6284">
+				<visible>!ListItem.IsCollection</visible>
+				<scrolltime>5000</scrolltime>
+				<autoscroll>true</autoscroll>
+				<itemlayout>
+				</itemlayout>
+				<focusedlayout>
+				</focusedlayout>
+				<content>plugin://script.embuary.helper/?info=getresourceimages&addon=resource.images.studios.coloured&separator='" / "'&string='$ESCINFO[ListItem.Studio]'</content> 
+			</control>
+		</definition>
+	</include>
+
 	<!-- Move the controls position to the first item in the list -->
 	<include name="ResetExtendedInfoContainers">
 		<definition>
@@ -1091,9 +1125,9 @@
 				<control type="image"> 
 					<visible>$PARAM[overlay] + [!String.IsEmpty(ListItem.DBID) | !String.IsEmpty(ListItem.Property(DBID))]</visible>
 					<right>0</right>
-					<width>50</width>
-					<height>50</height>
-					<texture>enabled.png</texture>
+					<width>60</width>
+					<height>60</height>
+					<texture>overlays/enabled.png</texture>
 					<bordersize>2</bordersize>
 				</control>
 				<!-- Slightly dim unfocused images -->
@@ -1171,7 +1205,6 @@
 		<param name="posterwidth" />
 		<definition>
 			<control type="panel" id="$PARAM[controlId]">
-				<visible>$PARAM[listVisible]</visible>
 				<height>$PARAM[totalheight]</height>
 				<preloaditems>2</preloaditems>
 				<orientation>horizontal</orientation>
@@ -1233,7 +1266,7 @@
 		<definition>
 			<!-- Setup area -->	
 			<control type="grouplist" id="9001"> 
-				<top>415</top>
+				<top>392</top>
 				<left>-36</left>
 				<height>$PARAM[totalheight]</height> <!-- Don't understand why necessary in all 3 places -->
 				<onup>9000</onup>
@@ -1271,14 +1304,21 @@
 					</control>
 					<!-- Icons -->
 					<control type="grouplist">
-						<top>80r</top>
-						<height>80</height>
+						<top>90r</top>
+						<height>90</height>
 						<left>-36</left>
 						<align>center</align>
 						<aligny>center</aligny>
 						<itemgap>10</itemgap>
 						<orientation>horizontal</orientation>
 						<include>SettingsFadeAnimation</include>
+						<!-- Source-->
+						<control type="image">
+							<width>150</width>
+							<colordiffuse>grey</colordiffuse>
+							<include>MediaFlagVars</include>
+							<texture>flags/video/$VAR[MediaFlagsPath]/$VAR[SourceFlagVar].png</texture>
+						</control>
 						<!-- Video Resolution -->
 						<control type="image">
 							<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
@@ -1286,6 +1326,13 @@
 							<colordiffuse>grey</colordiffuse>
 							<include>MediaFlagVars</include>
 							<texture>flags/resolution/$VAR[MediaFlagsPath]/$INFO[ListItem.VideoResolution].png</texture>
+						</control>
+						<!-- Aspect Ratio -->
+						<control type="image">
+							<width>150</width>
+							<colordiffuse>grey</colordiffuse>
+							<include>MediaFlagVars</include>
+							<texture>flags/aspectratio/$VAR[MediaFlagsPath]/$VAR[AspectRatio].png</texture>
 						</control>
 						<!-- Unknown -->
 						<control type="group">
@@ -1377,27 +1424,102 @@
 								<textcolor>grey</textcolor>
 							</control>
 						</control>
-						<!-- Source-->
-						<control type="image">
-							<width>150</width>
-							<colordiffuse>grey</colordiffuse>
-							<include>MediaFlagVars</include>
-							<texture>flags/video/$VAR[MediaFlagsPath]/$VAR[SourceFlagVar].png</texture>
-						</control>
-						<!-- Aspect Ratio -->
-						<control type="image">
-							<width>150</width>
-							<colordiffuse>grey</colordiffuse>
-							<include>MediaFlagVars</include>
-							<texture>flags/aspectratio/$VAR[MediaFlagsPath]/$VAR[AspectRatio].png</texture>
-						</control>
-						<!-- Subtitles -->
-						<control type="image">
-							<visible>!String.IsEmpty(ListItem.SubtitleLanguage)</visible>
-							<width>150</width>
-							<colordiffuse>grey</colordiffuse>
-							<include>MediaFlagVars</include>
-							<texture>flags/cc.png</texture>
+						<!-- Audio / Subtitle Language -->
+						<control type="grouplist">
+							<height>90</height>
+							<width>160</width>
+							<align>center</align>
+							<aligny>center</aligny>
+							<!-- Audio Language -->
+							<control type="grouplist">
+								<height>30</height>
+								<orientation>horizontal</orientation>
+								<control type="group">
+									<!-- gap -->
+									<width>20</width>
+								</control>
+								<control type="image">
+									<width>30</width>
+									<height>30</height>
+									<aspectratio>keep</aspectratio>
+									<colordiffuse>grey</colordiffuse>
+									<texture>flags/audio.png</texture>
+									<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1))</visible>
+								</control>
+								<control type="image">
+									<width>30</width>
+									<height>30</height>
+									<include>MediaFlagValues</include>
+									<texture>flags/language/default/$INFO[ListItem.Property(AudioLanguage.1),,.png]</texture>
+									<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1))</visible>
+								</control>
+								<control type="image">
+									<width>30</width>
+									<height>30</height>
+									<include>MediaFlagValues</include>
+									<texture>flags/language/default/$INFO[ListItem.Property(AudioLanguage.2),,.png]</texture>
+									<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.2))</visible>
+								</control>
+								<control type="image">
+									<width>30</width>
+									<height>30</height>
+									<include>MediaFlagValues</include>
+									<texture>flags/language/default/$INFO[ListItem.Property(AudioLanguage.3),,.png]</texture>
+									<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.3))</visible>
+								</control>
+								<control type="image">
+									<width>30</width>
+									<height>30</height>
+									<include>MediaFlagValues</include>
+									<texture>flags/language/default/$INFO[ListItem.Property(AudioLanguage.4),,.png]</texture>
+									<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.4))</visible>
+								</control>
+							</control>
+							<!-- Subtitle Language -->
+							<control type="grouplist">
+								<height>30</height>
+								<orientation>horizontal</orientation>
+								<control type="group">
+									<!-- gap -->
+									<width>20</width> 
+								</control>
+								<control type="image">
+									<width>30</width>
+									<height>30</height>
+									<aspectratio>keep</aspectratio>
+									<colordiffuse>grey</colordiffuse>
+									<texture>flags/subtitles.png</texture>
+									<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
+								</control>
+								<control type="image">
+									<width>30</width>
+									<height>30</height>
+									<include>MediaFlagValues</include>
+									<texture>flags/language/default/$INFO[ListItem.Property(SubtitleLanguage.1),,.png]</texture>
+									<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
+								</control>
+								<control type="image">
+									<width>30</width>
+									<height>30</height>
+									<include>MediaFlagValues</include>
+									<texture>flags/language/default/$INFO[ListItem.Property(SubtitleLanguage.2),,.png]</texture>
+									<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.2))</visible>
+								</control>
+								<control type="image">
+									<width>30</width>
+									<height>30</height>
+									<include>MediaFlagValues</include>
+									<texture>flags/language/default/$INFO[ListItem.Property(SubtitleLanguage.3),,.png]</texture>
+									<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.3))</visible>
+								</control>
+								<control type="image">
+									<width>30</width>
+									<height>30</height>
+									<include>MediaFlagValues</include>
+									<texture>flags/language/default/$INFO[ListItem.Property(SubtitleLanguage.4),,.png]</texture>
+									<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.4))</visible>
+								</control>
+							</control>
 						</control>
 					</control>
 				</control>
@@ -1538,6 +1660,14 @@
 					<param name="height" value="$PARAM[height]" />
 				</include>
 			</control>
+		</definition>
+	</include>
+
+	<!-- List Content based on condition -->
+	<include name="ConditionalListContent">
+		<param name="ListContent" />
+		<definition>
+			<content>$PARAM[ListContent]</content>
 		</definition>
 	</include>
 
